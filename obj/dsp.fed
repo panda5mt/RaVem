@@ -1,0 +1,46 @@
+;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Mon Jul 29 15:35:22 2013
+;VERSION 0.2
+;FILE device_depend.o
+__asm___15_device_depend_c_600f124e____REV16 <= USED 0
+__asm___15_device_depend_c_600f124e____REVSH <= USED 0
+;FILE exvm.o
+__asm___6_eXVM_c_exvm____REV16 <= USED 0
+__asm___6_eXVM_c_exvm____REVSH <= USED 0
+getIntegerFromOperandStack <= USED 0
+seekClassIndex <= USED 0
+seekNameAndType_desc <= USED 0
+setIntegerToStack <= USED 0
+;FILE lpc8xx_gpio.o
+GPIOGetPinValue <= USED 0
+GPIOInit <= USED 0
+GPIOPatternMatchEnable <= USED 0
+GPIOPatternMatchInit <= USED 0
+GPIOPinIntClear <= USED 0
+GPIOPinIntDisable <= USED 0
+GPIOPinIntEnable <= USED 0
+GPIOPinIntStatus <= USED 0
+GPIOSetBitValue <= USED 0
+GPIOSetDir <= USED 0
+GPIOSetPatternMatchInput <= USED 0
+GPIOSetPatternMatchSlice <= USED 0
+GPIOSetPinInterrupt <= USED 0
+PIN3_IRQHandler <= USED 0
+__asm___13_lpc8xx_gpio_c_be766c2a____REV16 <= USED 0
+__asm___13_lpc8xx_gpio_c_be766c2a____REVSH <= USED 0
+;FILE lpc8xx_mrt.o
+__asm___12_lpc8xx_mrt_c_7f7c07c3____REV16 <= USED 0
+__asm___12_lpc8xx_mrt_c_7f7c07c3____REVSH <= USED 0
+delayMs <= USED 0
+init_mrt <= USED 0
+;FILE lpc8xx_uart.o
+USARTInit <= USED 0
+__asm___13_lpc8xx_uart_c_c1119f0d____REV16 <= USED 0
+__asm___13_lpc8xx_uart_c_c1119f0d____REVSH <= USED 0
+;FILE main.o
+__asm___6_main_c_main____REV16 <= USED 0
+__asm___6_main_c_main____REVSH <= USED 0
+;FILE startup_lpc8xx.o
+;FILE system_lpc8xx.o
+SystemCoreClockUpdate <= USED 0
+__asm___15_system_LPC8xx_c_5d646a67____REV16 <= USED 0
+__asm___15_system_LPC8xx_c_5d646a67____REVSH <= USED 0

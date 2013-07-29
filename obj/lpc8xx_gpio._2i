@@ -1,0 +1,5 @@
+-c --cpu Cortex-M0+ -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\..\..\..\INC\NXP\LPC8xx -I.\include --c99 --loose_implicit_cast --gnu
+-I C:\Keil\ARM\RV31\INC
+-I C:\Keil\ARM\CMSIS\Include
+-I C:\Keil\ARM\Inc\NXP\LPC8xx
+-DARM_MATH_CM0 -DUSE_LPC800 -o .\obj\lpc8xx_gpio.o --omf_browse .\obj\lpc8xx_gpio.crf --depend .\obj\lpc8xx_gpio.d --feedback ".\obj\dsp.fed" "src\lpc8xx_gpio.c"

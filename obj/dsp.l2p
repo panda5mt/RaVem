@@ -1,0 +1,15 @@
+--cpu Cortex-M0+
+".\obj\lpc8xx_gpio.o"
+".\obj\lpc8xx_mrt.o"
+".\obj\lpc8xx_nmi.o"
+".\obj\lpc8xx_uart.o"
+".\obj\main.o"
+".\obj\exvm.o"
+".\obj\device_depend.o"
+"C:\Keil\ARM\CMSIS\Lib\ARM\arm_cortexM0l_math.lib"
+".\obj\system_lpc8xx.o"
+".\obj\startup_lpc8xx.o"
+--library_type=microlib --strict --scatter ".\obj\dsp.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\lst\dsp.map" -o .\obj\dsp.axf

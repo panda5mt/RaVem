@@ -1,0 +1,15 @@
+.\obj\main.o: src\main.c
+.\obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\obj\main.o: .\include\eXVM.h
+.\obj\main.o: .\include\type.h
+.\obj\main.o: .\include\device_depend.h
+.\obj\main.o: C:\Keil\ARM\Inc\NXP\LPC8xx\LPC8xx.h
+.\obj\main.o: C:\Keil\ARM\CMSIS\Include\core_cm0plus.h
+.\obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\obj\main.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\obj\main.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\obj\main.o: C:\Keil\ARM\Inc\NXP\LPC8xx\system_LPC8xx.h
+.\obj\main.o: .\include\lpc8xx_gpio.h
+.\obj\main.o: .\include\lpc8xx_mrt.h
+.\obj\main.o: .\include\lpc8xx_uart.h

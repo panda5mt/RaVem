@@ -37,10 +37,29 @@
 
 // instruction code			mnemonic code		number of arguments
 #define JAVA_nop								0x00					// 0
+#define JAVA_iconst_0						0x03					// 0
+#define JAVA_iconst_1						0x04					// 0
+#define JAVA_iconst_2						0x05					// 0
+#define JAVA_iconst_3						0x06					// 0
+#define JAVA_iconst_4						0x07					// 0
+#define JAVA_iconst_5						0x08					// 0
 #define JAVA_bipush							0x10					// 1
 #define JAVA_sipush							0x11					// 2
 #define JAVA_ldc								0x12					// 1
 #define JAVA_ldc_w							0x13					// 1
+
+#define JAVA_iload_0						0x1A					// 0
+#define JAVA_iload_1						0x1B					// 0
+#define JAVA_iload_2						0x1C					// 0
+#define JAVA_iload_3						0x1D					// 0
+
+#define JAVA_istore_0						0x3B					// 0
+#define JAVA_istore_1						0x3C					// 0
+#define JAVA_istore_2						0x3D					// 0
+#define JAVA_istore_3						0x3E					// 0
+
+#define JAVA_iadd								0x60					// 0
+
 #define JAVA_return							0xb1					// 0
 #define JAVA_getstatic					0xb2					// 2
 #define JAVA_invokevirtual			0xb6					// 2
@@ -66,7 +85,7 @@ typedef struct {
 	int *op_stack;				// operand stack(malloc here) numerics or CP num
 	int *op_stack_type;		// type of each stack,0:nothing 1:int,byte 2:long,float,double 3:See CP 
 	int stack_num;				// number of stacks
-	int local_num;				// number of local registers 
+	int local_num;				// number of local registers
 } class_st;
 
 const_pool_t getConstantPoolInfo(int constant_num);

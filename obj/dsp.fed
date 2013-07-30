@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Mon Jul 29 15:35:22 2013
+;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Tue Jul 30 22:49:42 2013
 ;VERSION 0.2
 ;FILE device_depend.o
 __asm___15_device_depend_c_600f124e____REV16 <= USED 0
@@ -6,10 +6,8 @@ __asm___15_device_depend_c_600f124e____REVSH <= USED 0
 ;FILE exvm.o
 __asm___6_eXVM_c_exvm____REV16 <= USED 0
 __asm___6_eXVM_c_exvm____REVSH <= USED 0
-getIntegerFromOperandStack <= USED 0
 seekClassIndex <= USED 0
 seekNameAndType_desc <= USED 0
-setIntegerToStack <= USED 0
 ;FILE lpc8xx_gpio.o
 GPIOGetPinValue <= USED 0
 GPIOInit <= USED 0

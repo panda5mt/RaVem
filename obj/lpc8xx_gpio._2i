@@ -1,4 +1,4 @@
--c --cpu Cortex-M0+ -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\..\..\..\INC\NXP\LPC8xx -I.\include --c99 --loose_implicit_cast --gnu
+-c --cpu Cortex-M0+ -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\..\..\..\INC\NXP\LPC8xx -I.\include --c99 --loose_implicit_cast  
 -I C:\Keil\ARM\RV31\INC
 -I C:\Keil\ARM\CMSIS\Include
 -I C:\Keil\ARM\Inc\NXP\LPC8xx

@@ -12,13 +12,13 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>LPC810M021</Device>
+          <Device>LPC812M101</Device>
           <Vendor>NXP (founded by Philips)</Vendor>
-          <Cpu>IRAM(0x10000000-0x100003FF) IROM(0-0x0FFF) CLOCK(12000000) CPUTYPE("Cortex-M0+")</Cpu>
+          <Cpu>IRAM(0x10000000-0x10000FFF) IROM(0-0x3FFF) CLOCK(12000000) CPUTYPE("Cortex-M0+")</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile>"STARTUP\NXP\LPC8xx\startup_LPC8xx.s" ("NXP LPC8xx Startup Code")</StartupFile>
-          <FlashDriverDll>UL2CM3(-O4303 -S0 -C0 -FO7 -FD10000000 -FC3E0 -FN1 -FF0LPC8xx_4 -FS00 -FL01000)</FlashDriverDll>
-          <DeviceId>6710</DeviceId>
+          <FlashDriverDll>UL2CM3(-O4303 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC8xx_16 -FS00 -FL04000)</FlashDriverDll>
+          <DeviceId>6712</DeviceId>
           <RegisterFile>LPC8xx.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
@@ -163,10 +163,10 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4104</DriverSelection>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\CMSIS_AGDI.dll</Flash2>
+          <Flash2>BIN\UL2CM3.DLL</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
@@ -268,12 +268,12 @@
               <IRAM>
                 <Type>0</Type>
                 <StartAddress>0x10000000</StartAddress>
-                <Size>0x400</Size>
+                <Size>0x1000</Size>
               </IRAM>
               <IROM>
                 <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x1000</Size>
+                <Size>0x4000</Size>
               </IROM>
               <XRAM>
                 <Type>0</Type>
@@ -298,7 +298,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x1000</Size>
+                <Size>0x4000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -323,7 +323,7 @@
               <OCR_RVCT9>
                 <Type>0</Type>
                 <StartAddress>0x10000000</StartAddress>
-                <Size>0x400</Size>
+                <Size>0x1000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -348,7 +348,7 @@
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <VariousControls>
-              <MiscControls>--c99 --loose_implicit_cast --gnu</MiscControls>
+              <MiscControls>--c99 --loose_implicit_cast  </MiscControls>
               <Define>ARM_MATH_CM0, USE_LPC800</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\..\INC\NXP\LPC8xx;.\include</IncludePath>

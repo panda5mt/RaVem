@@ -19,13 +19,15 @@ int main (void) {
 		
 	// Initialize Operand Stack and local Register
 	
-	class_st *p;
+	class_st *p = NULL;
 	p = (class_st *)malloc(sizeof(class_st));
 	*p = seekCodeArrtibute("main",4);	//main_attribute
+	p->field_mem_reg = NULL;
 	p->local_reg = (int *)malloc(sizeof(int) * p->local_num);
 	p->op_stack_type = (int *)malloc(sizeof(int) * p->stack_num);
 	p->op_stack = (int *)malloc(sizeof(int) * p->stack_num);	
 	p->op_stack_type[0] = 0;
+	
 	
 	decodeVM(*p);
 	

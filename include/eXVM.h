@@ -33,6 +33,7 @@
 #define Stack_IntType				1
 #define Stack_DoubleType		2
 #define Stack_ConstantPool	3
+#define Stack_Field					4
 
 
 // instruction code			mnemonic code		number of arguments
@@ -62,6 +63,8 @@
 
 #define JAVA_return							0xb1					// 0
 #define JAVA_getstatic					0xb2					// 2
+#define JAVA_getfield						0xb4					// 2
+#define JAVA_putfield						0xb5					// 2
 #define JAVA_invokevirtual			0xb6					// 2
 //#define JAVA_invokespecial			0x00					// 0
 
@@ -86,6 +89,7 @@ typedef struct {
 	int *op_stack_type;		// type of each stack,0:nothing 1:int,byte 2:long,float,double 3:See CP 
 	int stack_num;				// number of stacks
 	int local_num;				// number of local registers
+	char *field_mem_reg;	// Field (getfield and putfield)
 } class_st;
 
 const_pool_t getConstantPoolInfo(int constant_num);
@@ -94,10 +98,16 @@ const_pool_t seekClassIndex(int const_num);
 const_pool_t seekNameAndType_name(int const_num);
 const_pool_t seekNameAndType_desc(int const_num);
 class_st seekCodeArrtibute(char* method_name,int strlen);
+//
 int getIntegerFromOperandStack(class_st cl);
 char* getStringFromOperandStack(class_st cl);
+//
 class_st setStackFromConstantPool(class_st cl, int cp_num);
 class_st setIntegerToStack(class_st cl, int num);
+//
+class_st getField(class_st cl);
+class_st putField(class_st cl);
+//
 void invokevirtual_callFunction(class_st cl, char* func_name);
 class_st decodeVM(class_st cl);
 

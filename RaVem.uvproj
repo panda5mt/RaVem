@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>eXVM</TargetName>
+      <TargetName>RaVem</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -418,14 +418,14 @@
               <FilePath>.\src\main.c</FilePath>
             </File>
             <File>
-              <FileName>eXVM.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\eXVM.c</FilePath>
-            </File>
-            <File>
               <FileName>device_depend.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\device_depend.c</FilePath>
+            </File>
+            <File>
+              <FileName>ravem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\ravem.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -491,11 +491,6 @@
           <GroupName>include</GroupName>
           <Files>
             <File>
-              <FileName>eXVM.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\include\eXVM.h</FilePath>
-            </File>
-            <File>
               <FileName>lpc8xx_gpio.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\include\lpc8xx_gpio.h</FilePath>
@@ -549,6 +544,11 @@
               <FileName>device_depend.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\include\device_depend.h</FilePath>
+            </File>
+            <File>
+              <FileName>ravem.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\include\ravem.h</FilePath>
             </File>
           </Files>
         </Group>

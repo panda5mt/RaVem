@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "eXVM.h"
+#include "ravem.h"
 
 
 ///* Main Program */
@@ -18,7 +18,6 @@ int main (void) {
 	
 		
 	// Initialize Operand Stack and local Register
-	
 	class_st *p = NULL;
 	p = (class_st *)malloc(sizeof(class_st));
 	*p = seekCodeArrtibute("main",4);	//main_attribute
@@ -32,11 +31,11 @@ int main (void) {
 	decodeVM(*p);
 	
 	// end
-	free(p->local_reg);
+  free(p->local_reg);
 	free(p->op_stack_type);
-	free(p->op_stack);
-	free(p);
-	
+  free(p->op_stack);
+  free(p);
+	p = NULL;
 	
 	
 	uart_print("\r\n\r\nJVM Fin\r\n");

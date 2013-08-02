@@ -28,3 +28,10 @@ void uart_print(char *str){
 void uart_init(int baud_rate){
 	UARTInit(LPC_USART0, baud_rate);
 }
+
+int uart_read(void){
+
+	while(!(LPC_USART0->STAT & RXRDY)); 
+	return (int) ( LPC_USART0->RXDATA );
+	
+}

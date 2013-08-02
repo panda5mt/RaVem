@@ -1,7 +1,7 @@
 .\obj\main.o: src\main.c
 .\obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
 .\obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
-.\obj\main.o: .\include\eXVM.h
+.\obj\main.o: .\include\ravem.h
 .\obj\main.o: .\include\type.h
 .\obj\main.o: .\include\device_depend.h
 .\obj\main.o: C:\Keil\ARM\Inc\NXP\LPC8xx\LPC8xx.h

@@ -11,9 +11,6 @@
 void hardware_init(void);
 void uart_init(int baud_rate);
 void uart_print(char *str);
-
-
-
-
+int uart_read(void);
 
 #endif

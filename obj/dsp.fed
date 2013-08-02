@@ -1,13 +1,8 @@
-;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Thu Aug 01 13:19:58 2013
+;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Fri Aug 02 12:59:20 2013
 ;VERSION 0.2
 ;FILE device_depend.o
 __asm___15_device_depend_c_600f124e____REV16 <= USED 0
 __asm___15_device_depend_c_600f124e____REVSH <= USED 0
-;FILE exvm.o
-__asm___6_eXVM_c_exvm____REV16 <= USED 0
-__asm___6_eXVM_c_exvm____REVSH <= USED 0
-seekClassIndex <= USED 0
-seekNameAndType_desc <= USED 0
 ;FILE lpc8xx_gpio.o
 GPIOGetPinValue <= USED 0
 GPIOInit <= USED 0
@@ -37,6 +32,11 @@ __asm___13_lpc8xx_uart_c_c1119f0d____REVSH <= USED 0
 ;FILE main.o
 __asm___6_main_c_main____REV16 <= USED 0
 __asm___6_main_c_main____REVSH <= USED 0
+;FILE ravem.o
+__asm___7_ravem_c_vm_array____REV16 <= USED 0
+__asm___7_ravem_c_vm_array____REVSH <= USED 0
+seekClassIndex <= USED 0
+seekNameAndType_desc <= USED 0
 ;FILE startup_lpc8xx.o
 ;FILE system_lpc8xx.o
 SystemCoreClockUpdate <= USED 0

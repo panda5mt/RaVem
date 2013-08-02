@@ -2,4 +2,4 @@
 -I C:\Keil\ARM\RV31\INC
 -I C:\Keil\ARM\CMSIS\Include
 -I C:\Keil\ARM\Inc\NXP\LPC8xx
--DARM_MATH_CM0 -DUSE_LPC800 -o .\obj\exvm.o --omf_browse .\obj\exvm.crf --depend .\obj\exvm.d --feedback ".\obj\dsp.fed" "src\eXVM.c"
+-DARM_MATH_CM0 -DUSE_LPC800 -o .\obj\ravem.o --omf_browse .\obj\ravem.crf --depend .\obj\ravem.d --feedback ".\obj\dsp.fed" "src\ravem.c"

@@ -1,18 +1,18 @@
 /*
- * eXVM.h
+ * RAVEM.h
  *
  *  Created on: 2013/07/18
  *      Author: lynxeyed
  */
 
-#ifndef EXVM_H_
-#define EXVM_H_
+#ifndef RAVEM_H_
+#define RAVEM_H_
 
 #include "type.h"
 #include "device_depend.h"
 
 // constant_pool
-//#define Constant Type				Value		length (in bytes)
+//#define Constant_Type				Value		length (in bytes)
 #define CONSTANT_Class				7					// 3
 #define	CONSTANT_Fieldref			9					// 5
 #define	CONSTANT_Methodref		10				// 5
@@ -30,10 +30,11 @@
 
 //stack type
 #define Stack_Nothing 			0
-#define Stack_IntType				1
-#define Stack_DoubleType		2
-#define Stack_ConstantPool	3
-#define Stack_Field					4
+#define Stack_CharType			1
+#define Stack_IntType				2
+#define Stack_DoubleType		3
+#define Stack_ConstantPool	4
+#define Stack_Field					5
 
 
 // instruction code			mnemonic code		number of arguments
@@ -61,6 +62,9 @@
 
 #define JAVA_iadd								0x60					// 0
 
+#define JAVA_i2c								0x92					// 0
+
+#define JAVA_goto								0xa7					// 2
 #define JAVA_return							0xb1					// 0
 #define JAVA_getstatic					0xb2					// 2
 #define JAVA_getfield						0xb4					// 2
@@ -69,7 +73,6 @@
 //#define JAVA_invokespecial			0x00					// 0
 
 
-extern const char exvm[];
 
 typedef struct {
   int		tab;
@@ -81,8 +84,8 @@ typedef struct {
 
 
 typedef struct {
-	int bc_offset;				// offset of bytecode (this class starts here = exvm[bc_offset]) 
-	int code_offset;			// offset of code (Now we translate here from bc_offset = exvm[bc_offset+code_offset] )
+	int bc_offset;				// offset of bytecode (this class starts here = bc_array[bc_offset]) 
+	int code_offset;			// offset of code (Now we translate here from bc_offset = bc_array[bc_offset+code_offset] )
 	int code_length;			// length of code
 	int *local_reg;				// local registers(malloc here)
 	int *op_stack;				// operand stack(malloc here) numerics or CP num
@@ -92,6 +95,7 @@ typedef struct {
 	char *field_mem_reg;	// Field (getfield and putfield)
 } class_st;
 
+uint8_t *bc_seek(int bc_num, int length);
 const_pool_t getConstantPoolInfo(int constant_num);
 const_pool_t seekConstClassNumString(int const_num);
 const_pool_t seekClassIndex(int const_num);
@@ -108,9 +112,9 @@ class_st setIntegerToStack(class_st cl, int num);
 class_st getField(class_st cl);
 class_st putField(class_st cl);
 //
-void invokevirtual_callFunction(class_st cl, char* func_name);
+class_st invokevirtual_callFunction(class_st cl, char* func_name);
 class_st decodeVM(class_st cl);
 
 
 
-#endif /* EXVM_H_ */
+#endif /* RAVEM_H_ */

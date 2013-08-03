@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\obj\dsp.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\obj\dsp.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Fri Aug 02 12:59:23 2013
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Sun Aug 04 00:29:50 2013
 <BR><P>
 <H3>Maximum Stack Usage =        500 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -341,7 +341,6 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_common_switch8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getLengthOfConstantInfo
-<LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 <LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PININT_Handler
 </UL>
@@ -393,14 +392,13 @@ Global Symbols
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[37]"></a>getConstantPoolInfo</STRONG> (Thumb, 260 bytes, Stack size 48 bytes, ravem.o(i.getConstantPoolInfo))
+<P><STRONG><a name="[37]"></a>getConstantPoolInfo</STRONG> (Thumb, 262 bytes, Stack size 48 bytes, ravem.o(i.getConstantPoolInfo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getLengthOfConstantInfo
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bc_seek
-<LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_name
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekConstClassNumString

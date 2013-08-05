@@ -36,6 +36,11 @@
 #define Stack_ConstantPool	4
 #define Stack_Field					5
 
+//Thread State and Command
+#define Thread_returned					0
+#define Thread_Active						1
+#define Thread_getStartMethod		2
+#define	Thread_inSleep					3
 
 // instruction code			mnemonic code		number of arguments
 #define JAVA_nop								0x00					// 0
@@ -48,7 +53,8 @@
 #define JAVA_bipush							0x10					// 1
 #define JAVA_sipush							0x11					// 2
 #define JAVA_ldc								0x12					// 1
-#define JAVA_ldc_w							0x13					// 1
+//#define JAVA_ldc_w							0x13					// xxx
+#define JAVA_ldc2_w							0x14					// 2
 
 #define JAVA_iload_0						0x1A					// 0
 #define JAVA_iload_1						0x1B					// 0
@@ -70,7 +76,8 @@
 #define JAVA_getfield						0xb4					// 2
 #define JAVA_putfield						0xb5					// 2
 #define JAVA_invokevirtual			0xb6					// 2
-//#define JAVA_invokespecial			0x00					// 0
+#define JAVA_invokespecial			0xb7					// 2  //not imprement
+#define JAVA_invokestatic				0xb8					// 2
 
 
 
@@ -93,6 +100,9 @@ typedef struct {
 	int stack_num;				// number of stacks
 	int local_num;				// number of local registers
 	char *field_mem_reg;	// Field (getfield and putfield)
+	int myThreadNum;			// this Number of thread(you must put #0 "main" method, and do not put #0 any other methods)
+	int	threadCommand;		// 
+	int	threadArg;
 } class_st;
 
 uint8_t *bc_seek(int bc_num, int length);
@@ -113,6 +123,7 @@ class_st getField(class_st cl);
 class_st putField(class_st cl);
 //
 class_st invokevirtual_callFunction(class_st cl, char* func_name);
+class_st invokestatic_callFunction(class_st cl, char* func_name);
 class_st decodeVM(class_st cl);
 
 

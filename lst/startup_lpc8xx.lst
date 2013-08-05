@@ -56,9 +56,9 @@ ARM Macro Assembler    Page 1
    35 00000200         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
    36 00000200         ; </h>
    37 00000200         
-   38 00000200 00000100 
+   38 00000200 00000200 
                        Heap_Size
-                               EQU              0x00000100
+                               EQU              0x00000200
    39 00000200         
    40 00000200                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
 3
@@ -71,16 +71,16 @@ ARM Macro Assembler    Page 2
 
    42 00000000         Heap_Mem
                                SPACE            Heap_Size
-   43 00000100         __heap_limit
-   44 00000100         
-   45 00000100         
-   46 00000100                 PRESERVE8
-   47 00000100                 THUMB
-   48 00000100         
-   49 00000100         
-   50 00000100         ; Vector Table Mapped to Address 0 at Reset
-   51 00000100         
-   52 00000100                 AREA             RESET, DATA, READONLY
+   43 00000200         __heap_limit
+   44 00000200         
+   45 00000200         
+   46 00000200                 PRESERVE8
+   47 00000200                 THUMB
+   48 00000200         
+   49 00000200         
+   50 00000200         ; Vector Table Mapped to Address 0 at Reset
+   51 00000200         
+   52 00000200                 AREA             RESET, DATA, READONLY
    53 00000000                 EXPORT           __Vectors
    54 00000000         
    55 00000000 00000000 
@@ -376,7 +376,7 @@ Symbol: __heap_base
    Uses
       At line 215 in file startup_LPC8xx.s
 Comment: __heap_base used once
-__heap_limit 00000100
+__heap_limit 00000200
 
 Symbol: __heap_limit
    Definitions
@@ -718,7 +718,7 @@ Symbol: WKT_IRQHandler
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Absolute symbols
 
-Heap_Size 00000100
+Heap_Size 00000200
 
 Symbol: Heap_Size
    Definitions

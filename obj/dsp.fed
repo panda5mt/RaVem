@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Sun Aug 04 00:29:47 2013
+;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Mon Aug 05 16:35:16 2013
 ;VERSION 0.2
 ;FILE device_depend.o
 __asm___15_device_depend_c_600f124e____REV16 <= USED 0
@@ -39,6 +39,5 @@ seekClassIndex <= USED 0
 seekNameAndType_desc <= USED 0
 ;FILE startup_lpc8xx.o
 ;FILE system_lpc8xx.o
-SystemCoreClockUpdate <= USED 0
 __asm___15_system_LPC8xx_c_5d646a67____REV16 <= USED 0
 __asm___15_system_LPC8xx_c_5d646a67____REVSH <= USED 0

@@ -16,7 +16,6 @@ int main (void) {
 	uart_print("please wait...\r\n\r\n");
 
 	
-		
 	// Initialize Operand Stack and local Register
 	class_st *p = NULL;
 	p = (class_st *)malloc(sizeof(class_st));
@@ -26,10 +25,10 @@ int main (void) {
 	p->op_stack_type = (int *)malloc(sizeof(int) * p->stack_num);
 	p->op_stack = (int *)malloc(sizeof(int) * p->stack_num);	
 	p->op_stack_type[0] = 0;
-	
+	p->threadCommand = Thread_Active;
 	
 	decodeVM(*p);
-	
+
 	// end
   free(p->local_reg);
 	free(p->op_stack_type);

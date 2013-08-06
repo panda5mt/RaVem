@@ -37,11 +37,11 @@ Section Cross References
     main.o(i.main) refers to device_depend.o(i.hardware_init) for hardware_init
     main.o(i.main) refers to device_depend.o(i.uart_init) for uart_init
     main.o(i.main) refers to device_depend.o(i.uart_print) for uart_print
-    main.o(i.main) refers to malloc.o(i.malloc) for malloc
+    main.o(i.main) refers to mallocr.o(i.__malloc$realloc) for malloc
     main.o(i.main) refers to ravem.o(i.seekCodeArrtibute) for seekCodeArrtibute
     main.o(i.main) refers to memcpya.o(.text) for __aeabi_memcpy4
     main.o(i.main) refers to ravem.o(i.decodeVM) for decodeVM
-    main.o(i.main) refers to malloc.o(i.free) for free
+    main.o(i.main) refers to mallocr.o(i.realloc) for realloc
     device_depend.o(i.SysTick_Handler) refers to device_depend.o(.data) for .data
     device_depend.o(i.hardware_init) refers to system_lpc8xx.o(i.SystemCoreClockUpdate) for SystemCoreClockUpdate
     device_depend.o(i.hardware_init) refers to device_depend.o(i.setup_systick) for setup_systick
@@ -83,10 +83,10 @@ Section Cross References
     ravem.o(i.getStringFromOperandStack) refers to printf3.o(i.__0sprintf$3) for __2sprintf
     ravem.o(i.getStringFromOperandStack) refers to ravem.o(.bss) for .bss
     ravem.o(i.invokestatic_callFunction) refers to strncmp.o(.text) for strncmp
-    ravem.o(i.invokestatic_callFunction) refers to device_depend.o(i.time_millis) for time_millis
     ravem.o(i.invokestatic_callFunction) refers to memcpya.o(.text) for __aeabi_memcpy4
     ravem.o(i.invokestatic_callFunction) refers to ravem.o(i.getIntegerFromOperandStack) for getIntegerFromOperandStack
-    ravem.o(i.invokestatic_callFunction) refers to ravem.o(.data) for .data
+    ravem.o(i.invokestatic_callFunction) refers to device_depend.o(i.time_millis) for time_millis
+    ravem.o(i.invokestatic_callFunction) refers to ravem.o(i.setIntegerToStack) for setIntegerToStack
     ravem.o(i.invokevirtual_callFunction) refers to strncmp.o(.text) for strncmp
     ravem.o(i.invokevirtual_callFunction) refers to memcpya.o(.text) for __aeabi_memcpy4
     ravem.o(i.invokevirtual_callFunction) refers to ravem.o(i.getStringFromOperandStack) for getStringFromOperandStack
@@ -96,9 +96,9 @@ Section Cross References
     ravem.o(i.invokevirtual_callFunction) refers to ravem.o(i.setIntegerToStack) for setIntegerToStack
     ravem.o(i.putField) refers to memcpya.o(.text) for __aeabi_memcpy4
     ravem.o(i.putField) refers to ravem.o(i.getStringFromOperandStack) for getStringFromOperandStack
-    ravem.o(i.putField) refers to malloc.o(i.free) for free
+    ravem.o(i.putField) refers to mallocr.o(i.__free$realloc) for free
     ravem.o(i.putField) refers to strlen.o(.text) for strlen
-    ravem.o(i.putField) refers to malloc.o(i.malloc) for malloc
+    ravem.o(i.putField) refers to mallocr.o(i.__malloc$realloc) for malloc
     ravem.o(i.seekClassIndex) refers to ravem.o(i.getConstantPoolInfo) for getConstantPoolInfo
     ravem.o(i.seekClassIndex) refers to memcpya.o(.text) for __aeabi_memcpy4
     ravem.o(i.seekClassIndex) refers to ravem.o(i.seekConstClassNumString) for seekConstClassNumString
@@ -391,9 +391,9 @@ Section Cross References
     mallocr.o(i.__malloc$realloc) refers to mvars.o(.data) for __microlib_freelist
     mallocr.o(i.internal_alloc) refers to memcpya.o(.text) for __aeabi_memcpy
     mallocr.o(i.internal_alloc) refers to mvars.o(.data) for __microlib_freelist
-    mallocr.o(i.realloc) refers to mallocr.o(i.__free$realloc) for __free$realloc
+    mallocr.o(i.realloc) refers to mallocr.o(i.__free$realloc) for free
     mallocr.o(i.realloc) refers to mallocr.o(i.internal_alloc) for internal_alloc
-    mallocr.o(i.realloc) refers to mallocr.o(i.__malloc$realloc) for __malloc$realloc
+    mallocr.o(i.realloc) refers to mallocr.o(i.__malloc$realloc) for malloc
     mallocr.o(i.realloc) refers to mvars.o(.data) for __microlib_freelist
     malloca.o(i.__aligned_malloc) refers to mvars.o(.data) for __microlib_freelist
     malloca.o(i.__aligned_malloc) refers to mvars.o(.data) for __microlib_freelist_initialised
@@ -505,46 +505,46 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      192  startup_lpc8xx.o(RESET)
-    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloc.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocr.o ABSOLUTE
+    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloc.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloca.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocra.o ABSOLUTE
     ../clib/microlib/malloc/mvars.c          0x00000000   Number         0  mvars.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/fputc.c           0x00000000   Number         0  fputc.o ABSOLUTE
     ../clib/microlib/stdio/semi.s            0x00000000   Number         0  semi.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
-    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
     ../clib/microlib/string/strncmp.c        0x00000000   Number         0  strncmp.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
@@ -619,51 +619,54 @@ Image Symbol Table
     i.UART_Handler                           0x0000061c   Section        0  lpc8xx_uart.o(i.UART_Handler)
     i.__0sprintf$3                           0x00000680   Section        0  printf3.o(i.__0sprintf$3)
     i.__ARM_common_switch8                   0x000006a8   Section        0  lpc8xx_gpio.o(i.__ARM_common_switch8)
-    i.__scatterload_copy                     0x000006c2   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_zeroinit                 0x000006d0   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x000006e0   Section        0  printf3.o(i._printf_core)
-    _printf_core                             0x000006e1   Thumb Code   452  printf3.o(i._printf_core)
-    i._sputc                                 0x000008a8   Section        0  printf3.o(i._sputc)
-    _sputc                                   0x000008a9   Thumb Code    10  printf3.o(i._sputc)
-    i.bc_seek                                0x000008b4   Section        0  ravem.o(i.bc_seek)
-    i.changeStackType                        0x000008d0   Section        0  ravem.o(i.changeStackType)
-    i.decodeVM                               0x00000904   Section        0  ravem.o(i.decodeVM)
-    i.free                                   0x00000c48   Section        0  malloc.o(i.free)
-    i.getConstantPoolInfo                    0x00000c9c   Section        0  ravem.o(i.getConstantPoolInfo)
-    i.getField                               0x00000e6c   Section        0  ravem.o(i.getField)
-    i.getIntegerFromOperandStack             0x00000ec4   Section        0  ravem.o(i.getIntegerFromOperandStack)
-    i.getLengthOfConstantInfo                0x00000f30   Section        0  ravem.o(i.getLengthOfConstantInfo)
-    i.getStringFromOperandStack              0x00000f64   Section        0  ravem.o(i.getStringFromOperandStack)
-    i.hardware_init                          0x00000ff4   Section        0  device_depend.o(i.hardware_init)
-    i.invokestatic_callFunction              0x00001028   Section        0  ravem.o(i.invokestatic_callFunction)
-    i.invokevirtual_callFunction             0x000010b0   Section        0  ravem.o(i.invokevirtual_callFunction)
-    i.main                                   0x0000118c   Section        0  main.o(i.main)
-    i.malloc                                 0x00001264   Section        0  malloc.o(i.malloc)
-    i.putField                               0x000012d0   Section        0  ravem.o(i.putField)
-    i.seekCodeArrtibute                      0x00001328   Section        0  ravem.o(i.seekCodeArrtibute)
-    i.seekConstClassNumString                0x00001524   Section        0  ravem.o(i.seekConstClassNumString)
-    i.seekNameAndType_name                   0x00001564   Section        0  ravem.o(i.seekNameAndType_name)
-    i.setIntegerToStack                      0x000015bc   Section        0  ravem.o(i.setIntegerToStack)
-    i.setStackFromConstantPool               0x00001616   Section        0  ravem.o(i.setStackFromConstantPool)
-    i.setup_systick                          0x00001670   Section        0  device_depend.o(i.setup_systick)
-    i.time_millis                            0x0000169c   Section        0  device_depend.o(i.time_millis)
-    i.uart_init                              0x000016a8   Section        0  device_depend.o(i.uart_init)
-    i.uart_print                             0x000016b8   Section        0  device_depend.o(i.uart_print)
-    i.uart_read                              0x000016d0   Section        0  device_depend.o(i.uart_read)
-    .constdata                               0x000016e0   Section      673  ravem.o(.constdata)
+    i.__free$realloc                         0x000006c4   Section        0  mallocr.o(i.__free$realloc)
+    i.__malloc$realloc                       0x00000728   Section        0  mallocr.o(i.__malloc$realloc)
+    i.__scatterload_copy                     0x00000770   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_zeroinit                 0x0000077e   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x0000078c   Section        0  printf3.o(i._printf_core)
+    _printf_core                             0x0000078d   Thumb Code   452  printf3.o(i._printf_core)
+    i._sputc                                 0x00000954   Section        0  printf3.o(i._sputc)
+    _sputc                                   0x00000955   Thumb Code    10  printf3.o(i._sputc)
+    i.bc_seek                                0x00000960   Section        0  ravem.o(i.bc_seek)
+    i.changeStackType                        0x0000097c   Section        0  ravem.o(i.changeStackType)
+    i.decodeVM                               0x000009b0   Section        0  ravem.o(i.decodeVM)
+    i.getConstantPoolInfo                    0x00000d44   Section        0  ravem.o(i.getConstantPoolInfo)
+    i.getField                               0x00000f14   Section        0  ravem.o(i.getField)
+    i.getIntegerFromOperandStack             0x00000f6c   Section        0  ravem.o(i.getIntegerFromOperandStack)
+    i.getLengthOfConstantInfo                0x00000fd8   Section        0  ravem.o(i.getLengthOfConstantInfo)
+    i.getStringFromOperandStack              0x0000100c   Section        0  ravem.o(i.getStringFromOperandStack)
+    i.hardware_init                          0x0000109c   Section        0  device_depend.o(i.hardware_init)
+    i.internal_alloc                         0x000010d0   Section        0  mallocr.o(i.internal_alloc)
+    internal_alloc                           0x000010d1   Thumb Code    74  mallocr.o(i.internal_alloc)
+    i.invokestatic_callFunction              0x00001120   Section        0  ravem.o(i.invokestatic_callFunction)
+    i.invokevirtual_callFunction             0x000011bc   Section        0  ravem.o(i.invokevirtual_callFunction)
+    i.main                                   0x000012d0   Section        0  main.o(i.main)
+    i.putField                               0x0000145c   Section        0  ravem.o(i.putField)
+    i.realloc                                0x000014b4   Section        0  mallocr.o(i.realloc)
+    i.seekCodeArrtibute                      0x00001528   Section        0  ravem.o(i.seekCodeArrtibute)
+    i.seekConstClassNumString                0x00001724   Section        0  ravem.o(i.seekConstClassNumString)
+    i.seekNameAndType_name                   0x00001764   Section        0  ravem.o(i.seekNameAndType_name)
+    i.setIntegerToStack                      0x000017bc   Section        0  ravem.o(i.setIntegerToStack)
+    i.setStackFromConstantPool               0x00001816   Section        0  ravem.o(i.setStackFromConstantPool)
+    i.setup_systick                          0x00001870   Section        0  device_depend.o(i.setup_systick)
+    i.time_millis                            0x0000189c   Section        0  device_depend.o(i.time_millis)
+    i.uart_init                              0x000018a8   Section        0  device_depend.o(i.uart_init)
+    i.uart_print                             0x000018b8   Section        0  device_depend.o(i.uart_print)
+    i.uart_read                              0x000018d0   Section        0  device_depend.o(i.uart_read)
+    .constdata                               0x000018e0   Section      767  ravem.o(.constdata)
     .data                                    0x10000000   Section        4  lpc8xx_mrt.o(.data)
     .data                                    0x10000004   Section       24  lpc8xx_uart.o(.data)
     .data                                    0x1000001c   Section        4  device_depend.o(.data)
     msTicks                                  0x1000001c   Data           4  device_depend.o(.data)
-    .data                                    0x10000020   Section       12  ravem.o(.data)
-    .data                                    0x1000002c   Section        4  system_lpc8xx.o(.data)
-    .data                                    0x10000030   Section        4  mvars.o(.data)
-    .data                                    0x10000034   Section        4  mvars.o(.data)
-    .bss                                     0x10000038   Section      128  lpc8xx_gpio.o(.bss)
-    .bss                                     0x100000b8   Section       32  lpc8xx_uart.o(.bss)
-    .bss                                     0x100000d8   Section       64  ravem.o(.bss)
-    HEAP                                     0x10000118   Section      512  startup_lpc8xx.o(HEAP)
-    STACK                                    0x10000318   Section      512  startup_lpc8xx.o(STACK)
+    .data                                    0x10000020   Section        4  ravem.o(.data)
+    .data                                    0x10000024   Section        4  system_lpc8xx.o(.data)
+    .data                                    0x10000028   Section        4  mvars.o(.data)
+    .data                                    0x1000002c   Section        4  mvars.o(.data)
+    .bss                                     0x10000030   Section      128  lpc8xx_gpio.o(.bss)
+    .bss                                     0x100000b0   Section       32  lpc8xx_uart.o(.bss)
+    .bss                                     0x100000d0   Section       64  ravem.o(.bss)
+    HEAP                                     0x10000110   Section      512  startup_lpc8xx.o(HEAP)
+    STACK                                    0x10000310   Section      512  startup_lpc8xx.o(STACK)
 
     Global Symbols
 
@@ -774,36 +777,37 @@ Image Symbol Table
     __1sprintf$3                             0x00000681   Thumb Code     0  printf3.o(i.__0sprintf$3)
     __2sprintf                               0x00000681   Thumb Code     0  printf3.o(i.__0sprintf$3)
     __ARM_common_switch8                     0x000006a9   Thumb Code    26  lpc8xx_gpio.o(i.__ARM_common_switch8)
-    __scatterload_copy                       0x000006c3   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_zeroinit                   0x000006d1   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    bc_seek                                  0x000008b5   Thumb Code    18  ravem.o(i.bc_seek)
-    changeStackType                          0x000008d1   Thumb Code    52  ravem.o(i.changeStackType)
-    decodeVM                                 0x00000905   Thumb Code   834  ravem.o(i.decodeVM)
-    free                                     0x00000c49   Thumb Code    80  malloc.o(i.free)
-    getConstantPoolInfo                      0x00000c9d   Thumb Code   454  ravem.o(i.getConstantPoolInfo)
-    getField                                 0x00000e6d   Thumb Code    88  ravem.o(i.getField)
-    getIntegerFromOperandStack               0x00000ec5   Thumb Code   108  ravem.o(i.getIntegerFromOperandStack)
-    getLengthOfConstantInfo                  0x00000f31   Thumb Code    52  ravem.o(i.getLengthOfConstantInfo)
-    getStringFromOperandStack                0x00000f65   Thumb Code   130  ravem.o(i.getStringFromOperandStack)
-    hardware_init                            0x00000ff5   Thumb Code    36  device_depend.o(i.hardware_init)
-    invokestatic_callFunction                0x00001029   Thumb Code   122  ravem.o(i.invokestatic_callFunction)
-    invokevirtual_callFunction               0x000010b1   Thumb Code   186  ravem.o(i.invokevirtual_callFunction)
-    main                                     0x0000118d   Thumb Code   150  main.o(i.main)
-    malloc                                   0x00001265   Thumb Code    92  malloc.o(i.malloc)
-    putField                                 0x000012d1   Thumb Code    86  ravem.o(i.putField)
-    seekCodeArrtibute                        0x00001329   Thumb Code   504  ravem.o(i.seekCodeArrtibute)
-    seekConstClassNumString                  0x00001525   Thumb Code    64  ravem.o(i.seekConstClassNumString)
-    seekNameAndType_name                     0x00001565   Thumb Code    88  ravem.o(i.seekNameAndType_name)
-    setIntegerToStack                        0x000015bd   Thumb Code    90  ravem.o(i.setIntegerToStack)
-    setStackFromConstantPool                 0x00001617   Thumb Code    90  ravem.o(i.setStackFromConstantPool)
-    setup_systick                            0x00001671   Thumb Code    36  device_depend.o(i.setup_systick)
-    time_millis                              0x0000169d   Thumb Code     6  device_depend.o(i.time_millis)
-    uart_init                                0x000016a9   Thumb Code    12  device_depend.o(i.uart_init)
-    uart_print                               0x000016b9   Thumb Code    20  device_depend.o(i.uart_print)
-    uart_read                                0x000016d1   Thumb Code    12  device_depend.o(i.uart_read)
-    vm_array                                 0x000016e0   Data         673  ravem.o(.constdata)
-    Region$$Table$$Base                      0x00001984   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000019a4   Number         0  anon$$obj.o(Region$$Table)
+    free                                     0x000006c5   Thumb Code    94  mallocr.o(i.__free$realloc)
+    malloc                                   0x00000729   Thumb Code    54  mallocr.o(i.__malloc$realloc)
+    __scatterload_copy                       0x00000771   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_zeroinit                   0x0000077f   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    bc_seek                                  0x00000961   Thumb Code    18  ravem.o(i.bc_seek)
+    changeStackType                          0x0000097d   Thumb Code    52  ravem.o(i.changeStackType)
+    decodeVM                                 0x000009b1   Thumb Code   916  ravem.o(i.decodeVM)
+    getConstantPoolInfo                      0x00000d45   Thumb Code   454  ravem.o(i.getConstantPoolInfo)
+    getField                                 0x00000f15   Thumb Code    88  ravem.o(i.getField)
+    getIntegerFromOperandStack               0x00000f6d   Thumb Code   108  ravem.o(i.getIntegerFromOperandStack)
+    getLengthOfConstantInfo                  0x00000fd9   Thumb Code    52  ravem.o(i.getLengthOfConstantInfo)
+    getStringFromOperandStack                0x0000100d   Thumb Code   130  ravem.o(i.getStringFromOperandStack)
+    hardware_init                            0x0000109d   Thumb Code    36  device_depend.o(i.hardware_init)
+    invokestatic_callFunction                0x00001121   Thumb Code   148  ravem.o(i.invokestatic_callFunction)
+    invokevirtual_callFunction               0x000011bd   Thumb Code   226  ravem.o(i.invokevirtual_callFunction)
+    main                                     0x000012d1   Thumb Code   334  main.o(i.main)
+    putField                                 0x0000145d   Thumb Code    86  ravem.o(i.putField)
+    realloc                                  0x000014b5   Thumb Code   110  mallocr.o(i.realloc)
+    seekCodeArrtibute                        0x00001529   Thumb Code   504  ravem.o(i.seekCodeArrtibute)
+    seekConstClassNumString                  0x00001725   Thumb Code    64  ravem.o(i.seekConstClassNumString)
+    seekNameAndType_name                     0x00001765   Thumb Code    88  ravem.o(i.seekNameAndType_name)
+    setIntegerToStack                        0x000017bd   Thumb Code    90  ravem.o(i.setIntegerToStack)
+    setStackFromConstantPool                 0x00001817   Thumb Code    90  ravem.o(i.setStackFromConstantPool)
+    setup_systick                            0x00001871   Thumb Code    36  device_depend.o(i.setup_systick)
+    time_millis                              0x0000189d   Thumb Code     6  device_depend.o(i.time_millis)
+    uart_init                                0x000018a9   Thumb Code    12  device_depend.o(i.uart_init)
+    uart_print                               0x000018b9   Thumb Code    20  device_depend.o(i.uart_print)
+    uart_read                                0x000018d1   Thumb Code    12  device_depend.o(i.uart_read)
+    vm_array                                 0x000018e0   Data         767  ravem.o(.constdata)
+    Region$$Table$$Base                      0x00001be0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00001c00   Number         0  anon$$obj.o(Region$$Table)
     mrt_counter                              0x10000000   Data           4  lpc8xx_mrt.o(.data)
     UARTTxEmpty                              0x10000004   Data           1  lpc8xx_uart.o(.data)
     UARTRxCount                              0x10000008   Data           4  lpc8xx_uart.o(.data)
@@ -812,21 +816,19 @@ Image Symbol Table
     AddrDetected                             0x10000014   Data           4  lpc8xx_uart.o(.data)
     UARTInterruptCount                       0x10000018   Data           4  lpc8xx_uart.o(.data)
     total_const_pool_num                     0x10000020   Data           4  ravem.o(.data)
-    hold_time                                0x10000024   Data           4  ravem.o(.data)
-    now_time                                 0x10000028   Data           4  ravem.o(.data)
-    SystemCoreClock                          0x1000002c   Data           4  system_lpc8xx.o(.data)
-    __microlib_freelist                      0x10000030   Data           4  mvars.o(.data)
-    __microlib_freelist_initialised          0x10000034   Data           4  mvars.o(.data)
-    flex_int_counter                         0x10000038   Data          32  lpc8xx_gpio.o(.bss)
-    flex_int_level_counter                   0x10000058   Data          32  lpc8xx_gpio.o(.bss)
-    flex_int_rising_edge_counter             0x10000078   Data          32  lpc8xx_gpio.o(.bss)
-    flex_int_falling_edge_counter            0x10000098   Data          32  lpc8xx_gpio.o(.bss)
-    UARTRxBuffer                             0x100000b8   Data          32  lpc8xx_uart.o(.bss)
-    cp_str                                   0x100000d8   Data          32  ravem.o(.bss)
-    bc_str                                   0x100000f8   Data          32  ravem.o(.bss)
-    __heap_base                              0x10000118   Data           0  startup_lpc8xx.o(HEAP)
-    __heap_limit                             0x10000318   Data           0  startup_lpc8xx.o(HEAP)
-    __initial_sp                             0x10000518   Data           0  startup_lpc8xx.o(STACK)
+    SystemCoreClock                          0x10000024   Data           4  system_lpc8xx.o(.data)
+    __microlib_freelist                      0x10000028   Data           4  mvars.o(.data)
+    __microlib_freelist_initialised          0x1000002c   Data           4  mvars.o(.data)
+    flex_int_counter                         0x10000030   Data          32  lpc8xx_gpio.o(.bss)
+    flex_int_level_counter                   0x10000050   Data          32  lpc8xx_gpio.o(.bss)
+    flex_int_rising_edge_counter             0x10000070   Data          32  lpc8xx_gpio.o(.bss)
+    flex_int_falling_edge_counter            0x10000090   Data          32  lpc8xx_gpio.o(.bss)
+    UARTRxBuffer                             0x100000b0   Data          32  lpc8xx_uart.o(.bss)
+    cp_str                                   0x100000d0   Data          32  ravem.o(.bss)
+    bc_str                                   0x100000f0   Data          32  ravem.o(.bss)
+    __heap_base                              0x10000110   Data           0  startup_lpc8xx.o(HEAP)
+    __heap_limit                             0x10000310   Data           0  startup_lpc8xx.o(HEAP)
+    __initial_sp                             0x10000510   Data           0  startup_lpc8xx.o(STACK)
 
 
 
@@ -836,9 +838,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000c1
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000019dc, Max: 0x00004000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00001c30, Max: 0x00004000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x000019a4, Max: 0x00004000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00001c00, Max: 0x00004000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -886,60 +888,61 @@ Memory Map of the image
     0x0000061c   0x00000064   Code   RO          240    i.UART_Handler      lpc8xx_uart.o
     0x00000680   0x00000028   Code   RO          715    i.__0sprintf$3      mc_p.l(printf3.o)
     0x000006a8   0x0000001a   Code   RO          154    i.__ARM_common_switch8  lpc8xx_gpio.o
-    0x000006c2   0x0000000e   Code   RO          961    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x000006d0   0x0000000e   Code   RO          963    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x000006de   0x00000002   PAD
-    0x000006e0   0x000001c8   Code   RO          720    i._printf_core      mc_p.l(printf3.o)
-    0x000008a8   0x0000000a   Code   RO          722    i._sputc            mc_p.l(printf3.o)
-    0x000008b2   0x00000002   PAD
-    0x000008b4   0x0000001c   Code   RO          442    i.bc_seek           ravem.o
-    0x000008d0   0x00000034   Code   RO          443    i.changeStackType   ravem.o
-    0x00000904   0x00000342   Code   RO          444    i.decodeVM          ravem.o
-    0x00000c46   0x00000002   PAD
-    0x00000c48   0x00000054   Code   RO          885    i.free              mc_p.l(malloc.o)
-    0x00000c9c   0x000001d0   Code   RO          445    i.getConstantPoolInfo  ravem.o
-    0x00000e6c   0x00000058   Code   RO          446    i.getField          ravem.o
-    0x00000ec4   0x0000006c   Code   RO          447    i.getIntegerFromOperandStack  ravem.o
-    0x00000f30   0x00000034   Code   RO          448    i.getLengthOfConstantInfo  ravem.o
-    0x00000f64   0x00000090   Code   RO          449    i.getStringFromOperandStack  ravem.o
-    0x00000ff4   0x00000034   Code   RO          375    i.hardware_init     device_depend.o
-    0x00001028   0x00000088   Code   RO          450    i.invokestatic_callFunction  ravem.o
-    0x000010b0   0x000000dc   Code   RO          451    i.invokevirtual_callFunction  ravem.o
-    0x0000118c   0x000000d8   Code   RO          321    i.main              main.o
-    0x00001264   0x0000006c   Code   RO          886    i.malloc            mc_p.l(malloc.o)
-    0x000012d0   0x00000056   Code   RO          452    i.putField          ravem.o
-    0x00001326   0x00000002   PAD
-    0x00001328   0x000001fc   Code   RO          454    i.seekCodeArrtibute  ravem.o
-    0x00001524   0x00000040   Code   RO          455    i.seekConstClassNumString  ravem.o
-    0x00001564   0x00000058   Code   RO          457    i.seekNameAndType_name  ravem.o
-    0x000015bc   0x0000005a   Code   RO          458    i.setIntegerToStack  ravem.o
-    0x00001616   0x0000005a   Code   RO          459    i.setStackFromConstantPool  ravem.o
-    0x00001670   0x0000002c   Code   RO          376    i.setup_systick     device_depend.o
-    0x0000169c   0x0000000c   Code   RO          377    i.time_millis       device_depend.o
-    0x000016a8   0x00000010   Code   RO          378    i.uart_init         device_depend.o
-    0x000016b8   0x00000018   Code   RO          379    i.uart_print        device_depend.o
-    0x000016d0   0x00000010   Code   RO          380    i.uart_read         device_depend.o
-    0x000016e0   0x000002a1   Data   RO          461    .constdata          ravem.o
-    0x00001981   0x00000003   PAD
-    0x00001984   0x00000020   Data   RO          959    Region$$Table       anon$$obj.o
+    0x000006c2   0x00000002   PAD
+    0x000006c4   0x00000064   Code   RO          889    i.__free$realloc    mc_p.l(mallocr.o)
+    0x00000728   0x00000048   Code   RO          890    i.__malloc$realloc  mc_p.l(mallocr.o)
+    0x00000770   0x0000000e   Code   RO          961    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x0000077e   0x0000000e   Code   RO          963    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x0000078c   0x000001c8   Code   RO          720    i._printf_core      mc_p.l(printf3.o)
+    0x00000954   0x0000000a   Code   RO          722    i._sputc            mc_p.l(printf3.o)
+    0x0000095e   0x00000002   PAD
+    0x00000960   0x0000001c   Code   RO          442    i.bc_seek           ravem.o
+    0x0000097c   0x00000034   Code   RO          443    i.changeStackType   ravem.o
+    0x000009b0   0x00000394   Code   RO          444    i.decodeVM          ravem.o
+    0x00000d44   0x000001d0   Code   RO          445    i.getConstantPoolInfo  ravem.o
+    0x00000f14   0x00000058   Code   RO          446    i.getField          ravem.o
+    0x00000f6c   0x0000006c   Code   RO          447    i.getIntegerFromOperandStack  ravem.o
+    0x00000fd8   0x00000034   Code   RO          448    i.getLengthOfConstantInfo  ravem.o
+    0x0000100c   0x00000090   Code   RO          449    i.getStringFromOperandStack  ravem.o
+    0x0000109c   0x00000034   Code   RO          375    i.hardware_init     device_depend.o
+    0x000010d0   0x00000050   Code   RO          891    i.internal_alloc    mc_p.l(mallocr.o)
+    0x00001120   0x0000009c   Code   RO          450    i.invokestatic_callFunction  ravem.o
+    0x000011bc   0x00000114   Code   RO          451    i.invokevirtual_callFunction  ravem.o
+    0x000012d0   0x0000018c   Code   RO          321    i.main              main.o
+    0x0000145c   0x00000056   Code   RO          452    i.putField          ravem.o
+    0x000014b2   0x00000002   PAD
+    0x000014b4   0x00000074   Code   RO          892    i.realloc           mc_p.l(mallocr.o)
+    0x00001528   0x000001fc   Code   RO          454    i.seekCodeArrtibute  ravem.o
+    0x00001724   0x00000040   Code   RO          455    i.seekConstClassNumString  ravem.o
+    0x00001764   0x00000058   Code   RO          457    i.seekNameAndType_name  ravem.o
+    0x000017bc   0x0000005a   Code   RO          458    i.setIntegerToStack  ravem.o
+    0x00001816   0x0000005a   Code   RO          459    i.setStackFromConstantPool  ravem.o
+    0x00001870   0x0000002c   Code   RO          376    i.setup_systick     device_depend.o
+    0x0000189c   0x0000000c   Code   RO          377    i.time_millis       device_depend.o
+    0x000018a8   0x00000010   Code   RO          378    i.uart_init         device_depend.o
+    0x000018b8   0x00000018   Code   RO          379    i.uart_print        device_depend.o
+    0x000018d0   0x00000010   Code   RO          380    i.uart_read         device_depend.o
+    0x000018e0   0x000002ff   Data   RO          461    .constdata          ravem.o
+    0x00001bdf   0x00000001   PAD
+    0x00001be0   0x00000020   Data   RO          959    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x00000518, Max: 0x00001000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x00000510, Max: 0x00001000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x10000000   0x00000004   Data   RW          194    .data               lpc8xx_mrt.o
     0x10000004   0x00000018   Data   RW          244    .data               lpc8xx_uart.o
     0x1000001c   0x00000004   Data   RW          381    .data               device_depend.o
-    0x10000020   0x0000000c   Data   RW          462    .data               ravem.o
-    0x1000002c   0x00000004   Data   RW          570    .data               system_lpc8xx.o
-    0x10000030   0x00000004   Data   RW          932    .data               mc_p.l(mvars.o)
-    0x10000034   0x00000004   Data   RW          933    .data               mc_p.l(mvars.o)
-    0x10000038   0x00000080   Zero   RW           25    .bss                lpc8xx_gpio.o
-    0x100000b8   0x00000020   Zero   RW          243    .bss                lpc8xx_uart.o
-    0x100000d8   0x00000040   Zero   RW          460    .bss                ravem.o
-    0x10000118   0x00000200   Zero   RW          602    HEAP                startup_lpc8xx.o
-    0x10000318   0x00000200   Zero   RW          601    STACK               startup_lpc8xx.o
+    0x10000020   0x00000004   Data   RW          462    .data               ravem.o
+    0x10000024   0x00000004   Data   RW          570    .data               system_lpc8xx.o
+    0x10000028   0x00000004   Data   RW          932    .data               mc_p.l(mvars.o)
+    0x1000002c   0x00000004   Data   RW          933    .data               mc_p.l(mvars.o)
+    0x10000030   0x00000080   Zero   RW           25    .bss                lpc8xx_gpio.o
+    0x100000b0   0x00000020   Zero   RW          243    .bss                lpc8xx_uart.o
+    0x100000d0   0x00000040   Zero   RW          460    .bss                ravem.o
+    0x10000110   0x00000200   Zero   RW          602    HEAP                startup_lpc8xx.o
+    0x10000310   0x00000200   Zero   RW          601    STACK               startup_lpc8xx.o
 
 
 ==============================================================================
@@ -953,15 +956,15 @@ Image component sizes
        280         18          0          0        128      16955   lpc8xx_gpio.o
         32         10          0          4          0        815   lpc8xx_mrt.o
        524         94          0         24         32      10547   lpc8xx_uart.o
-       216         66          0          0          0       2871   main.o
-      3052        154        673         12         64      10754   ravem.o
+       396         62          0          0          0       3183   main.o
+      3210        142        767          4         64      10691   ravem.o
         32         14        192          0       1024        636   startup_lpc8xx.o
        372        104          0          4          0       2159   system_lpc8xx.o
 
     ----------------------------------------------------------------------
-      4750        522        900         48       1248      53978   Object Totals
+      5088        506        992         40       1248      54227   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         6          0          3          0          0          0   (incl. Padding)
+         6          0          1          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -977,7 +980,7 @@ Image component sizes
          8          4          0          0          0          0   entry9a.o
         30          0          0          0          0          0   handlers.o
         36          8          0          0          0         68   init.o
-       192         20          0          0          0        144   malloc.o
+       368         36          0          0          0        308   mallocr.o
         36          0          0          0          0         60   memcpya.o
          0          0          0          8          0          0   mvars.o
        506          8          0          0          0        224   printf3.o
@@ -986,17 +989,17 @@ Image component sizes
         44          0          0          0          0         72   uidiv.o
 
     ----------------------------------------------------------------------
-       914         44          0          8          0        700   Library Totals
-         6          0          0          0          0          0   (incl. Padding)
+      1088         60          0          8          0        864   Library Totals
+         4          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-       908         44          0          8          0        700   mc_p.l
+      1084         60          0          8          0        864   mc_p.l
 
     ----------------------------------------------------------------------
-       914         44          0          8          0        700   Library Totals
+      1088         60          0          8          0        864   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1005,15 +1008,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5664        566        900         56       1248      52470   Grand Totals
-      5664        566        900         56       1248      52470   ELF Image Totals
-      5664        566        900         56          0          0   ROM Totals
+      6176        566        992         48       1248      52795   Grand Totals
+      6176        566        992         48       1248      52795   ELF Image Totals
+      6176        566        992         48          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 6564 (   6.41kB)
-    Total RW  Size (RW Data + ZI Data)              1304 (   1.27kB)
-    Total ROM Size (Code + RO Data + RW Data)       6620 (   6.46kB)
+    Total RO  Size (Code + RO Data)                 7168 (   7.00kB)
+    Total RW  Size (RW Data + ZI Data)              1296 (   1.27kB)
+    Total ROM Size (Code + RO Data + RW Data)       7216 (   7.05kB)
 
 ==============================================================================
 

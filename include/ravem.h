@@ -61,10 +61,22 @@
 #define JAVA_iload_2						0x1C					// 0
 #define JAVA_iload_3						0x1D					// 0
 
+#define JAVA_aload_0						0x2a					// 0
+#define JAVA_aload_1						0x2b					// 0
+#define JAVA_aload_2						0x2c					// 0
+#define JAVA_aload_3						0x2d					// 0
+
 #define JAVA_istore_0						0x3B					// 0
 #define JAVA_istore_1						0x3C					// 0
 #define JAVA_istore_2						0x3D					// 0
 #define JAVA_istore_3						0x3E					// 0
+
+#define JAVA_astore_0						0x4b					// 0
+#define JAVA_astore_1						0x4c					// 0
+#define JAVA_astore_2						0x4d					// 0
+#define JAVA_astore_3						0x4e					// 0
+
+#define	JAVA_dup								0x59					// 0
 
 #define JAVA_iadd								0x60					// 0
 
@@ -79,6 +91,7 @@
 #define JAVA_invokespecial			0xb7					// 2  //not imprement
 #define JAVA_invokestatic				0xb8					// 2
 
+#define JAVA_new								0xbb					// 2
 
 
 typedef struct {

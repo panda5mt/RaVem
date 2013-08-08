@@ -348,10 +348,10 @@
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <VariousControls>
-              <MiscControls>--c99 --loose_implicit_cast  </MiscControls>
+              <MiscControls>--c99 --loose_implicit_cast --gnu</MiscControls>
               <Define>ARM_MATH_CM0, USE_LPC800</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\..\INC\NXP\LPC8xx;.\include</IncludePath>
+              <IncludePath>..\..\..\..\INC\NXP\LPC8xx;.\include;.\mpool</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

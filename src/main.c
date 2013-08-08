@@ -57,9 +57,9 @@ int main (void) {
 		}
 		method_all_end = 0;
 		for(lp = 0;lp < thread_count + 1;lp++){
-			if(p[0].threadCommand == Thread_returned) method_all_end = method_all_end + 1;
-			if(method_all_end == thread_count + 1) break;
+			if(p[lp].threadCommand != Thread_returned) method_all_end = method_all_end + 1;
 		}
+		if(method_all_end == 0) break;
 	}
 	
 	// end

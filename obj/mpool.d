@@ -1,0 +1,17 @@
+.\obj\mpool.o: mpool\mpool.c
+.\obj\mpool.o: mpool\mpool.h
+.\obj\mpool.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\obj\mpool.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\obj\mpool.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\obj\mpool.o: C:\Keil\ARM\ARMCC\bin\..\include\stdbool.h
+.\obj\mpool.o: .\include\device_depend.h
+.\obj\mpool.o: C:\Keil\ARM\Inc\NXP\LPC8xx\LPC8xx.h
+.\obj\mpool.o: C:\Keil\ARM\CMSIS\Include\core_cm0plus.h
+.\obj\mpool.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\obj\mpool.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\obj\mpool.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\obj\mpool.o: C:\Keil\ARM\Inc\NXP\LPC8xx\system_LPC8xx.h
+.\obj\mpool.o: .\include\lpc8xx_gpio.h
+.\obj\mpool.o: .\include\type.h
+.\obj\mpool.o: .\include\lpc8xx_mrt.h
+.\obj\mpool.o: .\include\lpc8xx_uart.h

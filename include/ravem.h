@@ -118,6 +118,7 @@ typedef struct {
 	int	threadArg;
 } class_st;
 
+extern int32_t methods_count;
 uint8_t *bc_seek(int bc_num, int length);
 const_pool_t getConstantPoolInfo(int constant_num);
 const_pool_t seekConstClassNumString(int const_num);

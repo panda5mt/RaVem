@@ -15,11 +15,12 @@ int main (void) {
 	uart_print("LPC81x JVM Start\r\n");
 	uart_print("please wait...\r\n\r\n");
 
-	char s[64];
-	int thread_count = 0,lp;
-	// Initialize Operand Stack and local Register
-	class_st *p = NULL,*q = NULL;
-	p = (class_st *)malloc(sizeof(class_st)*1);
+	int32_t thread_count = 0,lp,method_all_end;
+
+	// Initialize Operand Stack and local Register	
+	class_st *p;
+
+	p = (class_st *)malloc(sizeof(class_st) * 1);	
 	p[0] = seekCodeArrtibute("main",4);	//main_attribute
 	p[0].field_mem_reg = NULL;
 	p[0].local_reg = (int *)malloc(sizeof(int) * p[0].local_num);
@@ -41,7 +42,7 @@ int main (void) {
 				p[0].threadCommand = Thread_Active;
 				p = (class_st *)realloc(p,sizeof(class_st)*(1+thread_count));
 				if(p == NULL)uart_print("error!");
-				//p = q;
+
 				p[thread_count] = seekCodeArrtibute("run",3);	//main_attribute
 				p[thread_count].field_mem_reg = NULL;
 				p[thread_count].local_reg = (int *)malloc(sizeof(int) * p[thread_count].local_num);
@@ -53,17 +54,22 @@ int main (void) {
 				//sprintf(s,"threadNo=%d,stack=%d,local=%d\r\n",thread_count,p[thread_count].stack_num,p[thread_count].local_num);
 				//uart_print(s);
 			}
-		}	
-		//if(p[0].threadCommand == Thread_returned)break;
-			
 		}
+		method_all_end = 0;
+		for(lp = 0;lp < thread_count + 1;lp++){
+			if(p[0].threadCommand == Thread_returned) method_all_end = method_all_end + 1;
+			if(method_all_end == thread_count + 1) break;
+		}
+	}
 	
 	// end
-	
-  free(p[0].local_reg);
-	free(p[0].op_stack_type);
-  free(p[0].op_stack);
+	for(lp = 0; lp < thread_count + 1; lp++){	
+		free(p[lp].local_reg);
+		free(p[lp].op_stack_type);
+		free(p[lp].op_stack);
+	}
   free(p);
+	
 	p = NULL;
 	
 	

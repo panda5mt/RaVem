@@ -10,7 +10,6 @@ int main (void) {
 	
 	hardware_init();	
 	uart_init(9600);
-
 	
 	uart_print("LPC81x JVM Start\r\n");
 	uart_print("please wait...\r\n\r\n");
@@ -30,6 +29,11 @@ int main (void) {
 	p[0].threadCommand = Thread_Active;
 	p[0].myThreadNum   = 0;
 	
+		
+	char s[32];
+	sprintf(s,"stack=%d,local=%d",p[0].stack_num,p[0].local_num);
+	uart_print(s);
+	
 	while(1){
 		for(lp = 0 ; lp < thread_count + 1 ;lp++){
 			if(p[lp].threadCommand != Thread_returned)
@@ -43,7 +47,7 @@ int main (void) {
 				p = (class_st *)realloc(p,sizeof(class_st)*(1+thread_count));
 				if(p == NULL)uart_print("error!");
 
-				p[thread_count] = seekCodeArrtibute("run",3);	//main_attribute
+				p[thread_count] = seekCodeArrtibute("run",3);	// run method(start() calls this method)
 				p[thread_count].field_mem_reg = NULL;
 				p[thread_count].local_reg = (int *)malloc(sizeof(int) * p[thread_count].local_num);
 				p[thread_count].op_stack_type = (int *)malloc(sizeof(int) * p[thread_count].stack_num);

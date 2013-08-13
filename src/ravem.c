@@ -59,6 +59,7 @@ const unsigned char vm_array[] = {
 	0x11, 0x00, 0x08, 0x00, 0x12, 0x00, 0x10, 0x00, 0x14, 0x00, 0x14, 0x00, 0x15, 0x00, 0x18, 0x00, 
 	0x17, 0x00, 0x20, 0x00, 0x18, 0x00, 0x01, 0x00, 0x19, 0x00, 0x00, 0x00, 0x02, 0x00, 0x1A, 0x00, 
 	0x00, 0x00
+
 };
 
 char cp_str[32];
@@ -107,8 +108,8 @@ const_pool_t getConstantPoolInfo(int const_num){
 	const_pool_t c;
 	int i=0, j=1, length;
 
-	total_const_pool_num = (*bc_seek(8,1)<<8) + *bc_seek(9,1);
-
+	total_const_pool_num = (*bc_seek(8,1) << 8) + *bc_seek(9,1);
+	
 	if ((const_num ==0)||(const_num >= total_const_pool_num))
 	{
 		c.index = 0;
@@ -120,8 +121,8 @@ const_pool_t getConstantPoolInfo(int const_num){
 		c.tab = *bc_seek(10+i,1);	// tab
 		length = getLengthOfConstantInfo(*bc_seek(10+i,1));
 		
-		if(length==-1)// Constant_UTF8
-		{
+		// Constant_UTF8
+		if(length == -1){
 			length = ((*bc_seek(11+i,1)<<8) + *bc_seek(12+i,1)) + 3 /* tag + length = 3byte*/ ; 		
 		}
 
@@ -146,10 +147,10 @@ const_pool_t getConstantPoolInfo(int const_num){
 		  cp_str[c.index] = '\0';
 			c.stack_pt = (char *)&cp_str;
 			break;
+		
 		//case CONSTANT_Float:
 		//case CONSTANT_Long:
 		//case CONSTANT_Double:
-		
 		case CONSTANT_Integer:
 		case CONSTANT_Float:		
 			c.index = (*bc_seek(11+i,1)<<24) + (*bc_seek(12+i,1) << 16) + (*bc_seek(13+i,1)<<8) + *bc_seek(14+i,1);
@@ -185,7 +186,6 @@ const_pool_t seekConstClassNumString(int const_num)
 	}		
 	return c;
 }
-
 
 // for methodref & Fieldref 
 const_pool_t seekClassIndex(int const_num){
@@ -259,7 +259,7 @@ class_st seekCodeArrtibute(char* method_name,int strlen)
 	int i,j;
 	int length,cmp;
 	volatile int pointr;
-	int attribute_length, attributes_count;
+	int attribute_length, attributes_count,fields_count;
 	
 	const_pool_t z;
 	class_st cl;
@@ -282,7 +282,22 @@ class_st seekCodeArrtibute(char* method_name,int strlen)
 	pointr += ((*bc_seek(pointr,1) << 8) + *bc_seek(pointr + 1,1)) + 2; // 2 = length of 'interfaces_count' 			
 					
 	// now, pointr's locate is fields_count(2bytes)
-	pointr += ((*bc_seek(pointr,1) << 8) + *bc_seek(pointr + 1,1)) + 2;
+	fields_count = ((*bc_seek(pointr,1) << 8) + *bc_seek(pointr + 1,1));
+	pointr += 2;		// fields_count
+	
+	if(fields_count != 0){
+		// fields info
+		for(i = 0 ; i < fields_count ; i++){
+			pointr +=
+							+ 2		// access_flags
+							+ 2		// name_index
+							+ 2		// descriptor_index
+							;
+			attributes_count =  (*bc_seek(pointr,1) << 8) + *bc_seek(pointr + 1,1);
+			pointr += 2;
+			pointr += attributes_count;
+		}
+	}
 	
 	// now, pointr's locate is methods_count(2bytes)
 	methods_count = ((*bc_seek(pointr,1) << 8) + *bc_seek(pointr + 1,1));

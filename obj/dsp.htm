@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\obj\dsp.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\obj\dsp.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Thu Aug 08 21:43:55 2013
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Aug 13 23:34:37 2013
 <BR><P>
-<H3>Maximum Stack Usage =        572 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        604 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; decodeVM &rArr; invokevirtual_callFunction &rArr; getStringFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 <P>
@@ -344,6 +344,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getStringFromOperandStack
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[22]"></a>__ARM_common_switch8</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, lpc8xx_gpio.o(i.__ARM_common_switch8))
@@ -502,8 +503,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 </UL>
 
-<P><STRONG><a name="[1a]"></a>main</STRONG> (Thumb, 412 bytes, Stack size 88 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 572<LI>Call Chain = main &rArr; decodeVM &rArr; invokevirtual_callFunction &rArr; getStringFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
+<P><STRONG><a name="[1a]"></a>main</STRONG> (Thumb, 430 bytes, Stack size 120 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 604<LI>Call Chain = main &rArr; decodeVM &rArr; invokevirtual_callFunction &rArr; getStringFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_print
@@ -514,6 +515,7 @@ Global Symbols
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;realloc
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
@@ -539,7 +541,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[47]"></a>seekCodeArrtibute</STRONG> (Thumb, 506 bytes, Stack size 144 bytes, ravem.o(i.seekCodeArrtibute))
+<P><STRONG><a name="[47]"></a>seekCodeArrtibute</STRONG> (Thumb, 554 bytes, Stack size 144 bytes, ravem.o(i.seekCodeArrtibute))
 <BR><BR>[Stack]<UL><LI>Max Depth = 212<LI>Call Chain = seekCodeArrtibute &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp

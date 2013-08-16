@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\obj\dsp.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\obj\dsp.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Aug 13 23:34:37 2013
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Fri Aug 16 11:59:21 2013
 <BR><P>
-<H3>Maximum Stack Usage =        604 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        564 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; decodeVM &rArr; invokevirtual_callFunction &rArr; getStringFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 <P>
@@ -58,7 +58,7 @@ Global Symbols
 <P><STRONG><a name="[1c]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc8xx.o(.text)
 </UL>
-<P><STRONG><a name="[4d]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[4e]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[1e]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -68,15 +68,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[4e]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[4f]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[4f]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[50]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[50]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[51]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[51]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[52]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[52]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[53]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_lpc8xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc8xx.o(RESET)
@@ -136,19 +136,19 @@ Global Symbols
 <P><STRONG><a name="[11]"></a>WKT_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_lpc8xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc8xx.o(RESET)
 </UL>
-<P><STRONG><a name="[53]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[54]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[25]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
-<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setup_systick
+<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setup_systick
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTInit
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
 <P><STRONG><a name="[2f]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
+<BR><BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bc_seek
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;internal_alloc
 </UL>
@@ -156,34 +156,36 @@ Global Symbols
 <P><STRONG><a name="[31]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setStackFromConstantPool
 <LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setIntegerToStack
-<LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_name
-<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekConstClassNumString
+<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_name
+<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_desc
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekConstClassNumString
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putField
-<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
-<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
-<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getStringFromOperandStack
+<LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
+<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
+<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getStringFromOperandStack
 <LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getIntegerFromOperandStack
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getField
-<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeStackType
-<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekCodeArrtibute
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekCodeArrtibute
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[54]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[55]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[4a]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putField
-<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_print
+<P><STRONG><a name="[4c]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_print
 </UL>
 
-<P><STRONG><a name="[42]"></a>strncmp</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, strncmp.o(.text))
+<P><STRONG><a name="[3d]"></a>strncmp</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, strncmp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = strncmp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
-<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
-<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekCodeArrtibute
+<BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putField
+<LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
+<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getField
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekCodeArrtibute
 </UL>
 
 <P><STRONG><a name="[1f]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
@@ -192,7 +194,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[55]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[56]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[d]"></a>MRT_IRQHandler</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, lpc8xx_mrt.o(i.MRT_IRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc8xx.o(RESET)
@@ -270,7 +272,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc8xx.o(RESET)
 </UL>
-<P><STRONG><a name="[56]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[57]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
 <P><STRONG><a name="[24]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 216 bytes, Stack size 16 bytes, system_lpc8xx.o(i.SystemCoreClockUpdate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = SystemCoreClockUpdate &rArr; __aeabi_uidivmod
@@ -278,7 +280,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
-<BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hardware_init
+<BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hardware_init
 </UL>
 
 <P><STRONG><a name="[1b]"></a>SystemInit</STRONG> (Thumb, 70 bytes, Stack size 12 bytes, system_lpc8xx.o(i.SystemInit))
@@ -315,13 +317,13 @@ Global Symbols
 <LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTClock_Init
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
 </UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 </UL>
 
-<P><STRONG><a name="[4c]"></a>UARTSend</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, lpc8xx_uart.o(i.UARTSend))
+<P><STRONG><a name="[4d]"></a>UARTSend</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, lpc8xx_uart.o(i.UARTSend))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UARTSend
 </UL>
-<BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_print
+<BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_print
 </UL>
 
 <P><STRONG><a name="[23]"></a>UART_Handler</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, lpc8xx_uart.o(i.UART_Handler))
@@ -337,32 +339,30 @@ Global Symbols
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[57]"></a>__1sprintf$3</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3), UNUSED)
+<P><STRONG><a name="[58]"></a>__1sprintf$3</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3), UNUSED)
 
-<P><STRONG><a name="[3f]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3))
+<P><STRONG><a name="[41]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
-<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getStringFromOperandStack
-<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
+<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getStringFromOperandStack
 </UL>
 
 <P><STRONG><a name="[22]"></a>__ARM_common_switch8</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, lpc8xx_gpio.o(i.__ARM_common_switch8))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_common_switch8
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getLengthOfConstantInfo
-<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
+<BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getLengthOfConstantInfo
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
 <LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 <LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PININT_Handler
 </UL>
 
-<P><STRONG><a name="[49]"></a>free</STRONG> (Thumb, 94 bytes, Stack size 12 bytes, mallocr.o(i.__free$realloc))
+<P><STRONG><a name="[4a]"></a>free</STRONG> (Thumb, 94 bytes, Stack size 12 bytes, mallocr.o(i.__free$realloc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = free
 </UL>
-<BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putField
-<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;realloc
+<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;realloc
 </UL>
 
 <P><STRONG><a name="[2c]"></a>malloc</STRONG> (Thumb, 54 bytes, Stack size 24 bytes, mallocr.o(i.__malloc$realloc))
@@ -372,20 +372,20 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putField
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;realloc
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;realloc
 </UL>
 
-<P><STRONG><a name="[58]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[59]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[59]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[5a]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[2e]"></a>bc_seek</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, ravem.o(i.bc_seek))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = bc_seek
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
-<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekCodeArrtibute
+<BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekCodeArrtibute
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 </UL>
 
@@ -397,16 +397,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 </UL>
 
-<P><STRONG><a name="[32]"></a>decodeVM</STRONG> (Thumb, 916 bytes, Stack size 176 bytes, ravem.o(i.decodeVM))
-<BR><BR>[Stack]<UL><LI>Max Depth = 484<LI>Call Chain = decodeVM &rArr; invokevirtual_callFunction &rArr; getStringFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
+<P><STRONG><a name="[32]"></a>decodeVM</STRONG> (Thumb, 926 bytes, Stack size 144 bytes, ravem.o(i.decodeVM))
+<BR><BR>[Stack]<UL><LI>Max Depth = 460<LI>Call Chain = decodeVM &rArr; invokevirtual_callFunction &rArr; getStringFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setStackFromConstantPool
 <LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setIntegerToStack
-<LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_name
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putField
-<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
-<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
+<LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
+<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
 <LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getIntegerFromOperandStack
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getField
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeStackType
@@ -416,24 +415,29 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3b]"></a>getConstantPoolInfo</STRONG> (Thumb, 454 bytes, Stack size 56 bytes, ravem.o(i.getConstantPoolInfo))
+<P><STRONG><a name="[3a]"></a>getConstantPoolInfo</STRONG> (Thumb, 454 bytes, Stack size 56 bytes, ravem.o(i.getConstantPoolInfo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getLengthOfConstantInfo
+<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getLengthOfConstantInfo
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bc_seek
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
-<BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_name
-<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekConstClassNumString
-<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekCodeArrtibute
+<BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_name
+<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_desc
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekConstClassNumString
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekCodeArrtibute
 </UL>
 
-<P><STRONG><a name="[36]"></a>getField</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, ravem.o(i.getField))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = getField
+<P><STRONG><a name="[36]"></a>getField</STRONG> (Thumb, 128 bytes, Stack size 136 bytes, ravem.o(i.getField))
+<BR><BR>[Stack]<UL><LI>Max Depth = 300<LI>Call Chain = getField &rArr; seekNameAndType_desc &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
+<LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setIntegerToStack
+<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_desc
+<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_print
 </UL>
 <BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 </UL>
@@ -442,136 +446,152 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 172<LI>Call Chain = getIntegerFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekConstClassNumString
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekConstClassNumString
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
+<BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putField
+<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 </UL>
 
-<P><STRONG><a name="[3c]"></a>getLengthOfConstantInfo</STRONG> (Thumb, 52 bytes, Stack size 4 bytes, ravem.o(i.getLengthOfConstantInfo))
+<P><STRONG><a name="[3b]"></a>getLengthOfConstantInfo</STRONG> (Thumb, 52 bytes, Stack size 4 bytes, ravem.o(i.getLengthOfConstantInfo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
-<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekCodeArrtibute
+<BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekCodeArrtibute
 </UL>
 
-<P><STRONG><a name="[3e]"></a>getStringFromOperandStack</STRONG> (Thumb, 130 bytes, Stack size 64 bytes, ravem.o(i.getStringFromOperandStack))
+<P><STRONG><a name="[40]"></a>getStringFromOperandStack</STRONG> (Thumb, 116 bytes, Stack size 64 bytes, ravem.o(i.getStringFromOperandStack))
 <BR><BR>[Stack]<UL><LI>Max Depth = 180<LI>Call Chain = getStringFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekConstClassNumString
-<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekConstClassNumString
+<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putField
-<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
+<BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
 </UL>
 
-<P><STRONG><a name="[40]"></a>hardware_init</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, device_depend.o(i.hardware_init))
+<P><STRONG><a name="[42]"></a>hardware_init</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, device_depend.o(i.hardware_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = hardware_init &rArr; SystemCoreClockUpdate &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
-<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setup_systick
+<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setup_systick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3a]"></a>invokestatic_callFunction</STRONG> (Thumb, 148 bytes, Stack size 120 bytes, ravem.o(i.invokestatic_callFunction))
-<BR><BR>[Stack]<UL><LI>Max Depth = 292<LI>Call Chain = invokestatic_callFunction &rArr; getIntegerFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
+<P><STRONG><a name="[39]"></a>invokestatic_callFunction</STRONG> (Thumb, 166 bytes, Stack size 136 bytes, ravem.o(i.invokestatic_callFunction))
+<BR><BR>[Stack]<UL><LI>Max Depth = 308<LI>Call Chain = invokestatic_callFunction &rArr; getIntegerFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
+<BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setIntegerToStack
+<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_name
 <LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getIntegerFromOperandStack
-<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;time_millis
+<LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;time_millis
 </UL>
 <BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 </UL>
 
-<P><STRONG><a name="[39]"></a>invokevirtual_callFunction</STRONG> (Thumb, 226 bytes, Stack size 128 bytes, ravem.o(i.invokevirtual_callFunction))
-<BR><BR>[Stack]<UL><LI>Max Depth = 308<LI>Call Chain = invokevirtual_callFunction &rArr; getStringFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
+<P><STRONG><a name="[38]"></a>invokevirtual_callFunction</STRONG> (Thumb, 244 bytes, Stack size 136 bytes, ravem.o(i.invokevirtual_callFunction))
+<BR><BR>[Stack]<UL><LI>Max Depth = 316<LI>Call Chain = invokevirtual_callFunction &rArr; getStringFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
+<BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setIntegerToStack
-<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getStringFromOperandStack
-<LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_read
-<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_print
-<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_name
+<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getStringFromOperandStack
+<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_read
+<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_print
+<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 </UL>
 
-<P><STRONG><a name="[1a]"></a>main</STRONG> (Thumb, 430 bytes, Stack size 120 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 604<LI>Call Chain = main &rArr; decodeVM &rArr; invokevirtual_callFunction &rArr; getStringFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
+<P><STRONG><a name="[1a]"></a>main</STRONG> (Thumb, 416 bytes, Stack size 104 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 564<LI>Call Chain = main &rArr; decodeVM &rArr; invokevirtual_callFunction &rArr; getStringFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_print
-<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
-<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekCodeArrtibute
-<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hardware_init
+<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_print
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekCodeArrtibute
+<LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hardware_init
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
-<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;realloc
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;realloc
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
-<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[37]"></a>putField</STRONG> (Thumb, 86 bytes, Stack size 64 bytes, ravem.o(i.putField))
-<BR><BR>[Stack]<UL><LI>Max Depth = 244<LI>Call Chain = putField &rArr; getStringFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
+<P><STRONG><a name="[37]"></a>putField</STRONG> (Thumb, 220 bytes, Stack size 80 bytes, ravem.o(i.putField))
+<BR><BR>[Stack]<UL><LI>Max Depth = 252<LI>Call Chain = putField &rArr; getIntegerFromOperandStack &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getStringFromOperandStack
+<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_desc
+<LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getIntegerFromOperandStack
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;realloc
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
 </UL>
 <BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 </UL>
 
-<P><STRONG><a name="[48]"></a>realloc</STRONG> (Thumb, 110 bytes, Stack size 40 bytes, mallocr.o(i.realloc))
+<P><STRONG><a name="[49]"></a>realloc</STRONG> (Thumb, 110 bytes, Stack size 40 bytes, mallocr.o(i.realloc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = realloc &rArr; malloc &rArr; internal_alloc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;internal_alloc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putField
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[47]"></a>seekCodeArrtibute</STRONG> (Thumb, 554 bytes, Stack size 144 bytes, ravem.o(i.seekCodeArrtibute))
-<BR><BR>[Stack]<UL><LI>Max Depth = 212<LI>Call Chain = seekCodeArrtibute &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
+<P><STRONG><a name="[48]"></a>seekCodeArrtibute</STRONG> (Thumb, 554 bytes, Stack size 152 bytes, ravem.o(i.seekCodeArrtibute))
+<BR><BR>[Stack]<UL><LI>Max Depth = 220<LI>Call Chain = seekCodeArrtibute &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
+<BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getLengthOfConstantInfo
-<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
+<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getLengthOfConstantInfo
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bc_seek
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3d]"></a>seekConstClassNumString</STRONG> (Thumb, 64 bytes, Stack size 48 bytes, ravem.o(i.seekConstClassNumString))
+<P><STRONG><a name="[3f]"></a>seekConstClassNumString</STRONG> (Thumb, 64 bytes, Stack size 48 bytes, ravem.o(i.seekConstClassNumString))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
 </UL>
-<BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_name
-<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getStringFromOperandStack
+<BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_name
+<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekNameAndType_desc
+<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getStringFromOperandStack
 <LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getIntegerFromOperandStack
 </UL>
 
-<P><STRONG><a name="[38]"></a>seekNameAndType_name</STRONG> (Thumb, 88 bytes, Stack size 48 bytes, ravem.o(i.seekNameAndType_name))
+<P><STRONG><a name="[3c]"></a>seekNameAndType_desc</STRONG> (Thumb, 88 bytes, Stack size 48 bytes, ravem.o(i.seekNameAndType_desc))
+<BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = seekNameAndType_desc &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
+</UL>
+<BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekConstClassNumString
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
+</UL>
+<BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putField
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getField
+</UL>
+
+<P><STRONG><a name="[44]"></a>seekNameAndType_name</STRONG> (Thumb, 88 bytes, Stack size 48 bytes, ravem.o(i.seekNameAndType_name))
 <BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = seekNameAndType_name &rArr; seekConstClassNumString &rArr; getConstantPoolInfo &rArr; getLengthOfConstantInfo &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekConstClassNumString
-<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seekConstClassNumString
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getConstantPoolInfo
 </UL>
-<BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
+<BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
+<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
 </UL>
 
 <P><STRONG><a name="[34]"></a>setIntegerToStack</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, ravem.o(i.setIntegerToStack))
@@ -579,8 +599,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
-<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
+<BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
+<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getField
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 </UL>
 
@@ -592,20 +613,20 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decodeVM
 </UL>
 
-<P><STRONG><a name="[41]"></a>setup_systick</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, device_depend.o(i.setup_systick))
+<P><STRONG><a name="[43]"></a>setup_systick</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, device_depend.o(i.setup_systick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = setup_systick &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Config
 </UL>
-<BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hardware_init
+<BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hardware_init
 </UL>
 
-<P><STRONG><a name="[43]"></a>time_millis</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, device_depend.o(i.time_millis))
-<BR><BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
+<P><STRONG><a name="[45]"></a>time_millis</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, device_depend.o(i.time_millis))
+<BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokestatic_callFunction
 </UL>
 
-<P><STRONG><a name="[46]"></a>uart_init</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, device_depend.o(i.uart_init))
+<P><STRONG><a name="[47]"></a>uart_init</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, device_depend.o(i.uart_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = uart_init &rArr; UARTInit &rArr; UARTClock_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTInit
@@ -613,18 +634,19 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[44]"></a>uart_print</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, device_depend.o(i.uart_print))
+<P><STRONG><a name="[3e]"></a>uart_print</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, device_depend.o(i.uart_print))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = uart_print &rArr; UARTSend
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTSend
+<BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTSend
 </UL>
-<BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
+<BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getField
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[45]"></a>uart_read</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, device_depend.o(i.uart_read))
-<BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
+<P><STRONG><a name="[46]"></a>uart_read</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, device_depend.o(i.uart_read))
+<BR><BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invokevirtual_callFunction
 </UL>
 <P>
 <H3>
@@ -641,7 +663,7 @@ Local Symbols
 <P><STRONG><a name="[4b]"></a>SysTick_Config</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, device_depend.o(i.SysTick_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SysTick_Config
 </UL>
-<BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setup_systick
+<BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setup_systick
 </UL>
 
 <P><STRONG><a name="[2b]"></a>_printf_core</STRONG> (Thumb, 452 bytes, Stack size 88 bytes, printf3.o(i._printf_core), UNUSED)
@@ -660,7 +682,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;realloc
+<BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;realloc
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 </UL>
 <P>

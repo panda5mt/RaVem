@@ -118,7 +118,7 @@ const_pool_t getConstantPoolInfo(int const_num){
 	
 	while(1)
 	{
-		c.tab = *bc_seek(10+i,1);	// tab
+		c.tag = *bc_seek(10+i,1);	// tag
 		length = getLengthOfConstantInfo(*bc_seek(10+i,1));
 		
 		// Constant_UTF8
@@ -127,7 +127,7 @@ const_pool_t getConstantPoolInfo(int const_num){
 		}
 
 		if(j == const_num)break;
-		if((c.tab == CONSTANT_Long)||(c.tab == CONSTANT_Double)){
+		if((c.tag == CONSTANT_Long)||(c.tag == CONSTANT_Double)){
 			j = j + 2;
 		}else{
 			j = j + 1;
@@ -140,7 +140,7 @@ const_pool_t getConstantPoolInfo(int const_num){
 	c.index = ((*bc_seek(11+i,1)<<8) + *bc_seek(12+i,1));
 	c.index2 = ((*bc_seek(13+i,1)<<8) + *bc_seek(14+i,1));
 	c.bc_num = 10 + i; //todo: fix this
-	switch(c.tab)
+	switch(c.tag)
 	{
 		case CONSTANT_Utf8:
 			memcpy((char*)cp_str,  bc_seek(13+i,c.index), c.index);
@@ -174,7 +174,7 @@ const_pool_t seekConstClassNumString(int const_num)
 	const_pool_t c;
 	c = getConstantPoolInfo(const_num);
 	
-	switch (c.tab)
+	switch (c.tag)
 	{
 		case CONSTANT_String:
 		case CONSTANT_Class:
@@ -192,7 +192,7 @@ const_pool_t seekClassIndex(int const_num){
 	const_pool_t c;
 	c = getConstantPoolInfo(const_num);
 	
-	switch(c.tab)
+	switch(c.tag)
 	{
 		case CONSTANT_Methodref:
 		case CONSTANT_Fieldref:
@@ -212,7 +212,7 @@ const_pool_t seekNameAndType_name(int const_num){
 	c = getConstantPoolInfo(const_num);
 	
 	
-	switch(c.tab)
+	switch(c.tag)
 	{
 		case CONSTANT_Methodref:
 		case CONSTANT_Fieldref:
@@ -235,7 +235,7 @@ const_pool_t seekNameAndType_desc(int const_num){
 	const_pool_t c;
 	c = getConstantPoolInfo(const_num);
 	
-	switch(c.tab)
+	switch(c.tag)
 	{
 		case CONSTANT_Methodref:
 		case CONSTANT_Fieldref:
@@ -268,7 +268,7 @@ class_st seekCodeArrtibute(char* method_name,int strlen)
 	// get length of Constant_pool[last_num]
 	z = getConstantPoolInfo(total_const_pool_num - 1);
 	
-	if(z.tab == CONSTANT_Utf8) length = z.index + 3; else length = getLengthOfConstantInfo(z.tab);
+	if(z.tag == CONSTANT_Utf8) length = z.index + 3; else length = getLengthOfConstantInfo(z.tag);
 	
 	pointr = z.bc_num + length;
 	
@@ -374,11 +374,7 @@ char* getStringFromOperandStack(class_st cl)
 		sprintf(cp_str,"%c",(char)cl.op_stack[i]);
 		return cp_str;
 	}
-	if(cl.op_stack_type[i] == Stack_Field){
-		if(cl.field_mem_reg == NULL) return NULL;
-		cl.op_stack_type[i] = Stack_Nothing;
-		return cl.field_mem_reg;
-	}
+	
 	return NULL;
 }
 
@@ -397,7 +393,7 @@ int getIntegerFromOperandStack(class_st cl){
 	if(cl.op_stack_type[i] == Stack_ConstantPool){ // Const_Integer
 		cp = seekConstClassNumString(cl.op_stack[i]);
 		cl.op_stack_type[i] = 0;
-		if((cp.tab == CONSTANT_Long)||(cp.tab == CONSTANT_Double))			
+		if((cp.tag == CONSTANT_Long)||(cp.tag == CONSTANT_Double))			
 			return (cp.index2);
 		else
 			return (cp.index);
@@ -419,7 +415,7 @@ class_st setStackFromConstantPool(class_st cl, int cp_num){
 		}
 	}
 	
-	if((i == cl.stack_num - 1)&&(cl.op_stack_type[i]!=0))
+	if((i == cl.stack_num - 1)&&(cl.op_stack_type[i] != 0))
 		return cl;// stack full
 	
 	cl.op_stack_type[i] = Stack_ConstantPool;
@@ -472,37 +468,52 @@ class_st setIntegerToStack(class_st cl, int num){
 	return cl;
 }
 
-class_st putField(class_st cl){
-	char *s = getStringFromOperandStack(cl);
-	if(cl.field_mem_reg == NULL){
-		cl.field_mem_reg = (char *)malloc(sizeof(char)*strlen(s));
+class_st putField(class_st cl, int cp_num){
+	if(strncmp(seekNameAndType_desc(cp_num).stack_pt,"I",1) == 0){ // int type
+		if(cl.field_num == 0){	// first mem alloc
+			cl.field_mem_reg = (int *)malloc(sizeof(int) * 1);
+			cl.field_mem_type = (int *)malloc(sizeof(int) * 1);
+			cl.field_num = cl.field_num + 1;
+			
+			cl.field_mem_reg[0] = getIntegerFromOperandStack(cl);
+			cl.field_mem_type[0] = cp_num; 
+			
+			return cl;
+		}
+		else{ // field_num != 0
+			int i;
+			for(i = 0; i < cl.field_num ; i++){
+				if(cl.field_mem_type[i] == cp_num){ //already exists
+					cl.field_mem_reg[i] = getIntegerFromOperandStack(cl);
+				
+					return cl;
+				}
+			}//
+			cl.field_num = cl.field_num + 1;
+			cl.field_mem_reg = (int *)realloc(cl.field_mem_reg, sizeof(int) * (cl.field_num));
+			cl.field_mem_type = (int *)realloc(cl.field_mem_type, sizeof(int) * (cl.field_num));
+			
+			cl.field_mem_reg[cl.field_num - 1] = getIntegerFromOperandStack(cl);
+			cl.field_mem_type[cl.field_num - 1] = cp_num;
+			return cl;
+		}		
 	}
-	else{
-		free(cl.field_mem_reg);
-		cl.field_mem_reg = (char *)malloc(sizeof(char)*strlen(s));
-	}
-	memcpy(&cl.field_mem_reg, &s,strlen(s));
+	
+	//memcpy(&cl.field_mem_reg, &s,strlen(s));
 	return cl;
 }
 
-class_st getField(class_st cl){
-	int i;
-	for(i=0 ; i < cl.stack_num ; i++){		
-		if(cl.op_stack_type[i]==0){ 							// seek top of stack
-			break; 
+class_st getField(class_st cl,int cp_num){
+	if(strncmp(seekNameAndType_desc(cp_num).stack_pt,"I",1) == 0){ // int type
+		int i;
+		for(i = 0; i < cl.field_num ; i++){
+			if(cl.field_mem_type[i] == cp_num){ //already exists
+				cl = setIntegerToStack(cl,cl.field_mem_reg[i]);	
+				return cl;
+			}
 		}
+		uart_print("getField error\r\n");
 	}
-	
-	if((i == cl.stack_num - 1)&&(cl.op_stack_type[i]!=0))
-		return cl;// stack full
-	
-	cl.op_stack_type[i] = Stack_Field;
-	cl.op_stack[i] = 0;
-	i = i + 1;
-	if(i == cl.stack_num)
-		return cl;
-	else 
-		cl.op_stack_type[i] = Stack_Nothing;
 	return cl;
 }
 
@@ -615,11 +626,11 @@ class_st decodeVM(class_st cl){
 			
 			case JAVA_getfield:
 				now_code = now_code + 3;
-				cl = getField(cl);
+				cl = getField(cl,(*bc_seek(now_code + 1, 1) << 8) + *bc_seek(now_code + 2, 1));
 				break;
 			case JAVA_putfield:
 				now_code = now_code + 3;
-				cl = putField(cl);
+				cl = putField(cl,(*bc_seek(now_code + 1, 1) << 8) + *bc_seek(now_code + 2, 1));
 				break;
 			
 			case JAVA_i2c:
@@ -636,12 +647,12 @@ class_st decodeVM(class_st cl){
 				now_code = now_code + 2;
 				break;
 			case JAVA_invokevirtual:
-				cl = invokevirtual_callFunction(cl,seekNameAndType_name((*bc_seek(now_code + 1, 1) << 8) + *bc_seek(now_code + 2, 1)).stack_pt);
+				cl = invokevirtual_callFunction(cl,(*bc_seek(now_code + 1, 1) << 8) + *bc_seek(now_code + 2, 1));
 				now_code = now_code + 3;
 				break;
 
 			case JAVA_invokestatic:
-				cl = invokestatic_callFunction(cl,seekNameAndType_name((*bc_seek(now_code + 1, 1) << 8) + *bc_seek(now_code + 2, 1)).stack_pt);
+				cl = invokestatic_callFunction(cl,(*bc_seek(now_code + 1, 1) << 8) + *bc_seek(now_code + 2, 1));
 				now_code = cl.bc_offset + cl.code_offset;  
 				break;
 			
@@ -667,7 +678,32 @@ class_st decodeVM(class_st cl){
 	return cl;
 }
 
-class_st invokestatic_callFunction(class_st cl, char* func_name){
+class_st invokespecial_callFunction(class_st cl, int cp_num){
+
+	char* func_name = seekNameAndType_name(cp_num).stack_pt;
+	
+	if(strncmp(func_name,"<init>",6) == 0){
+		int i;
+		for(i = 0 ; i < cl.stack_num ; i++){
+			if(cl.op_stack_type[i] == Stack_Nothing){ // seek top of stack
+					if(i == 0){
+						cl.threadCommand = Thread_getInitMethod;
+						return cl;
+					}
+				break; 
+			}
+		}
+		i = i - 1;
+		cl.threadCommand = Thread_getInitMethodWithStack;
+		cl.threadArg = i;
+		return cl;
+	}
+	return cl;
+}
+
+class_st invokestatic_callFunction(class_st cl, int cp_num){
+	
+	char* func_name = seekNameAndType_name(cp_num).stack_pt;
 	
 	if(strncmp(func_name,"sleep",5) == 0){
 		int hold_time = 0;
@@ -699,7 +735,9 @@ class_st invokestatic_callFunction(class_st cl, char* func_name){
 }
 
 //user code
-class_st invokevirtual_callFunction(class_st cl, char* func_name){
+class_st invokevirtual_callFunction(class_st cl, int cp_num){
+	
+	char* func_name = seekNameAndType_name(cp_num).stack_pt;
 	
 	if(strncmp(func_name,"println",7) == 0){
 		char str[64]; 

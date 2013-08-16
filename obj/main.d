@@ -13,3 +13,4 @@
 .\obj\main.o: .\include\lpc8xx_gpio.h
 .\obj\main.o: .\include\lpc8xx_mrt.h
 .\obj\main.o: .\include\lpc8xx_uart.h
+.\obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h

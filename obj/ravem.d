@@ -13,3 +13,4 @@
 .\obj\ravem.o: .\include\lpc8xx_gpio.h
 .\obj\ravem.o: .\include\lpc8xx_mrt.h
 .\obj\ravem.o: .\include\lpc8xx_uart.h
+.\obj\ravem.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h

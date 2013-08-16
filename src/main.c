@@ -22,18 +22,14 @@ int main (void) {
 	p = (class_st *)malloc(sizeof(class_st) * 1);	
 	p[0] = seekCodeArrtibute("main",4);	//main_attribute
 	p[0].field_mem_reg = NULL;
+	p[0].field_num = 0;
 	p[0].local_reg = (int *)malloc(sizeof(int) * p[0].local_num);
 	p[0].op_stack_type = (int *)malloc(sizeof(int) * p[0].stack_num);
 	p[0].op_stack = (int *)malloc(sizeof(int) * p[0].stack_num);	
 	p[0].op_stack_type[0] = 0;
 	p[0].threadCommand = Thread_Active;
 	p[0].myThreadNum   = 0;
-	
 		
-	char s[32];
-	sprintf(s,"stack=%d,local=%d",p[0].stack_num,p[0].local_num);
-	uart_print(s);
-	
 	while(1){
 		for(lp = 0 ; lp < thread_count + 1 ;lp++){
 			if(p[lp].threadCommand != Thread_returned)
@@ -49,6 +45,7 @@ int main (void) {
 
 				p[thread_count] = seekCodeArrtibute("run",3);	// run method(start() calls this method)
 				p[thread_count].field_mem_reg = NULL;
+				p[thread_count].field_num = 0;
 				p[thread_count].local_reg = (int *)malloc(sizeof(int) * p[thread_count].local_num);
 				p[thread_count].op_stack_type = (int *)malloc(sizeof(int) * p[thread_count].stack_num);
 				p[thread_count].op_stack = (int *)malloc(sizeof(int) * p[thread_count].stack_num);	

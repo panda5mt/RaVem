@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Tue Aug 13 23:34:35 2013
+;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Fri Aug 16 11:59:18 2013
 ;VERSION 0.2
 ;FILE device_depend.o
 __asm___15_device_depend_c_600f124e____REV16 <= USED 0
@@ -35,8 +35,8 @@ __asm___6_main_c_main____REVSH <= USED 0
 ;FILE ravem.o
 __asm___7_ravem_c_vm_array____REV16 <= USED 0
 __asm___7_ravem_c_vm_array____REVSH <= USED 0
+invokespecial_callFunction <= USED 0
 seekClassIndex <= USED 0
-seekNameAndType_desc <= USED 0
 ;FILE startup_lpc8xx.o
 ;FILE system_lpc8xx.o
 __asm___15_system_LPC8xx_c_5d646a67____REV16 <= USED 0

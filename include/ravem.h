@@ -10,6 +10,7 @@
 
 #include "type.h"
 #include "device_depend.h"
+#include <stdlib.h>
 
 // constant_pool
 //#define Constant_Type				Value		length (in bytes)
@@ -34,13 +35,15 @@
 #define Stack_IntType				2
 #define Stack_DoubleType		3
 #define Stack_ConstantPool	4
-#define Stack_Field					5
 
 //Thread State and Command
-#define Thread_returned					0
-#define Thread_Active						1
-#define Thread_getStartMethod		2
-#define	Thread_inSleep					3
+#define Thread_returned									0
+#define Thread_Active										1
+#define Thread_getStartMethod						2
+#define Thread_getInitMethod						3
+#define Thread_getInitMethodWithStack		4
+#define Thread_initDone									5	
+#define	Thread_inSleep									6
 
 // instruction code			mnemonic code		number of arguments
 #define JAVA_nop								0x00					// 0
@@ -95,7 +98,7 @@
 
 
 typedef struct {
-  int		tab;
+  int		tag;
 	int		index;
 	int		index2;
 	int		bc_num;		//pointer of bytecode
@@ -112,8 +115,10 @@ typedef struct {
 	int *op_stack_type;		// type of each stack,0:nothing 1:int,byte 2:long,float,double 3:See CP 
 	int stack_num;				// number of stacks
 	int local_num;				// number of local registers
-	char *field_mem_reg;	// Field (getfield and putfield)
-	int myThreadNum;			// this Number of thread(you must put #0 "main" method, and do not put #0 any other methods)
+	int *field_mem_reg;		// Field (getfield and putfield)
+	int *field_mem_type;	// Member variable type (Int or String)
+	int field_num;				// number of field length
+	int myThreadNum;			// Number of this thread(you must put #0 "main" method, and do not put #0 any other methods)
 	int	threadCommand;		// 
 	int	threadArg;
 } class_st;
@@ -133,11 +138,13 @@ char* getStringFromOperandStack(class_st cl);
 class_st setStackFromConstantPool(class_st cl, int cp_num);
 class_st setIntegerToStack(class_st cl, int num);
 //
-class_st getField(class_st cl);
-class_st putField(class_st cl);
+class_st getField(class_st cl, int cp_num);
+class_st putField(class_st cl, int cp_num);
 //
-class_st invokevirtual_callFunction(class_st cl, char* func_name);
-class_st invokestatic_callFunction(class_st cl, char* func_name);
+class_st invokevirtual_callFunction(class_st cl, int cp_num);
+class_st invokestatic_callFunction(class_st cl, int cp_num);
+class_st invokespecial_callFunction(class_st cl, int cp_num);
+
 class_st decodeVM(class_st cl);
 
 

@@ -44,7 +44,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\obj\</OutputDirectory>
-          <OutputName>dsp</OutputName>
+          <OutputName>ravem</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -53,7 +53,7 @@
           <ListingPath>.\lst\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
-          <CreateBatchFile>0</CreateBatchFile>
+          <CreateBatchFile>1</CreateBatchFile>
           <BeforeCompile>
             <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
@@ -163,10 +163,10 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4096</DriverSelection>
+            <DriverSelection>4104</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <Flash2>BIN\CMSIS_AGDI.dll</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
@@ -379,7 +379,7 @@
             <useFile>0</useFile>
             <TextAddressRange>0x00000000</TextAddressRange>
             <DataAddressRange>0x1FFF0000</DataAddressRange>
-            <ScatterFile></ScatterFile>
+            <ScatterFile>.\obj\ravem.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc></Misc>
@@ -426,6 +426,11 @@
               <FileName>ravem.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\ravem.c</FilePath>
+            </File>
+            <File>
+              <FileName>pool.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\pool.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -549,6 +554,11 @@
               <FileName>ravem.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\include\ravem.h</FilePath>
+            </File>
+            <File>
+              <FileName>pool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\include\pool.h</FilePath>
             </File>
           </Files>
         </Group>

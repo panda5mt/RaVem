@@ -9,6 +9,7 @@
 #define RAVEM_H_
 
 #include "type.h"
+#include "pool.h"
 #include "device_depend.h"
 #include <stdlib.h>
 
@@ -42,8 +43,9 @@
 #define Thread_getStartMethod						2
 #define Thread_getInitMethod						3
 #define Thread_getInitMethodWithStack		4
-#define Thread_initDone									5	
-#define	Thread_inSleep									6
+#define Thread_init											5	
+#define Thread_initIsDone								6	
+#define	Thread_inSleep									7
 
 // instruction code			mnemonic code		number of arguments
 #define JAVA_nop								0x00					// 0
@@ -59,6 +61,8 @@
 //#define JAVA_ldc_w							0x13					// xxx
 #define JAVA_ldc2_w							0x14					// 2
 
+#define JAVA_aload							0x19					// 1
+
 #define JAVA_iload_0						0x1A					// 0
 #define JAVA_iload_1						0x1B					// 0
 #define JAVA_iload_2						0x1C					// 0
@@ -68,6 +72,8 @@
 #define JAVA_aload_1						0x2b					// 0
 #define JAVA_aload_2						0x2c					// 0
 #define JAVA_aload_3						0x2d					// 0
+
+#define JAVA_astore							0x3A					// 1
 
 #define JAVA_istore_0						0x3B					// 0
 #define JAVA_istore_1						0x3C					// 0
@@ -110,17 +116,21 @@ typedef struct {
 	int bc_offset;				// offset of bytecode (this class starts here = bc_array[bc_offset]) 
 	int code_offset;			// offset of code (Now we translate here from bc_offset = bc_array[bc_offset+code_offset] )
 	int code_length;			// length of code
-	int *local_reg;				// local registers(malloc here)
-	int *op_stack;				// operand stack(malloc here) numerics or CP num
-	int *op_stack_type;		// type of each stack,0:nothing 1:int,byte 2:long,float,double 3:See CP 
-	int stack_num;				// number of stacks
+		int stack_num;				// number of stacks
 	int local_num;				// number of local registers
-	int *field_mem_reg;		// Field (getfield and putfield)
-	int *field_mem_type;	// Member variable type (Int or String)
 	int field_num;				// number of field length
 	int myThreadNum;			// Number of this thread(you must put #0 "main" method, and do not put #0 any other methods)
 	int	threadCommand;		// 
 	int	threadArg;
+	
+	int *local_reg;				// local registers(malloc here)
+	int *op_stack;				// operand stack(malloc here) numerics or CP num
+	int *op_stack_type;		// type of each stack,0:nothing 1:int,byte 2:long,float,double 3:See CP 
+
+	int *field_mem_reg;		// Field (getfield and putfield)
+	int *field_mem_type;	// Member variable type (Int or String)
+//	int *field_mem_reg;		// Field (getfield and putfield)
+//	int *field_mem_type;	// Member variable type (Int or String)
 } class_st;
 
 extern int32_t methods_count;
@@ -130,7 +140,7 @@ const_pool_t seekConstClassNumString(int const_num);
 const_pool_t seekClassIndex(int const_num);
 const_pool_t seekNameAndType_name(int const_num);
 const_pool_t seekNameAndType_desc(int const_num);
-class_st seekCodeArrtibute(char* method_name,int strlen);
+class_st seekCodeArrtibute(class_st cl, char* method_name,int strlen);
 //
 int getIntegerFromOperandStack(class_st cl);
 char* getStringFromOperandStack(class_st cl);

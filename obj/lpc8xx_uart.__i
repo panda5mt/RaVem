@@ -1,0 +1,5 @@
+-c --cpu Cortex-M0+ -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\..\..\..\INC\NXP\LPC8xx -I.\include -I.\mpool --c99 --loose_implicit_cast --gnu
+-I C:\Keil\ARM\RV31\INC
+-I C:\Keil\ARM\CMSIS\Include
+-I C:\Keil\ARM\Inc\NXP\LPC8xx
+-DARM_MATH_CM0 -DUSE_LPC800 -o .\obj\lpc8xx_uart.o --omf_browse .\obj\lpc8xx_uart.crf --depend .\obj\lpc8xx_uart.d "src\lpc8xx_uart.c"

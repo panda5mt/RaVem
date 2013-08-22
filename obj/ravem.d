@@ -3,6 +3,7 @@
 .\obj\ravem.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
 .\obj\ravem.o: .\include\ravem.h
 .\obj\ravem.o: .\include\type.h
+.\obj\ravem.o: .\include\pool.h
 .\obj\ravem.o: .\include\device_depend.h
 .\obj\ravem.o: C:\Keil\ARM\Inc\NXP\LPC8xx\LPC8xx.h
 .\obj\ravem.o: C:\Keil\ARM\CMSIS\Include\core_cm0plus.h

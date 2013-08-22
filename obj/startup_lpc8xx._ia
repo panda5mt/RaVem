@@ -1,0 +1,5 @@
+--cpu Cortex-M0+ --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"
+-I C:\Keil\ARM\RV31\INC
+-I C:\Keil\ARM\CMSIS\Include
+-I C:\Keil\ARM\Inc\NXP\LPC8xx
+--list .\lst\startup_lpc8xx.lst --xref -o .\obj\startup_lpc8xx.o --depend .\obj\startup_lpc8xx.d "startup_LPC8xx.s"

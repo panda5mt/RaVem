@@ -89,6 +89,7 @@
 
 #define JAVA_iadd								0x60					// 0
 
+#define JAVA_i2l								0x85					// 0
 #define JAVA_i2c								0x92					// 0
 
 #define JAVA_goto								0xa7					// 2
@@ -129,8 +130,7 @@ typedef struct {
 
 	int *field_mem_reg;		// Field (getfield and putfield)
 	int *field_mem_type;	// Member variable type (Int or String)
-//	int *field_mem_reg;		// Field (getfield and putfield)
-//	int *field_mem_type;	// Member variable type (Int or String)
+
 } class_st;
 
 extern int32_t methods_count;

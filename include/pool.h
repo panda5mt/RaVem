@@ -16,7 +16,7 @@
 
 #define memory_available    1
 #define memory_invalid      0
-#define pool_size           256
+#define pool_size           256 // 256 * 4 = 1kByte
 #define magic_value         0xDEADDEAD
 //#define USE_MAGIC
 

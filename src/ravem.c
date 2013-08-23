@@ -59,7 +59,6 @@ const unsigned char vm_array[] = {
 	0x11, 0x00, 0x08, 0x00, 0x12, 0x00, 0x10, 0x00, 0x14, 0x00, 0x14, 0x00, 0x15, 0x00, 0x18, 0x00, 
 	0x17, 0x00, 0x20, 0x00, 0x18, 0x00, 0x01, 0x00, 0x19, 0x00, 0x00, 0x00, 0x02, 0x00, 0x1A, 0x00, 
 	0x00, 0x00
-
 };
 
 char cp_str[32];
@@ -647,6 +646,11 @@ class_st decodeVM(class_st cl){
 				now_code = now_code + 3;
 				break;
 			
+			case	JAVA_i2l:
+				//cl = changeStackType(cl, Stack_LongType);
+				now_code = now_code + 1;
+			break;
+			
 			case JAVA_i2c:
 				now_code = now_code + 1;
 				cl = changeStackType(cl, Stack_CharType);	
@@ -660,6 +664,12 @@ class_st decodeVM(class_st cl){
 				cl = setIntegerToStack(cl,*bc_seek(now_code + 1,1));
 				now_code = now_code + 2;
 				break;
+			
+			case JAVA_sipush:
+				cl = setIntegerToStack(cl,((*bc_seek(now_code + 1, 1) << 8) + *bc_seek(now_code + 2, 1)));
+				now_code = now_code + 3;
+				break;
+			
 			case JAVA_invokevirtual:
 				cl = invokevirtual_callFunction(cl,(*bc_seek(now_code + 1, 1) << 8) + *bc_seek(now_code + 2, 1));
 				now_code = now_code + 3;

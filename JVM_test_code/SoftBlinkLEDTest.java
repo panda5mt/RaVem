@@ -1,15 +1,17 @@
-public class hoge1 implements Runnable{
+public class SoftBlinkLEDTest implements Runnable{
     private int x,y;
     
-    public hoge1(int sleep_time_ms,int bit_num){
-        x = sleep_time_ms;
-        y = bit_num;
+    public SoftBlinkLEDTest(int bit_num, int sleep_time_ms){
+        
+        x = bit_num;
+        y = sleep_time_ms;
+       
     }
     
     public static void main(String[] args){
         
-        hoge1 LED1 = new hoge1(40,7);       // PIO0_7
-        hoge1 LED2 = new hoge1(1000,16);    // PIO0_16
+        SoftBlinkLEDTest LED1 = new SoftBlinkLEDTest(7, 40);       // PIO0_7, half-cycle = 40msec
+        SoftBlinkLEDTest LED2 = new SoftBlinkLEDTest(16, 1000);    // PIO0_16, half-cycle = 1000msec
         
         Thread th1 = new Thread(LED1);
         Thread th2 = new Thread(LED2);
@@ -19,20 +21,22 @@ public class hoge1 implements Runnable{
     }
     
     public void run(){
-        int time = x, port_bit=y;
+        
+        int port_bit = x, time = y;
+        
         while(true){
             try{
                 Thread.sleep(time);
             }catch(Exception e){}
             
-            lpc800.portWrite(port_bit,1);
+            lpc800.portWrite(port_bit, 1);
             System.out.println("LED_on");
             
             try{
                 Thread.sleep(time);
             }catch(Exception e){}
             
-            lpc800.portWrite(port_bit,0);
+            lpc800.portWrite(port_bit, 0);
             System.out.println("LED_off");
         }
     }

@@ -1,19 +1,16 @@
-;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Fri Aug 23 10:21:50 2013
+;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Fri Aug 23 13:24:12 2013
 ;VERSION 0.2
 ;FILE device_depend.o
 __asm___15_device_depend_c_600f124e____REV16 <= USED 0
 __asm___15_device_depend_c_600f124e____REVSH <= USED 0
 ;FILE lpc8xx_gpio.o
 GPIOGetPinValue <= USED 0
-GPIOInit <= USED 0
 GPIOPatternMatchEnable <= USED 0
 GPIOPatternMatchInit <= USED 0
 GPIOPinIntClear <= USED 0
 GPIOPinIntDisable <= USED 0
 GPIOPinIntEnable <= USED 0
 GPIOPinIntStatus <= USED 0
-GPIOSetBitValue <= USED 0
-GPIOSetDir <= USED 0
 GPIOSetPatternMatchInput <= USED 0
 GPIOSetPatternMatchSlice <= USED 0
 GPIOSetPinInterrupt <= USED 0

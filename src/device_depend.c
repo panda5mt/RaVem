@@ -25,6 +25,9 @@ void hardware_init(void){
 	LPC_SWM->PINENABLE0 = 0xffffffb3UL; 
 	
 	setup_systick();
+		 
+	GPIOInit();
+
 }
 
 void uart_print(char *str){
@@ -45,6 +48,13 @@ int uart_read(void){
 
 int time_millis(void){
 	return msTicks;
+}
+
+void port_write(int port, int bit, int value){
+	
+	GPIOSetDir(port, bit, 1);
+	GPIOSetBitValue(port, bit, value);
+
 }
 
 

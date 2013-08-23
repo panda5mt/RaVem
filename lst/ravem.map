@@ -48,6 +48,9 @@ Section Cross References
     device_depend.o(i.SysTick_Handler) refers to device_depend.o(.data) for .data
     device_depend.o(i.hardware_init) refers to system_lpc8xx.o(i.SystemCoreClockUpdate) for SystemCoreClockUpdate
     device_depend.o(i.hardware_init) refers to device_depend.o(i.setup_systick) for setup_systick
+    device_depend.o(i.hardware_init) refers to lpc8xx_gpio.o(i.GPIOInit) for GPIOInit
+    device_depend.o(i.port_write) refers to lpc8xx_gpio.o(i.GPIOSetDir) for GPIOSetDir
+    device_depend.o(i.port_write) refers to lpc8xx_gpio.o(i.GPIOSetBitValue) for GPIOSetBitValue
     device_depend.o(i.setup_systick) refers to uidiv.o(.text) for __aeabi_uidivmod
     device_depend.o(i.setup_systick) refers to device_depend.o(i.SysTick_Config) for SysTick_Config
     device_depend.o(i.setup_systick) refers to system_lpc8xx.o(.data) for SystemCoreClock
@@ -100,6 +103,7 @@ Section Cross References
     ravem.o(i.invokestatic_callFunction) refers to ravem.o(i.getIntegerFromOperandStack) for getIntegerFromOperandStack
     ravem.o(i.invokestatic_callFunction) refers to device_depend.o(i.time_millis) for time_millis
     ravem.o(i.invokestatic_callFunction) refers to ravem.o(i.setIntegerToStack) for setIntegerToStack
+    ravem.o(i.invokestatic_callFunction) refers to device_depend.o(i.port_write) for port_write
     ravem.o(i.invokevirtual_callFunction) refers to ravem.o(i.seekNameAndType_name) for seekNameAndType_name
     ravem.o(i.invokevirtual_callFunction) refers to memcpya.o(.text) for __aeabi_memcpy4
     ravem.o(i.invokevirtual_callFunction) refers to strncmp.o(.text) for strncmp
@@ -431,15 +435,12 @@ Removing Unused input sections from the image.
     Removing lpc8xx_gpio.o(.rev16_text), (4 bytes).
     Removing lpc8xx_gpio.o(.revsh_text), (4 bytes).
     Removing lpc8xx_gpio.o(i.GPIOGetPinValue), (36 bytes).
-    Removing lpc8xx_gpio.o(i.GPIOInit), (36 bytes).
     Removing lpc8xx_gpio.o(i.GPIOPatternMatchEnable), (40 bytes).
     Removing lpc8xx_gpio.o(i.GPIOPatternMatchInit), (16 bytes).
     Removing lpc8xx_gpio.o(i.GPIOPinIntClear), (20 bytes).
     Removing lpc8xx_gpio.o(i.GPIOPinIntDisable), (40 bytes).
     Removing lpc8xx_gpio.o(i.GPIOPinIntEnable), (40 bytes).
     Removing lpc8xx_gpio.o(i.GPIOPinIntStatus), (24 bytes).
-    Removing lpc8xx_gpio.o(i.GPIOSetBitValue), (24 bytes).
-    Removing lpc8xx_gpio.o(i.GPIOSetDir), (28 bytes).
     Removing lpc8xx_gpio.o(i.GPIOSetPatternMatchInput), (16 bytes).
     Removing lpc8xx_gpio.o(i.GPIOSetPatternMatchSlice), (84 bytes).
     Removing lpc8xx_gpio.o(i.GPIOSetPinInterrupt), (100 bytes).
@@ -484,7 +485,7 @@ Removing Unused input sections from the image.
     Removing depilogue.o(.text), (192 bytes).
     Removing depilogue.o(i.__ARM_clz), (46 bytes).
 
-55 unused section(s) (total 2092 bytes) removed from the image.
+52 unused section(s) (total 2004 bytes) removed from the image.
 
 ==============================================================================
 
@@ -498,38 +499,38 @@ Image Symbol Table
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/fputc.c           0x00000000   Number         0  fputc.o ABSOLUTE
     ../clib/microlib/stdio/semi.s            0x00000000   Number         0  semi.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
-    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
     ../clib/microlib/string/strncmp.c        0x00000000   Number         0  strncmp.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusesemip.o ABSOLUTE
@@ -577,71 +578,75 @@ Image Symbol Table
     .text                                    0x00000140   Section        0  strlen.o(.text)
     .text                                    0x0000014e   Section        0  strncmp.o(.text)
     .text                                    0x0000016c   Section       36  init.o(.text)
-    i.MRT_IRQHandler                         0x00000190   Section        0  lpc8xx_mrt.o(i.MRT_IRQHandler)
-    i.NVIC_DisableIRQ                        0x000001b0   Section        0  lpc8xx_uart.o(i.NVIC_DisableIRQ)
-    NVIC_DisableIRQ                          0x000001b1   Thumb Code    14  lpc8xx_uart.o(i.NVIC_DisableIRQ)
-    i.NVIC_EnableIRQ                         0x000001c4   Section        0  lpc8xx_uart.o(i.NVIC_EnableIRQ)
-    NVIC_EnableIRQ                           0x000001c5   Thumb Code    14  lpc8xx_uart.o(i.NVIC_EnableIRQ)
-    i.PININT0_IRQHandler                     0x000001d8   Section        0  lpc8xx_gpio.o(i.PININT0_IRQHandler)
-    i.PININT1_IRQHandler                     0x000001e2   Section        0  lpc8xx_gpio.o(i.PININT1_IRQHandler)
-    i.PININT2_IRQHandler                     0x000001ec   Section        0  lpc8xx_gpio.o(i.PININT2_IRQHandler)
-    i.PININT4_IRQHandler                     0x000001f6   Section        0  lpc8xx_gpio.o(i.PININT4_IRQHandler)
-    i.PININT5_IRQHandler                     0x00000200   Section        0  lpc8xx_gpio.o(i.PININT5_IRQHandler)
-    i.PININT6_IRQHandler                     0x0000020a   Section        0  lpc8xx_gpio.o(i.PININT6_IRQHandler)
-    i.PININT7_IRQHandler                     0x00000214   Section        0  lpc8xx_gpio.o(i.PININT7_IRQHandler)
-    i.PININT_Handler                         0x00000220   Section        0  lpc8xx_gpio.o(i.PININT_Handler)
-    i.SysTick_Handler                        0x000002d8   Section        0  device_depend.o(i.SysTick_Handler)
-    i.UART0_IRQHandler                       0x000002e8   Section        0  lpc8xx_uart.o(i.UART0_IRQHandler)
-    i.__scatterload_null                     0x000002f8   Section        2  handlers.o(i.__scatterload_null)
+    i.GPIOInit                               0x00000190   Section        0  lpc8xx_gpio.o(i.GPIOInit)
+    i.GPIOSetBitValue                        0x000001b4   Section        0  lpc8xx_gpio.o(i.GPIOSetBitValue)
+    i.GPIOSetDir                             0x000001cc   Section        0  lpc8xx_gpio.o(i.GPIOSetDir)
+    i.MRT_IRQHandler                         0x000001e8   Section        0  lpc8xx_mrt.o(i.MRT_IRQHandler)
+    i.NVIC_DisableIRQ                        0x00000208   Section        0  lpc8xx_uart.o(i.NVIC_DisableIRQ)
+    NVIC_DisableIRQ                          0x00000209   Thumb Code    14  lpc8xx_uart.o(i.NVIC_DisableIRQ)
+    i.NVIC_EnableIRQ                         0x0000021c   Section        0  lpc8xx_uart.o(i.NVIC_EnableIRQ)
+    NVIC_EnableIRQ                           0x0000021d   Thumb Code    14  lpc8xx_uart.o(i.NVIC_EnableIRQ)
+    i.PININT0_IRQHandler                     0x00000230   Section        0  lpc8xx_gpio.o(i.PININT0_IRQHandler)
+    i.PININT1_IRQHandler                     0x0000023a   Section        0  lpc8xx_gpio.o(i.PININT1_IRQHandler)
+    i.PININT2_IRQHandler                     0x00000244   Section        0  lpc8xx_gpio.o(i.PININT2_IRQHandler)
+    i.PININT4_IRQHandler                     0x0000024e   Section        0  lpc8xx_gpio.o(i.PININT4_IRQHandler)
+    i.PININT5_IRQHandler                     0x00000258   Section        0  lpc8xx_gpio.o(i.PININT5_IRQHandler)
+    i.PININT6_IRQHandler                     0x00000262   Section        0  lpc8xx_gpio.o(i.PININT6_IRQHandler)
+    i.PININT7_IRQHandler                     0x0000026c   Section        0  lpc8xx_gpio.o(i.PININT7_IRQHandler)
+    i.SysTick_Config                         0x00000278   Section        0  device_depend.o(i.SysTick_Config)
+    SysTick_Config                           0x00000279   Thumb Code    42  device_depend.o(i.SysTick_Config)
+    i.SysTick_Handler                        0x000002b0   Section        0  device_depend.o(i.SysTick_Handler)
+    i.UART0_IRQHandler                       0x000002c0   Section        0  lpc8xx_uart.o(i.UART0_IRQHandler)
+    i.UART1_IRQHandler                       0x000002d0   Section        0  lpc8xx_uart.o(i.UART1_IRQHandler)
+    i.UART2_IRQHandler                       0x000002e0   Section        0  lpc8xx_uart.o(i.UART2_IRQHandler)
+    i.__scatterload_null                     0x000002f0   Section        2  handlers.o(i.__scatterload_null)
+    i._sputc                                 0x000002f2   Section        0  printf3.o(i._sputc)
+    _sputc                                   0x000002f3   Thumb Code    10  printf3.o(i._sputc)
     .ARM.__at_0x02FC                         0x000002fc   Section        4  startup_lpc8xx.o(.ARM.__at_0x02FC)
-    i.SysTick_Config                         0x00000300   Section        0  device_depend.o(i.SysTick_Config)
-    SysTick_Config                           0x00000301   Thumb Code    42  device_depend.o(i.SysTick_Config)
-    i.SystemCoreClockUpdate                  0x00000338   Section        0  system_lpc8xx.o(i.SystemCoreClockUpdate)
-    i.SystemInit                             0x00000458   Section        0  system_lpc8xx.o(i.SystemInit)
-    i.UART1_IRQHandler                       0x000004ac   Section        0  lpc8xx_uart.o(i.UART1_IRQHandler)
-    i.UART2_IRQHandler                       0x000004bc   Section        0  lpc8xx_uart.o(i.UART2_IRQHandler)
-    i.UARTClock_Init                         0x000004cc   Section        0  lpc8xx_uart.o(i.UARTClock_Init)
-    i.UARTInit                               0x00000548   Section        0  lpc8xx_uart.o(i.UARTInit)
-    i.UARTSend                               0x000005f4   Section        0  lpc8xx_uart.o(i.UARTSend)
-    i.UART_Handler                           0x0000061c   Section        0  lpc8xx_uart.o(i.UART_Handler)
-    i.__0sprintf$3                           0x00000680   Section        0  printf3.o(i.__0sprintf$3)
-    i.__ARM_common_switch8                   0x000006a8   Section        0  lpc8xx_gpio.o(i.__ARM_common_switch8)
-    i.__scatterload_copy                     0x000006c2   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_zeroinit                 0x000006d0   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x000006e0   Section        0  printf3.o(i._printf_core)
-    _printf_core                             0x000006e1   Thumb Code   452  printf3.o(i._printf_core)
-    i._sputc                                 0x000008a8   Section        0  printf3.o(i._sputc)
-    _sputc                                   0x000008a9   Thumb Code    10  printf3.o(i._sputc)
-    i.bc_seek                                0x000008b4   Section        0  ravem.o(i.bc_seek)
-    i.changeStackType                        0x000008d0   Section        0  ravem.o(i.changeStackType)
-    i.decodeVM                               0x00000904   Section        0  ravem.o(i.decodeVM)
-    i.getConstantPoolInfo                    0x00000d08   Section        0  ravem.o(i.getConstantPoolInfo)
-    i.getField                               0x00000ed8   Section        0  ravem.o(i.getField)
-    i.getIntegerFromOperandStack             0x00000fa8   Section        0  ravem.o(i.getIntegerFromOperandStack)
-    i.getLengthOfConstantInfo                0x00001012   Section        0  ravem.o(i.getLengthOfConstantInfo)
-    i.getStringFromOperandStack              0x00001048   Section        0  ravem.o(i.getStringFromOperandStack)
-    i.hardware_init                          0x000010c8   Section        0  device_depend.o(i.hardware_init)
-    i.invokespecial_callFunction             0x000010fc   Section        0  ravem.o(i.invokespecial_callFunction)
-    i.invokestatic_callFunction              0x0000118c   Section        0  ravem.o(i.invokestatic_callFunction)
-    i.invokevirtual_callFunction             0x0000123c   Section        0  ravem.o(i.invokevirtual_callFunction)
-    i.main                                   0x00001360   Section        0  main.o(i.main)
-    i.pool_alloc                             0x00001878   Section        0  pool.o(i.pool_alloc)
-    i.pool_free                              0x000018c8   Section        0  pool.o(i.pool_free)
-    i.pool_init                              0x000018d4   Section        0  pool.o(i.pool_init)
-    i.pool_realloc                           0x000018fc   Section        0  pool.o(i.pool_realloc)
-    i.putField                               0x00001934   Section        0  ravem.o(i.putField)
-    i.seekCodeArrtibute                      0x00001a14   Section        0  ravem.o(i.seekCodeArrtibute)
-    i.seekConstClassNumString                0x00001c4c   Section        0  ravem.o(i.seekConstClassNumString)
-    i.seekNameAndType_desc                   0x00001c8c   Section        0  ravem.o(i.seekNameAndType_desc)
-    i.seekNameAndType_name                   0x00001ce4   Section        0  ravem.o(i.seekNameAndType_name)
-    i.setIntegerToStack                      0x00001d3c   Section        0  ravem.o(i.setIntegerToStack)
-    i.setStackFromConstantPool               0x00001d96   Section        0  ravem.o(i.setStackFromConstantPool)
-    i.setup_systick                          0x00001df0   Section        0  device_depend.o(i.setup_systick)
-    i.time_millis                            0x00001e1c   Section        0  device_depend.o(i.time_millis)
-    i.uart_init                              0x00001e28   Section        0  device_depend.o(i.uart_init)
-    i.uart_print                             0x00001e38   Section        0  device_depend.o(i.uart_print)
-    i.uart_read                              0x00001e50   Section        0  device_depend.o(i.uart_read)
-    .constdata                               0x00001e60   Section      767  ravem.o(.constdata)
+    i.PININT_Handler                         0x00000300   Section        0  lpc8xx_gpio.o(i.PININT_Handler)
+    i.SystemCoreClockUpdate                  0x000003b8   Section        0  system_lpc8xx.o(i.SystemCoreClockUpdate)
+    i.SystemInit                             0x000004d8   Section        0  system_lpc8xx.o(i.SystemInit)
+    i.UARTClock_Init                         0x0000052c   Section        0  lpc8xx_uart.o(i.UARTClock_Init)
+    i.UARTInit                               0x000005a8   Section        0  lpc8xx_uart.o(i.UARTInit)
+    i.UARTSend                               0x00000654   Section        0  lpc8xx_uart.o(i.UARTSend)
+    i.UART_Handler                           0x0000067c   Section        0  lpc8xx_uart.o(i.UART_Handler)
+    i.__0sprintf$3                           0x000006e0   Section        0  printf3.o(i.__0sprintf$3)
+    i.__ARM_common_switch8                   0x00000708   Section        0  lpc8xx_gpio.o(i.__ARM_common_switch8)
+    i.__scatterload_copy                     0x00000722   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_zeroinit                 0x00000730   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x00000740   Section        0  printf3.o(i._printf_core)
+    _printf_core                             0x00000741   Thumb Code   452  printf3.o(i._printf_core)
+    i.bc_seek                                0x00000908   Section        0  ravem.o(i.bc_seek)
+    i.changeStackType                        0x00000924   Section        0  ravem.o(i.changeStackType)
+    i.decodeVM                               0x00000958   Section        0  ravem.o(i.decodeVM)
+    i.getConstantPoolInfo                    0x00000d5c   Section        0  ravem.o(i.getConstantPoolInfo)
+    i.getField                               0x00000f2c   Section        0  ravem.o(i.getField)
+    i.getIntegerFromOperandStack             0x00000ffc   Section        0  ravem.o(i.getIntegerFromOperandStack)
+    i.getLengthOfConstantInfo                0x00001066   Section        0  ravem.o(i.getLengthOfConstantInfo)
+    i.getStringFromOperandStack              0x0000109c   Section        0  ravem.o(i.getStringFromOperandStack)
+    i.hardware_init                          0x0000111c   Section        0  device_depend.o(i.hardware_init)
+    i.invokespecial_callFunction             0x00001154   Section        0  ravem.o(i.invokespecial_callFunction)
+    i.invokestatic_callFunction              0x000011e4   Section        0  ravem.o(i.invokestatic_callFunction)
+    i.invokevirtual_callFunction             0x000012e4   Section        0  ravem.o(i.invokevirtual_callFunction)
+    i.main                                   0x00001408   Section        0  main.o(i.main)
+    i.pool_alloc                             0x00001920   Section        0  pool.o(i.pool_alloc)
+    i.pool_free                              0x00001970   Section        0  pool.o(i.pool_free)
+    i.pool_init                              0x0000197c   Section        0  pool.o(i.pool_init)
+    i.pool_realloc                           0x000019a4   Section        0  pool.o(i.pool_realloc)
+    i.port_write                             0x000019da   Section        0  device_depend.o(i.port_write)
+    i.putField                               0x000019f4   Section        0  ravem.o(i.putField)
+    i.seekCodeArrtibute                      0x00001ad4   Section        0  ravem.o(i.seekCodeArrtibute)
+    i.seekConstClassNumString                0x00001d0c   Section        0  ravem.o(i.seekConstClassNumString)
+    i.seekNameAndType_desc                   0x00001d4c   Section        0  ravem.o(i.seekNameAndType_desc)
+    i.seekNameAndType_name                   0x00001da4   Section        0  ravem.o(i.seekNameAndType_name)
+    i.setIntegerToStack                      0x00001dfc   Section        0  ravem.o(i.setIntegerToStack)
+    i.setStackFromConstantPool               0x00001e56   Section        0  ravem.o(i.setStackFromConstantPool)
+    i.setup_systick                          0x00001eb0   Section        0  device_depend.o(i.setup_systick)
+    i.time_millis                            0x00001edc   Section        0  device_depend.o(i.time_millis)
+    i.uart_init                              0x00001ee8   Section        0  device_depend.o(i.uart_init)
+    i.uart_print                             0x00001ef8   Section        0  device_depend.o(i.uart_print)
+    i.uart_read                              0x00001f10   Section        0  device_depend.o(i.uart_read)
+    .constdata                               0x00001f20   Section      956  ravem.o(.constdata)
     .data                                    0x10000000   Section        4  lpc8xx_mrt.o(.data)
     .data                                    0x10000004   Section       24  lpc8xx_uart.o(.data)
     .data                                    0x1000001c   Section        4  device_depend.o(.data)
@@ -739,64 +744,68 @@ Image Symbol Table
     strncmp                                  0x0000014f   Thumb Code    30  strncmp.o(.text)
     __scatterload                            0x0000016d   Thumb Code    28  init.o(.text)
     __scatterload_rt2                        0x0000016d   Thumb Code     0  init.o(.text)
-    MRT_IRQHandler                           0x00000191   Thumb Code    22  lpc8xx_mrt.o(i.MRT_IRQHandler)
-    PININT0_IRQHandler                       0x000001d9   Thumb Code    10  lpc8xx_gpio.o(i.PININT0_IRQHandler)
-    PININT1_IRQHandler                       0x000001e3   Thumb Code    10  lpc8xx_gpio.o(i.PININT1_IRQHandler)
-    PININT2_IRQHandler                       0x000001ed   Thumb Code    10  lpc8xx_gpio.o(i.PININT2_IRQHandler)
-    PININT4_IRQHandler                       0x000001f7   Thumb Code    10  lpc8xx_gpio.o(i.PININT4_IRQHandler)
-    PININT5_IRQHandler                       0x00000201   Thumb Code    10  lpc8xx_gpio.o(i.PININT5_IRQHandler)
-    PININT6_IRQHandler                       0x0000020b   Thumb Code    10  lpc8xx_gpio.o(i.PININT6_IRQHandler)
-    PININT7_IRQHandler                       0x00000215   Thumb Code    10  lpc8xx_gpio.o(i.PININT7_IRQHandler)
-    PININT_Handler                           0x00000221   Thumb Code   176  lpc8xx_gpio.o(i.PININT_Handler)
-    SysTick_Handler                          0x000002d9   Thumb Code    10  device_depend.o(i.SysTick_Handler)
-    UART0_IRQHandler                         0x000002e9   Thumb Code    10  lpc8xx_uart.o(i.UART0_IRQHandler)
-    __scatterload_null                       0x000002f9   Thumb Code     2  handlers.o(i.__scatterload_null)
-    SystemCoreClockUpdate                    0x00000339   Thumb Code   216  system_lpc8xx.o(i.SystemCoreClockUpdate)
-    SystemInit                               0x00000459   Thumb Code    70  system_lpc8xx.o(i.SystemInit)
-    UART1_IRQHandler                         0x000004ad   Thumb Code    10  lpc8xx_uart.o(i.UART1_IRQHandler)
-    UART2_IRQHandler                         0x000004bd   Thumb Code    10  lpc8xx_uart.o(i.UART2_IRQHandler)
-    UARTClock_Init                           0x000004cd   Thumb Code   106  lpc8xx_uart.o(i.UARTClock_Init)
-    UARTInit                                 0x00000549   Thumb Code   142  lpc8xx_uart.o(i.UARTInit)
-    UARTSend                                 0x000005f5   Thumb Code    34  lpc8xx_uart.o(i.UARTSend)
-    UART_Handler                             0x0000061d   Thumb Code    90  lpc8xx_uart.o(i.UART_Handler)
-    __0sprintf$3                             0x00000681   Thumb Code    36  printf3.o(i.__0sprintf$3)
-    __1sprintf$3                             0x00000681   Thumb Code     0  printf3.o(i.__0sprintf$3)
-    __2sprintf                               0x00000681   Thumb Code     0  printf3.o(i.__0sprintf$3)
-    __ARM_common_switch8                     0x000006a9   Thumb Code    26  lpc8xx_gpio.o(i.__ARM_common_switch8)
-    __scatterload_copy                       0x000006c3   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_zeroinit                   0x000006d1   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    bc_seek                                  0x000008b5   Thumb Code    18  ravem.o(i.bc_seek)
-    changeStackType                          0x000008d1   Thumb Code    52  ravem.o(i.changeStackType)
-    decodeVM                                 0x00000905   Thumb Code  1026  ravem.o(i.decodeVM)
-    getConstantPoolInfo                      0x00000d09   Thumb Code   454  ravem.o(i.getConstantPoolInfo)
-    getField                                 0x00000ed9   Thumb Code   154  ravem.o(i.getField)
-    getIntegerFromOperandStack               0x00000fa9   Thumb Code   106  ravem.o(i.getIntegerFromOperandStack)
-    getLengthOfConstantInfo                  0x00001013   Thumb Code    52  ravem.o(i.getLengthOfConstantInfo)
-    getStringFromOperandStack                0x00001049   Thumb Code   114  ravem.o(i.getStringFromOperandStack)
-    hardware_init                            0x000010c9   Thumb Code    36  device_depend.o(i.hardware_init)
-    invokespecial_callFunction               0x000010fd   Thumb Code   132  ravem.o(i.invokespecial_callFunction)
-    invokestatic_callFunction                0x0000118d   Thumb Code   166  ravem.o(i.invokestatic_callFunction)
-    invokevirtual_callFunction               0x0000123d   Thumb Code   244  ravem.o(i.invokevirtual_callFunction)
-    main                                     0x00001361   Thumb Code  1270  main.o(i.main)
-    pool_alloc                               0x00001879   Thumb Code    58  pool.o(i.pool_alloc)
-    pool_free                                0x000018c9   Thumb Code    12  pool.o(i.pool_free)
-    pool_init                                0x000018d5   Thumb Code    32  pool.o(i.pool_init)
-    pool_realloc                             0x000018fd   Thumb Code    54  pool.o(i.pool_realloc)
-    putField                                 0x00001935   Thumb Code   220  ravem.o(i.putField)
-    seekCodeArrtibute                        0x00001a15   Thumb Code   564  ravem.o(i.seekCodeArrtibute)
-    seekConstClassNumString                  0x00001c4d   Thumb Code    64  ravem.o(i.seekConstClassNumString)
-    seekNameAndType_desc                     0x00001c8d   Thumb Code    88  ravem.o(i.seekNameAndType_desc)
-    seekNameAndType_name                     0x00001ce5   Thumb Code    88  ravem.o(i.seekNameAndType_name)
-    setIntegerToStack                        0x00001d3d   Thumb Code    90  ravem.o(i.setIntegerToStack)
-    setStackFromConstantPool                 0x00001d97   Thumb Code    90  ravem.o(i.setStackFromConstantPool)
-    setup_systick                            0x00001df1   Thumb Code    36  device_depend.o(i.setup_systick)
-    time_millis                              0x00001e1d   Thumb Code     6  device_depend.o(i.time_millis)
-    uart_init                                0x00001e29   Thumb Code    12  device_depend.o(i.uart_init)
-    uart_print                               0x00001e39   Thumb Code    20  device_depend.o(i.uart_print)
-    uart_read                                0x00001e51   Thumb Code    12  device_depend.o(i.uart_read)
-    vm_array                                 0x00001e60   Data         767  ravem.o(.constdata)
-    Region$$Table$$Base                      0x00002160   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00002180   Number         0  anon$$obj.o(Region$$Table)
+    GPIOInit                                 0x00000191   Thumb Code    30  lpc8xx_gpio.o(i.GPIOInit)
+    GPIOSetBitValue                          0x000001b5   Thumb Code    20  lpc8xx_gpio.o(i.GPIOSetBitValue)
+    GPIOSetDir                               0x000001cd   Thumb Code    22  lpc8xx_gpio.o(i.GPIOSetDir)
+    MRT_IRQHandler                           0x000001e9   Thumb Code    22  lpc8xx_mrt.o(i.MRT_IRQHandler)
+    PININT0_IRQHandler                       0x00000231   Thumb Code    10  lpc8xx_gpio.o(i.PININT0_IRQHandler)
+    PININT1_IRQHandler                       0x0000023b   Thumb Code    10  lpc8xx_gpio.o(i.PININT1_IRQHandler)
+    PININT2_IRQHandler                       0x00000245   Thumb Code    10  lpc8xx_gpio.o(i.PININT2_IRQHandler)
+    PININT4_IRQHandler                       0x0000024f   Thumb Code    10  lpc8xx_gpio.o(i.PININT4_IRQHandler)
+    PININT5_IRQHandler                       0x00000259   Thumb Code    10  lpc8xx_gpio.o(i.PININT5_IRQHandler)
+    PININT6_IRQHandler                       0x00000263   Thumb Code    10  lpc8xx_gpio.o(i.PININT6_IRQHandler)
+    PININT7_IRQHandler                       0x0000026d   Thumb Code    10  lpc8xx_gpio.o(i.PININT7_IRQHandler)
+    SysTick_Handler                          0x000002b1   Thumb Code    10  device_depend.o(i.SysTick_Handler)
+    UART0_IRQHandler                         0x000002c1   Thumb Code    10  lpc8xx_uart.o(i.UART0_IRQHandler)
+    UART1_IRQHandler                         0x000002d1   Thumb Code    10  lpc8xx_uart.o(i.UART1_IRQHandler)
+    UART2_IRQHandler                         0x000002e1   Thumb Code    10  lpc8xx_uart.o(i.UART2_IRQHandler)
+    __scatterload_null                       0x000002f1   Thumb Code     2  handlers.o(i.__scatterload_null)
+    PININT_Handler                           0x00000301   Thumb Code   176  lpc8xx_gpio.o(i.PININT_Handler)
+    SystemCoreClockUpdate                    0x000003b9   Thumb Code   216  system_lpc8xx.o(i.SystemCoreClockUpdate)
+    SystemInit                               0x000004d9   Thumb Code    70  system_lpc8xx.o(i.SystemInit)
+    UARTClock_Init                           0x0000052d   Thumb Code   106  lpc8xx_uart.o(i.UARTClock_Init)
+    UARTInit                                 0x000005a9   Thumb Code   142  lpc8xx_uart.o(i.UARTInit)
+    UARTSend                                 0x00000655   Thumb Code    34  lpc8xx_uart.o(i.UARTSend)
+    UART_Handler                             0x0000067d   Thumb Code    90  lpc8xx_uart.o(i.UART_Handler)
+    __0sprintf$3                             0x000006e1   Thumb Code    36  printf3.o(i.__0sprintf$3)
+    __1sprintf$3                             0x000006e1   Thumb Code     0  printf3.o(i.__0sprintf$3)
+    __2sprintf                               0x000006e1   Thumb Code     0  printf3.o(i.__0sprintf$3)
+    __ARM_common_switch8                     0x00000709   Thumb Code    26  lpc8xx_gpio.o(i.__ARM_common_switch8)
+    __scatterload_copy                       0x00000723   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_zeroinit                   0x00000731   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    bc_seek                                  0x00000909   Thumb Code    18  ravem.o(i.bc_seek)
+    changeStackType                          0x00000925   Thumb Code    52  ravem.o(i.changeStackType)
+    decodeVM                                 0x00000959   Thumb Code  1026  ravem.o(i.decodeVM)
+    getConstantPoolInfo                      0x00000d5d   Thumb Code   454  ravem.o(i.getConstantPoolInfo)
+    getField                                 0x00000f2d   Thumb Code   154  ravem.o(i.getField)
+    getIntegerFromOperandStack               0x00000ffd   Thumb Code   106  ravem.o(i.getIntegerFromOperandStack)
+    getLengthOfConstantInfo                  0x00001067   Thumb Code    52  ravem.o(i.getLengthOfConstantInfo)
+    getStringFromOperandStack                0x0000109d   Thumb Code   114  ravem.o(i.getStringFromOperandStack)
+    hardware_init                            0x0000111d   Thumb Code    40  device_depend.o(i.hardware_init)
+    invokespecial_callFunction               0x00001155   Thumb Code   132  ravem.o(i.invokespecial_callFunction)
+    invokestatic_callFunction                0x000011e5   Thumb Code   236  ravem.o(i.invokestatic_callFunction)
+    invokevirtual_callFunction               0x000012e5   Thumb Code   244  ravem.o(i.invokevirtual_callFunction)
+    main                                     0x00001409   Thumb Code  1270  main.o(i.main)
+    pool_alloc                               0x00001921   Thumb Code    58  pool.o(i.pool_alloc)
+    pool_free                                0x00001971   Thumb Code    12  pool.o(i.pool_free)
+    pool_init                                0x0000197d   Thumb Code    32  pool.o(i.pool_init)
+    pool_realloc                             0x000019a5   Thumb Code    54  pool.o(i.pool_realloc)
+    port_write                               0x000019db   Thumb Code    26  device_depend.o(i.port_write)
+    putField                                 0x000019f5   Thumb Code   220  ravem.o(i.putField)
+    seekCodeArrtibute                        0x00001ad5   Thumb Code   564  ravem.o(i.seekCodeArrtibute)
+    seekConstClassNumString                  0x00001d0d   Thumb Code    64  ravem.o(i.seekConstClassNumString)
+    seekNameAndType_desc                     0x00001d4d   Thumb Code    88  ravem.o(i.seekNameAndType_desc)
+    seekNameAndType_name                     0x00001da5   Thumb Code    88  ravem.o(i.seekNameAndType_name)
+    setIntegerToStack                        0x00001dfd   Thumb Code    90  ravem.o(i.setIntegerToStack)
+    setStackFromConstantPool                 0x00001e57   Thumb Code    90  ravem.o(i.setStackFromConstantPool)
+    setup_systick                            0x00001eb1   Thumb Code    36  device_depend.o(i.setup_systick)
+    time_millis                              0x00001edd   Thumb Code     6  device_depend.o(i.time_millis)
+    uart_init                                0x00001ee9   Thumb Code    12  device_depend.o(i.uart_init)
+    uart_print                               0x00001ef9   Thumb Code    20  device_depend.o(i.uart_print)
+    uart_read                                0x00001f11   Thumb Code    12  device_depend.o(i.uart_read)
+    vm_array                                 0x00001f20   Data         956  ravem.o(.constdata)
+    Region$$Table$$Base                      0x000022dc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000022fc   Number         0  anon$$obj.o(Region$$Table)
     mrt_counter                              0x10000000   Data           4  lpc8xx_mrt.o(.data)
     UARTTxEmpty                              0x10000004   Data           1  lpc8xx_uart.o(.data)
     UARTRxCount                              0x10000008   Data           4  lpc8xx_uart.o(.data)
@@ -826,97 +835,97 @@ Memory Map of the image
 
   Image Entry point : 0x000000c1
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000021ac, Max: 0x00004000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00002328, Max: 0x00004000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00002180, Max: 0x00004000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x000022fc, Max: 0x00004000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x000000c0   Data   RO          664    RESET               startup_lpc8xx.o
-    0x000000c0   0x00000000   Code   RO          672  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
-    0x000000c0   0x00000004   Code   RO          946    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
-    0x000000c4   0x00000004   Code   RO          949    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
-    0x000000c8   0x00000000   Code   RO          951    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
-    0x000000c8   0x00000000   Code   RO          953    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
-    0x000000c8   0x00000008   Code   RO          954    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
-    0x000000d0   0x00000000   Code   RO          956    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
-    0x000000d0   0x00000000   Code   RO          958    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
-    0x000000d0   0x00000004   Code   RO          947    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
-    0x000000d4   0x0000001c   Code   RO          666    .text               startup_lpc8xx.o
-    0x000000f0   0x0000002c   Code   RO          675    .text               mc_p.l(uidiv.o)
-    0x0000011c   0x00000024   Code   RO          677    .text               mc_p.l(memcpya.o)
-    0x00000140   0x0000000e   Code   RO          679    .text               mc_p.l(strlen.o)
-    0x0000014e   0x0000001e   Code   RO          681    .text               mc_p.l(strncmp.o)
-    0x0000016c   0x00000024   Code   RO          976    .text               mc_p.l(init.o)
-    0x00000190   0x00000020   Code   RO          191    i.MRT_IRQHandler    lpc8xx_mrt.o
-    0x000001b0   0x00000014   Code   RO          232    i.NVIC_DisableIRQ   lpc8xx_uart.o
-    0x000001c4   0x00000014   Code   RO          233    i.NVIC_EnableIRQ    lpc8xx_uart.o
-    0x000001d8   0x0000000a   Code   RO           17    i.PININT0_IRQHandler  lpc8xx_gpio.o
-    0x000001e2   0x0000000a   Code   RO           18    i.PININT1_IRQHandler  lpc8xx_gpio.o
-    0x000001ec   0x0000000a   Code   RO           19    i.PININT2_IRQHandler  lpc8xx_gpio.o
-    0x000001f6   0x0000000a   Code   RO           20    i.PININT4_IRQHandler  lpc8xx_gpio.o
-    0x00000200   0x0000000a   Code   RO           21    i.PININT5_IRQHandler  lpc8xx_gpio.o
-    0x0000020a   0x0000000a   Code   RO           22    i.PININT6_IRQHandler  lpc8xx_gpio.o
-    0x00000214   0x0000000a   Code   RO           23    i.PININT7_IRQHandler  lpc8xx_gpio.o
-    0x0000021e   0x00000002   PAD
-    0x00000220   0x000000b8   Code   RO           24    i.PININT_Handler    lpc8xx_gpio.o
-    0x000002d8   0x00000010   Code   RO          382    i.SysTick_Handler   device_depend.o
-    0x000002e8   0x00000010   Code   RO          234    i.UART0_IRQHandler  lpc8xx_uart.o
-    0x000002f8   0x00000002   Code   RO          993    i.__scatterload_null  mc_p.l(handlers.o)
-    0x000002fa   0x00000002   PAD
-    0x000002fc   0x00000004   Code   RO          665    .ARM.__at_0x02FC    startup_lpc8xx.o
-    0x00000300   0x00000038   Code   RO          381    i.SysTick_Config    device_depend.o
-    0x00000338   0x00000120   Code   RO          632    i.SystemCoreClockUpdate  system_lpc8xx.o
-    0x00000458   0x00000054   Code   RO          633    i.SystemInit        system_lpc8xx.o
-    0x000004ac   0x00000010   Code   RO          235    i.UART1_IRQHandler  lpc8xx_uart.o
-    0x000004bc   0x00000010   Code   RO          236    i.UART2_IRQHandler  lpc8xx_uart.o
-    0x000004cc   0x0000007c   Code   RO          237    i.UARTClock_Init    lpc8xx_uart.o
-    0x00000548   0x000000ac   Code   RO          238    i.UARTInit          lpc8xx_uart.o
-    0x000005f4   0x00000028   Code   RO          239    i.UARTSend          lpc8xx_uart.o
-    0x0000061c   0x00000064   Code   RO          240    i.UART_Handler      lpc8xx_uart.o
-    0x00000680   0x00000028   Code   RO          776    i.__0sprintf$3      mc_p.l(printf3.o)
-    0x000006a8   0x0000001a   Code   RO          154    i.__ARM_common_switch8  lpc8xx_gpio.o
-    0x000006c2   0x0000000e   Code   RO          992    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x000006d0   0x0000000e   Code   RO          994    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x000006de   0x00000002   PAD
-    0x000006e0   0x000001c8   Code   RO          781    i._printf_core      mc_p.l(printf3.o)
-    0x000008a8   0x0000000a   Code   RO          783    i._sputc            mc_p.l(printf3.o)
-    0x000008b2   0x00000002   PAD
-    0x000008b4   0x0000001c   Code   RO          450    i.bc_seek           ravem.o
-    0x000008d0   0x00000034   Code   RO          451    i.changeStackType   ravem.o
-    0x00000904   0x00000402   Code   RO          452    i.decodeVM          ravem.o
-    0x00000d06   0x00000002   PAD
-    0x00000d08   0x000001d0   Code   RO          453    i.getConstantPoolInfo  ravem.o
-    0x00000ed8   0x000000d0   Code   RO          454    i.getField          ravem.o
-    0x00000fa8   0x0000006a   Code   RO          455    i.getIntegerFromOperandStack  ravem.o
-    0x00001012   0x00000034   Code   RO          456    i.getLengthOfConstantInfo  ravem.o
-    0x00001046   0x00000002   PAD
-    0x00001048   0x00000080   Code   RO          457    i.getStringFromOperandStack  ravem.o
-    0x000010c8   0x00000034   Code   RO          383    i.hardware_init     device_depend.o
-    0x000010fc   0x00000090   Code   RO          458    i.invokespecial_callFunction  ravem.o
-    0x0000118c   0x000000b0   Code   RO          459    i.invokestatic_callFunction  ravem.o
-    0x0000123c   0x00000124   Code   RO          460    i.invokevirtual_callFunction  ravem.o
-    0x00001360   0x00000518   Code   RO          321    i.main              main.o
-    0x00001878   0x00000050   Code   RO          585    i.pool_alloc        pool.o
-    0x000018c8   0x0000000c   Code   RO          586    i.pool_free         pool.o
-    0x000018d4   0x00000028   Code   RO          587    i.pool_init         pool.o
-    0x000018fc   0x00000036   Code   RO          588    i.pool_realloc      pool.o
-    0x00001932   0x00000002   PAD
-    0x00001934   0x000000e0   Code   RO          461    i.putField          ravem.o
-    0x00001a14   0x00000238   Code   RO          463    i.seekCodeArrtibute  ravem.o
-    0x00001c4c   0x00000040   Code   RO          464    i.seekConstClassNumString  ravem.o
-    0x00001c8c   0x00000058   Code   RO          465    i.seekNameAndType_desc  ravem.o
-    0x00001ce4   0x00000058   Code   RO          466    i.seekNameAndType_name  ravem.o
-    0x00001d3c   0x0000005a   Code   RO          467    i.setIntegerToStack  ravem.o
-    0x00001d96   0x0000005a   Code   RO          468    i.setStackFromConstantPool  ravem.o
-    0x00001df0   0x0000002c   Code   RO          384    i.setup_systick     device_depend.o
-    0x00001e1c   0x0000000c   Code   RO          385    i.time_millis       device_depend.o
-    0x00001e28   0x00000010   Code   RO          386    i.uart_init         device_depend.o
-    0x00001e38   0x00000018   Code   RO          387    i.uart_print        device_depend.o
-    0x00001e50   0x00000010   Code   RO          388    i.uart_read         device_depend.o
-    0x00001e60   0x000002ff   Data   RO          470    .constdata          ravem.o
-    0x0000215f   0x00000001   PAD
-    0x00002160   0x00000020   Data   RO          990    Region$$Table       anon$$obj.o
+    0x00000000   0x000000c0   Data   RO          670    RESET               startup_lpc8xx.o
+    0x000000c0   0x00000000   Code   RO          678  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x000000c0   0x00000004   Code   RO          952    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
+    0x000000c4   0x00000004   Code   RO          955    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x000000c8   0x00000000   Code   RO          957    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x000000c8   0x00000000   Code   RO          959    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x000000c8   0x00000008   Code   RO          960    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x000000d0   0x00000000   Code   RO          962    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x000000d0   0x00000000   Code   RO          964    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x000000d0   0x00000004   Code   RO          953    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
+    0x000000d4   0x0000001c   Code   RO          672    .text               startup_lpc8xx.o
+    0x000000f0   0x0000002c   Code   RO          681    .text               mc_p.l(uidiv.o)
+    0x0000011c   0x00000024   Code   RO          683    .text               mc_p.l(memcpya.o)
+    0x00000140   0x0000000e   Code   RO          685    .text               mc_p.l(strlen.o)
+    0x0000014e   0x0000001e   Code   RO          687    .text               mc_p.l(strncmp.o)
+    0x0000016c   0x00000024   Code   RO          982    .text               mc_p.l(init.o)
+    0x00000190   0x00000024   Code   RO            4    i.GPIOInit          lpc8xx_gpio.o
+    0x000001b4   0x00000018   Code   RO           11    i.GPIOSetBitValue   lpc8xx_gpio.o
+    0x000001cc   0x0000001c   Code   RO           12    i.GPIOSetDir        lpc8xx_gpio.o
+    0x000001e8   0x00000020   Code   RO          191    i.MRT_IRQHandler    lpc8xx_mrt.o
+    0x00000208   0x00000014   Code   RO          232    i.NVIC_DisableIRQ   lpc8xx_uart.o
+    0x0000021c   0x00000014   Code   RO          233    i.NVIC_EnableIRQ    lpc8xx_uart.o
+    0x00000230   0x0000000a   Code   RO           17    i.PININT0_IRQHandler  lpc8xx_gpio.o
+    0x0000023a   0x0000000a   Code   RO           18    i.PININT1_IRQHandler  lpc8xx_gpio.o
+    0x00000244   0x0000000a   Code   RO           19    i.PININT2_IRQHandler  lpc8xx_gpio.o
+    0x0000024e   0x0000000a   Code   RO           20    i.PININT4_IRQHandler  lpc8xx_gpio.o
+    0x00000258   0x0000000a   Code   RO           21    i.PININT5_IRQHandler  lpc8xx_gpio.o
+    0x00000262   0x0000000a   Code   RO           22    i.PININT6_IRQHandler  lpc8xx_gpio.o
+    0x0000026c   0x0000000a   Code   RO           23    i.PININT7_IRQHandler  lpc8xx_gpio.o
+    0x00000276   0x00000002   PAD
+    0x00000278   0x00000038   Code   RO          381    i.SysTick_Config    device_depend.o
+    0x000002b0   0x00000010   Code   RO          382    i.SysTick_Handler   device_depend.o
+    0x000002c0   0x00000010   Code   RO          234    i.UART0_IRQHandler  lpc8xx_uart.o
+    0x000002d0   0x00000010   Code   RO          235    i.UART1_IRQHandler  lpc8xx_uart.o
+    0x000002e0   0x00000010   Code   RO          236    i.UART2_IRQHandler  lpc8xx_uart.o
+    0x000002f0   0x00000002   Code   RO          999    i.__scatterload_null  mc_p.l(handlers.o)
+    0x000002f2   0x0000000a   Code   RO          789    i._sputc            mc_p.l(printf3.o)
+    0x000002fc   0x00000004   Code   RO          671    .ARM.__at_0x02FC    startup_lpc8xx.o
+    0x00000300   0x000000b8   Code   RO           24    i.PININT_Handler    lpc8xx_gpio.o
+    0x000003b8   0x00000120   Code   RO          638    i.SystemCoreClockUpdate  system_lpc8xx.o
+    0x000004d8   0x00000054   Code   RO          639    i.SystemInit        system_lpc8xx.o
+    0x0000052c   0x0000007c   Code   RO          237    i.UARTClock_Init    lpc8xx_uart.o
+    0x000005a8   0x000000ac   Code   RO          238    i.UARTInit          lpc8xx_uart.o
+    0x00000654   0x00000028   Code   RO          239    i.UARTSend          lpc8xx_uart.o
+    0x0000067c   0x00000064   Code   RO          240    i.UART_Handler      lpc8xx_uart.o
+    0x000006e0   0x00000028   Code   RO          782    i.__0sprintf$3      mc_p.l(printf3.o)
+    0x00000708   0x0000001a   Code   RO          154    i.__ARM_common_switch8  lpc8xx_gpio.o
+    0x00000722   0x0000000e   Code   RO          998    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x00000730   0x0000000e   Code   RO         1000    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x0000073e   0x00000002   PAD
+    0x00000740   0x000001c8   Code   RO          787    i._printf_core      mc_p.l(printf3.o)
+    0x00000908   0x0000001c   Code   RO          456    i.bc_seek           ravem.o
+    0x00000924   0x00000034   Code   RO          457    i.changeStackType   ravem.o
+    0x00000958   0x00000402   Code   RO          458    i.decodeVM          ravem.o
+    0x00000d5a   0x00000002   PAD
+    0x00000d5c   0x000001d0   Code   RO          459    i.getConstantPoolInfo  ravem.o
+    0x00000f2c   0x000000d0   Code   RO          460    i.getField          ravem.o
+    0x00000ffc   0x0000006a   Code   RO          461    i.getIntegerFromOperandStack  ravem.o
+    0x00001066   0x00000034   Code   RO          462    i.getLengthOfConstantInfo  ravem.o
+    0x0000109a   0x00000002   PAD
+    0x0000109c   0x00000080   Code   RO          463    i.getStringFromOperandStack  ravem.o
+    0x0000111c   0x00000038   Code   RO          383    i.hardware_init     device_depend.o
+    0x00001154   0x00000090   Code   RO          464    i.invokespecial_callFunction  ravem.o
+    0x000011e4   0x00000100   Code   RO          465    i.invokestatic_callFunction  ravem.o
+    0x000012e4   0x00000124   Code   RO          466    i.invokevirtual_callFunction  ravem.o
+    0x00001408   0x00000518   Code   RO          321    i.main              main.o
+    0x00001920   0x00000050   Code   RO          591    i.pool_alloc        pool.o
+    0x00001970   0x0000000c   Code   RO          592    i.pool_free         pool.o
+    0x0000197c   0x00000028   Code   RO          593    i.pool_init         pool.o
+    0x000019a4   0x00000036   Code   RO          594    i.pool_realloc      pool.o
+    0x000019da   0x0000001a   Code   RO          384    i.port_write        device_depend.o
+    0x000019f4   0x000000e0   Code   RO          467    i.putField          ravem.o
+    0x00001ad4   0x00000238   Code   RO          469    i.seekCodeArrtibute  ravem.o
+    0x00001d0c   0x00000040   Code   RO          470    i.seekConstClassNumString  ravem.o
+    0x00001d4c   0x00000058   Code   RO          471    i.seekNameAndType_desc  ravem.o
+    0x00001da4   0x00000058   Code   RO          472    i.seekNameAndType_name  ravem.o
+    0x00001dfc   0x0000005a   Code   RO          473    i.setIntegerToStack  ravem.o
+    0x00001e56   0x0000005a   Code   RO          474    i.setStackFromConstantPool  ravem.o
+    0x00001eb0   0x0000002c   Code   RO          385    i.setup_systick     device_depend.o
+    0x00001edc   0x0000000c   Code   RO          386    i.time_millis       device_depend.o
+    0x00001ee8   0x00000010   Code   RO          387    i.uart_init         device_depend.o
+    0x00001ef8   0x00000018   Code   RO          388    i.uart_print        device_depend.o
+    0x00001f10   0x00000010   Code   RO          389    i.uart_read         device_depend.o
+    0x00001f20   0x000003bc   Data   RO          476    .constdata          ravem.o
+    0x000022dc   0x00000020   Data   RO          996    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x00000a20, Max: 0x00001000, ABSOLUTE)
@@ -925,15 +934,15 @@ Memory Map of the image
 
     0x10000000   0x00000004   Data   RW          194    .data               lpc8xx_mrt.o
     0x10000004   0x00000018   Data   RW          244    .data               lpc8xx_uart.o
-    0x1000001c   0x00000004   Data   RW          389    .data               device_depend.o
-    0x10000020   0x00000008   Data   RW          471    .data               ravem.o
-    0x10000028   0x00000004   Data   RW          634    .data               system_lpc8xx.o
+    0x1000001c   0x00000004   Data   RW          390    .data               device_depend.o
+    0x10000020   0x00000008   Data   RW          477    .data               ravem.o
+    0x10000028   0x00000004   Data   RW          640    .data               system_lpc8xx.o
     0x1000002c   0x00000080   Zero   RW           25    .bss                lpc8xx_gpio.o
     0x100000ac   0x00000020   Zero   RW          243    .bss                lpc8xx_uart.o
-    0x100000cc   0x00000040   Zero   RW          469    .bss                ravem.o
-    0x1000010c   0x00000410   Zero   RW          589    .bss                pool.o
+    0x100000cc   0x00000040   Zero   RW          475    .bss                ravem.o
+    0x1000010c   0x00000410   Zero   RW          595    .bss                pool.o
     0x1000051c   0x00000004   PAD
-    0x10000520   0x00000500   Zero   RW          662    STACK               startup_lpc8xx.o
+    0x10000520   0x00000500   Zero   RW          668    STACK               startup_lpc8xx.o
 
 
 ==============================================================================
@@ -943,20 +952,20 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       236         62          0          4          0       9241   device_depend.o
-       280         18          0          0        128      16955   lpc8xx_gpio.o
+       266         62          0          4          0       9662   device_depend.o
+       368         34          0          0        128      18137   lpc8xx_gpio.o
         32         10          0          4          0        815   lpc8xx_mrt.o
        524         94          0         24         32      10547   lpc8xx_uart.o
       1304        110          0          0          0       3839   main.o
        186         30          0          0       1040       2766   pool.o
-      3888        228        767          8         64      14377   ravem.o
+      3968        238        956          8         64      14477   ravem.o
         32         14        192          0       1280        636   startup_lpc8xx.o
        372        104          0          4          0       2159   system_lpc8xx.o
 
     ----------------------------------------------------------------------
-      6862        670        992         44       2548      61335   Object Totals
+      7058        696       1180         44       2548      63038   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         8          0          1          0          4          0   (incl. Padding)
+         6          0          0          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -979,8 +988,8 @@ Image component sizes
         44          0          0          0          0         72   uidiv.o
 
     ----------------------------------------------------------------------
-       722         24          0          0          0        556   Library Totals
-         6          0          0          0          0          0   (incl. Padding)
+       718         24          0          0          0        556   Library Totals
+         2          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -989,7 +998,7 @@ Image component sizes
        716         24          0          0          0        556   mc_p.l
 
     ----------------------------------------------------------------------
-       722         24          0          0          0        556   Library Totals
+       718         24          0          0          0        556   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -998,15 +1007,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7584        694        992         44       2548      59507   Grand Totals
-      7584        694        992         44       2548      59507   ELF Image Totals
-      7584        694        992         44          0          0   ROM Totals
+      7776        720       1180         44       2548      61034   Grand Totals
+      7776        720       1180         44       2548      61034   ELF Image Totals
+      7776        720       1180         44          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 8576 (   8.38kB)
+    Total RO  Size (Code + RO Data)                 8956 (   8.75kB)
     Total RW  Size (RW Data + ZI Data)              2592 (   2.53kB)
-    Total ROM Size (Code + RO Data + RW Data)       8620 (   8.42kB)
+    Total ROM Size (Code + RO Data + RW Data)       9000 (   8.79kB)
 
 ==============================================================================
 

@@ -13,6 +13,7 @@ void uart_init(int baud_rate);
 void uart_print(char *str);
 int uart_read(void);
 int time_millis(void);
+void port_write(int port, int bit, int value);
 
 void SysTick_Handler(void);
 void setup_systick(void);

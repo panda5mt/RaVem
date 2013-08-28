@@ -5,6 +5,37 @@
 int pl_buf[pool_size];
 pool_all poal;
 
+
+int *pool_memmove(int size){
+    int *pointr;
+    pool_each poeh;
+    size = (size + (sizeof(int) - 1)) / sizeof(int); //round int type alignment
+    poal.first_pointer = &pl_buf[0];
+    
+    //seek pool_each header
+    pointr = poal.first_pointer + (int)((sizeof(pool_all) + (sizeof(int) - 1)) / sizeof(int));
+    
+    //todo: add magic number
+    while(1){
+        memcpy(&poeh, pointr, sizeof(pool_each));
+        if((poeh.my_size == 0)||(pointr >= poal.next_pointer)){return NULL;}
+        
+        if(poeh.available == memory_invalid){
+            if(size <= poeh.my_size){
+                // seek data_header
+                poeh.available = memory_available;
+                memcpy(pointr, &poeh, sizeof(pool_each));
+                
+                pointr = pointr + (int)((sizeof(pool_each) + (sizeof(int) - 1)) / sizeof(int));
+                return pointr;
+            }
+        }
+        pointr = pointr + (int)((sizeof(pool_each) + (sizeof(int) - 1)) / sizeof(int)) + poeh.my_size;
+    }
+    
+    
+}
+
 void pool_init(void){    
     poal.first_pointer = &pl_buf[0];
     poal.pool_size_all = pool_size;
@@ -17,9 +48,10 @@ void pool_init(void){
 
 int *pool_alloc(int size){
     
+    int *pointr;
+	  if(NULL != (pointr = pool_memmove(size)))return pointr;
     size = (size + (sizeof(int) - 1)) / sizeof(int); //round int type alignment
         
-    int *pointr;
     pool_each poeh;
     
     poal.pool_size_all = poal.pool_size_all - ((sizeof(pool_each) + (sizeof(int) - 1)) / sizeof(int)) - size; // int alignment

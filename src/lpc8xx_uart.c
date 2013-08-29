@@ -375,7 +375,7 @@ void UARTInit(LPC_USART_TypeDef *UARTx, uint32_t baudrate)
 		NVIC_DisableIRQ( UART0_IRQn );
 		NMI_Init( UART0_IRQn );
 #else
-		NVIC_EnableIRQ(UART0_IRQn);
+	//	NVIC_EnableIRQ(UART0_IRQn);
 #endif
 	}
 	else if (UARTx == LPC_USART1) {
@@ -546,3 +546,4 @@ void USARTInit(LPC_USART_TypeDef *UARTx, uint32_t baudrate, uint32_t mode)
 /******************************************************************************
 **                            End Of File
 ******************************************************************************/
+

@@ -44,7 +44,7 @@ extern "C"
  */
 
 #define LOOPBACK_TEST			0		/* Loopback uses polling only */
-#define TX_INTERRUPT    	1	/* 0 if TX uses polling, 1 interrupt driven. */
+#define TX_INTERRUPT    	0	/* 0 if TX uses polling, 1 interrupt driven. */
 #define ERROR_INTERRUPT 	0
 #define TX_DISABLE				0
 #define FLOWCTRL_ENABLE 	0	/* Enable the flow control INTERRUPT to get the status 

@@ -47,7 +47,7 @@
 #define Thread_initIsDone								6	
 #define	Thread_inSleep									7
 
-// instruction code			mnemonic code		number of arguments
+// instruction code			mnemonic code		number of arguments(in bytes)
 #define JAVA_nop								0x00					// 0
 #define JAVA_iconst_0						0x03					// 0
 #define JAVA_iconst_1						0x04					// 0
@@ -60,6 +60,7 @@
 #define JAVA_ldc								0x12					// 1
 //#define JAVA_ldc_w							0x13					// xxx
 #define JAVA_ldc2_w							0x14					// 2
+//#define JAVA_iload							0x15
 
 #define JAVA_aload							0x19					// 1
 
@@ -89,8 +90,14 @@
 
 #define JAVA_iadd								0x60					// 0
 
+#define JAVA_iinc								0x84					// 2
 #define JAVA_i2l								0x85					// 0
 #define JAVA_i2c								0x92					// 0
+
+#define JAVA_if_icmplt					0xa1					// 2
+#define JAVA_if_icmpge					0xa2					// 2
+#define JAVA_if_icmpgt					0xa3					// 2
+#define JAVA_if_icmple					0xa4					// 2
 
 #define JAVA_goto								0xa7					// 2
 #define JAVA_return							0xb1					// 0
@@ -98,7 +105,7 @@
 #define JAVA_getfield						0xb4					// 2
 #define JAVA_putfield						0xb5					// 2
 #define JAVA_invokevirtual			0xb6					// 2
-#define JAVA_invokespecial			0xb7					// 2  //not imprement
+#define JAVA_invokespecial			0xb7					// 2 
 #define JAVA_invokestatic				0xb8					// 2
 
 #define JAVA_new								0xbb					// 2
@@ -117,7 +124,7 @@ typedef struct {
 	int bc_offset;				// offset of bytecode (this class starts here = bc_array[bc_offset]) 
 	int code_offset;			// offset of code (Now we translate here from bc_offset = bc_array[bc_offset+code_offset] )
 	int code_length;			// length of code
-		int stack_num;				// number of stacks
+	int stack_num;				// number of stacks
 	int local_num;				// number of local registers
 	int field_num;				// number of field length
 	int myThreadNum;			// Number of this thread(you must put #0 "main" method, and do not put #0 any other methods)

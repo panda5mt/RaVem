@@ -616,35 +616,35 @@ Image Symbol Table
     i.bc_seek                                0x000008f0   Section        0  ravem.o(i.bc_seek)
     i.changeStackType                        0x0000090c   Section        0  ravem.o(i.changeStackType)
     i.decodeVM                               0x00000940   Section        0  ravem.o(i.decodeVM)
-    i.getConstantPoolInfo                    0x00000d44   Section        0  ravem.o(i.getConstantPoolInfo)
-    i.getField                               0x00000f14   Section        0  ravem.o(i.getField)
-    i.getIntegerFromOperandStack             0x00000fe4   Section        0  ravem.o(i.getIntegerFromOperandStack)
-    i.getLengthOfConstantInfo                0x0000104e   Section        0  ravem.o(i.getLengthOfConstantInfo)
-    i.getStringFromOperandStack              0x00001084   Section        0  ravem.o(i.getStringFromOperandStack)
-    i.hardware_init                          0x00001104   Section        0  device_depend.o(i.hardware_init)
-    i.invokespecial_callFunction             0x0000113c   Section        0  ravem.o(i.invokespecial_callFunction)
-    i.invokestatic_callFunction              0x000011cc   Section        0  ravem.o(i.invokestatic_callFunction)
-    i.invokevirtual_callFunction             0x000012cc   Section        0  ravem.o(i.invokevirtual_callFunction)
-    i.main                                   0x000013f0   Section        0  main.o(i.main)
-    i.pool_alloc                             0x000019a4   Section        0  pool.o(i.pool_alloc)
-    i.pool_free                              0x00001a00   Section        0  pool.o(i.pool_free)
-    i.pool_init                              0x00001a0c   Section        0  pool.o(i.pool_init)
-    i.pool_memmove                           0x00001a34   Section        0  pool.o(i.pool_memmove)
-    i.pool_realloc                           0x00001a74   Section        0  pool.o(i.pool_realloc)
-    i.port_write                             0x00001aaa   Section        0  device_depend.o(i.port_write)
-    i.putField                               0x00001ac4   Section        0  ravem.o(i.putField)
-    i.seekCodeArrtibute                      0x00001ba4   Section        0  ravem.o(i.seekCodeArrtibute)
-    i.seekConstClassNumString                0x00001ddc   Section        0  ravem.o(i.seekConstClassNumString)
-    i.seekNameAndType_desc                   0x00001e1c   Section        0  ravem.o(i.seekNameAndType_desc)
-    i.seekNameAndType_name                   0x00001e74   Section        0  ravem.o(i.seekNameAndType_name)
-    i.setIntegerToStack                      0x00001ecc   Section        0  ravem.o(i.setIntegerToStack)
-    i.setStackFromConstantPool               0x00001f26   Section        0  ravem.o(i.setStackFromConstantPool)
-    i.setup_systick                          0x00001f80   Section        0  device_depend.o(i.setup_systick)
-    i.time_millis                            0x00001fac   Section        0  device_depend.o(i.time_millis)
-    i.uart_init                              0x00001fb8   Section        0  device_depend.o(i.uart_init)
-    i.uart_print                             0x00001fc8   Section        0  device_depend.o(i.uart_print)
-    i.uart_read                              0x00001fe0   Section        0  device_depend.o(i.uart_read)
-    .constdata                               0x00001ff0   Section      841  ravem.o(.constdata)
+    i.getConstantPoolInfo                    0x00000e50   Section        0  ravem.o(i.getConstantPoolInfo)
+    i.getField                               0x00001020   Section        0  ravem.o(i.getField)
+    i.getIntegerFromOperandStack             0x000010f0   Section        0  ravem.o(i.getIntegerFromOperandStack)
+    i.getLengthOfConstantInfo                0x0000115a   Section        0  ravem.o(i.getLengthOfConstantInfo)
+    i.getStringFromOperandStack              0x00001190   Section        0  ravem.o(i.getStringFromOperandStack)
+    i.hardware_init                          0x00001210   Section        0  device_depend.o(i.hardware_init)
+    i.invokespecial_callFunction             0x00001248   Section        0  ravem.o(i.invokespecial_callFunction)
+    i.invokestatic_callFunction              0x000012d8   Section        0  ravem.o(i.invokestatic_callFunction)
+    i.invokevirtual_callFunction             0x000013d8   Section        0  ravem.o(i.invokevirtual_callFunction)
+    i.main                                   0x000014fc   Section        0  main.o(i.main)
+    i.pool_alloc                             0x00001ab0   Section        0  pool.o(i.pool_alloc)
+    i.pool_free                              0x00001b0c   Section        0  pool.o(i.pool_free)
+    i.pool_init                              0x00001b18   Section        0  pool.o(i.pool_init)
+    i.pool_memmove                           0x00001b40   Section        0  pool.o(i.pool_memmove)
+    i.pool_realloc                           0x00001b80   Section        0  pool.o(i.pool_realloc)
+    i.port_write                             0x00001bb6   Section        0  device_depend.o(i.port_write)
+    i.putField                               0x00001bd0   Section        0  ravem.o(i.putField)
+    i.seekCodeArrtibute                      0x00001cb0   Section        0  ravem.o(i.seekCodeArrtibute)
+    i.seekConstClassNumString                0x00001ee8   Section        0  ravem.o(i.seekConstClassNumString)
+    i.seekNameAndType_desc                   0x00001f28   Section        0  ravem.o(i.seekNameAndType_desc)
+    i.seekNameAndType_name                   0x00001f80   Section        0  ravem.o(i.seekNameAndType_name)
+    i.setIntegerToStack                      0x00001fd8   Section        0  ravem.o(i.setIntegerToStack)
+    i.setStackFromConstantPool               0x00002032   Section        0  ravem.o(i.setStackFromConstantPool)
+    i.setup_systick                          0x0000208c   Section        0  device_depend.o(i.setup_systick)
+    i.time_millis                            0x000020b8   Section        0  device_depend.o(i.time_millis)
+    i.uart_init                              0x000020c4   Section        0  device_depend.o(i.uart_init)
+    i.uart_print                             0x000020d4   Section        0  device_depend.o(i.uart_print)
+    i.uart_read                              0x000020ec   Section        0  device_depend.o(i.uart_read)
+    .constdata                               0x000020fc   Section      869  ravem.o(.constdata)
     .data                                    0x10000000   Section        4  lpc8xx_mrt.o(.data)
     .data                                    0x10000004   Section       24  lpc8xx_uart.o(.data)
     .data                                    0x1000001c   Section        4  device_depend.o(.data)
@@ -773,38 +773,38 @@ Image Symbol Table
     __scatterload_zeroinit                   0x0000070d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
     bc_seek                                  0x000008f1   Thumb Code    18  ravem.o(i.bc_seek)
     changeStackType                          0x0000090d   Thumb Code    52  ravem.o(i.changeStackType)
-    decodeVM                                 0x00000941   Thumb Code  1026  ravem.o(i.decodeVM)
-    getConstantPoolInfo                      0x00000d45   Thumb Code   454  ravem.o(i.getConstantPoolInfo)
-    getField                                 0x00000f15   Thumb Code   154  ravem.o(i.getField)
-    getIntegerFromOperandStack               0x00000fe5   Thumb Code   106  ravem.o(i.getIntegerFromOperandStack)
-    getLengthOfConstantInfo                  0x0000104f   Thumb Code    52  ravem.o(i.getLengthOfConstantInfo)
-    getStringFromOperandStack                0x00001085   Thumb Code   114  ravem.o(i.getStringFromOperandStack)
-    hardware_init                            0x00001105   Thumb Code    40  device_depend.o(i.hardware_init)
-    invokespecial_callFunction               0x0000113d   Thumb Code   132  ravem.o(i.invokespecial_callFunction)
-    invokestatic_callFunction                0x000011cd   Thumb Code   236  ravem.o(i.invokestatic_callFunction)
-    invokevirtual_callFunction               0x000012cd   Thumb Code   244  ravem.o(i.invokevirtual_callFunction)
-    main                                     0x000013f1   Thumb Code  1422  main.o(i.main)
-    pool_alloc                               0x000019a5   Thumb Code    70  pool.o(i.pool_alloc)
-    pool_free                                0x00001a01   Thumb Code    12  pool.o(i.pool_free)
-    pool_init                                0x00001a0d   Thumb Code    32  pool.o(i.pool_init)
-    pool_memmove                             0x00001a35   Thumb Code    56  pool.o(i.pool_memmove)
-    pool_realloc                             0x00001a75   Thumb Code    54  pool.o(i.pool_realloc)
-    port_write                               0x00001aab   Thumb Code    26  device_depend.o(i.port_write)
-    putField                                 0x00001ac5   Thumb Code   220  ravem.o(i.putField)
-    seekCodeArrtibute                        0x00001ba5   Thumb Code   564  ravem.o(i.seekCodeArrtibute)
-    seekConstClassNumString                  0x00001ddd   Thumb Code    64  ravem.o(i.seekConstClassNumString)
-    seekNameAndType_desc                     0x00001e1d   Thumb Code    88  ravem.o(i.seekNameAndType_desc)
-    seekNameAndType_name                     0x00001e75   Thumb Code    88  ravem.o(i.seekNameAndType_name)
-    setIntegerToStack                        0x00001ecd   Thumb Code    90  ravem.o(i.setIntegerToStack)
-    setStackFromConstantPool                 0x00001f27   Thumb Code    90  ravem.o(i.setStackFromConstantPool)
-    setup_systick                            0x00001f81   Thumb Code    36  device_depend.o(i.setup_systick)
-    time_millis                              0x00001fad   Thumb Code     6  device_depend.o(i.time_millis)
-    uart_init                                0x00001fb9   Thumb Code    12  device_depend.o(i.uart_init)
-    uart_print                               0x00001fc9   Thumb Code    20  device_depend.o(i.uart_print)
-    uart_read                                0x00001fe1   Thumb Code    12  device_depend.o(i.uart_read)
-    vm_array                                 0x00001ff0   Data         841  ravem.o(.constdata)
-    Region$$Table$$Base                      0x0000233c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0000235c   Number         0  anon$$obj.o(Region$$Table)
+    decodeVM                                 0x00000941   Thumb Code  1296  ravem.o(i.decodeVM)
+    getConstantPoolInfo                      0x00000e51   Thumb Code   454  ravem.o(i.getConstantPoolInfo)
+    getField                                 0x00001021   Thumb Code   154  ravem.o(i.getField)
+    getIntegerFromOperandStack               0x000010f1   Thumb Code   106  ravem.o(i.getIntegerFromOperandStack)
+    getLengthOfConstantInfo                  0x0000115b   Thumb Code    52  ravem.o(i.getLengthOfConstantInfo)
+    getStringFromOperandStack                0x00001191   Thumb Code   114  ravem.o(i.getStringFromOperandStack)
+    hardware_init                            0x00001211   Thumb Code    40  device_depend.o(i.hardware_init)
+    invokespecial_callFunction               0x00001249   Thumb Code   132  ravem.o(i.invokespecial_callFunction)
+    invokestatic_callFunction                0x000012d9   Thumb Code   236  ravem.o(i.invokestatic_callFunction)
+    invokevirtual_callFunction               0x000013d9   Thumb Code   244  ravem.o(i.invokevirtual_callFunction)
+    main                                     0x000014fd   Thumb Code  1422  main.o(i.main)
+    pool_alloc                               0x00001ab1   Thumb Code    70  pool.o(i.pool_alloc)
+    pool_free                                0x00001b0d   Thumb Code    12  pool.o(i.pool_free)
+    pool_init                                0x00001b19   Thumb Code    32  pool.o(i.pool_init)
+    pool_memmove                             0x00001b41   Thumb Code    56  pool.o(i.pool_memmove)
+    pool_realloc                             0x00001b81   Thumb Code    54  pool.o(i.pool_realloc)
+    port_write                               0x00001bb7   Thumb Code    26  device_depend.o(i.port_write)
+    putField                                 0x00001bd1   Thumb Code   220  ravem.o(i.putField)
+    seekCodeArrtibute                        0x00001cb1   Thumb Code   564  ravem.o(i.seekCodeArrtibute)
+    seekConstClassNumString                  0x00001ee9   Thumb Code    64  ravem.o(i.seekConstClassNumString)
+    seekNameAndType_desc                     0x00001f29   Thumb Code    88  ravem.o(i.seekNameAndType_desc)
+    seekNameAndType_name                     0x00001f81   Thumb Code    88  ravem.o(i.seekNameAndType_name)
+    setIntegerToStack                        0x00001fd9   Thumb Code    90  ravem.o(i.setIntegerToStack)
+    setStackFromConstantPool                 0x00002033   Thumb Code    90  ravem.o(i.setStackFromConstantPool)
+    setup_systick                            0x0000208d   Thumb Code    36  device_depend.o(i.setup_systick)
+    time_millis                              0x000020b9   Thumb Code     6  device_depend.o(i.time_millis)
+    uart_init                                0x000020c5   Thumb Code    12  device_depend.o(i.uart_init)
+    uart_print                               0x000020d5   Thumb Code    20  device_depend.o(i.uart_print)
+    uart_read                                0x000020ed   Thumb Code    12  device_depend.o(i.uart_read)
+    vm_array                                 0x000020fc   Data         869  ravem.o(.constdata)
+    Region$$Table$$Base                      0x00002464   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00002484   Number         0  anon$$obj.o(Region$$Table)
     mrt_counter                              0x10000000   Data           4  lpc8xx_mrt.o(.data)
     UARTTxEmpty                              0x10000004   Data           1  lpc8xx_uart.o(.data)
     UARTRxCount                              0x10000008   Data           4  lpc8xx_uart.o(.data)
@@ -834,9 +834,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000c1
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00002388, Max: 0x00004000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000024b0, Max: 0x00004000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x0000235c, Max: 0x00004000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00002484, Max: 0x00004000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -894,40 +894,39 @@ Memory Map of the image
     0x000008ee   0x00000002   PAD
     0x000008f0   0x0000001c   Code   RO          451    i.bc_seek           ravem.o
     0x0000090c   0x00000034   Code   RO          452    i.changeStackType   ravem.o
-    0x00000940   0x00000402   Code   RO          453    i.decodeVM          ravem.o
-    0x00000d42   0x00000002   PAD
-    0x00000d44   0x000001d0   Code   RO          454    i.getConstantPoolInfo  ravem.o
-    0x00000f14   0x000000d0   Code   RO          455    i.getField          ravem.o
-    0x00000fe4   0x0000006a   Code   RO          456    i.getIntegerFromOperandStack  ravem.o
-    0x0000104e   0x00000034   Code   RO          457    i.getLengthOfConstantInfo  ravem.o
-    0x00001082   0x00000002   PAD
-    0x00001084   0x00000080   Code   RO          458    i.getStringFromOperandStack  ravem.o
-    0x00001104   0x00000038   Code   RO          378    i.hardware_init     device_depend.o
-    0x0000113c   0x00000090   Code   RO          459    i.invokespecial_callFunction  ravem.o
-    0x000011cc   0x00000100   Code   RO          460    i.invokestatic_callFunction  ravem.o
-    0x000012cc   0x00000124   Code   RO          461    i.invokevirtual_callFunction  ravem.o
-    0x000013f0   0x000005b4   Code   RO          316    i.main              main.o
-    0x000019a4   0x0000005c   Code   RO          586    i.pool_alloc        pool.o
-    0x00001a00   0x0000000c   Code   RO          587    i.pool_free         pool.o
-    0x00001a0c   0x00000028   Code   RO          588    i.pool_init         pool.o
-    0x00001a34   0x00000040   Code   RO          589    i.pool_memmove      pool.o
-    0x00001a74   0x00000036   Code   RO          590    i.pool_realloc      pool.o
-    0x00001aaa   0x0000001a   Code   RO          379    i.port_write        device_depend.o
-    0x00001ac4   0x000000e0   Code   RO          462    i.putField          ravem.o
-    0x00001ba4   0x00000238   Code   RO          464    i.seekCodeArrtibute  ravem.o
-    0x00001ddc   0x00000040   Code   RO          465    i.seekConstClassNumString  ravem.o
-    0x00001e1c   0x00000058   Code   RO          466    i.seekNameAndType_desc  ravem.o
-    0x00001e74   0x00000058   Code   RO          467    i.seekNameAndType_name  ravem.o
-    0x00001ecc   0x0000005a   Code   RO          468    i.setIntegerToStack  ravem.o
-    0x00001f26   0x0000005a   Code   RO          469    i.setStackFromConstantPool  ravem.o
-    0x00001f80   0x0000002c   Code   RO          380    i.setup_systick     device_depend.o
-    0x00001fac   0x0000000c   Code   RO          381    i.time_millis       device_depend.o
-    0x00001fb8   0x00000010   Code   RO          382    i.uart_init         device_depend.o
-    0x00001fc8   0x00000018   Code   RO          383    i.uart_print        device_depend.o
-    0x00001fe0   0x00000010   Code   RO          384    i.uart_read         device_depend.o
-    0x00001ff0   0x00000349   Data   RO          471    .constdata          ravem.o
-    0x00002339   0x00000003   PAD
-    0x0000233c   0x00000020   Data   RO          997    Region$$Table       anon$$obj.o
+    0x00000940   0x00000510   Code   RO          453    i.decodeVM          ravem.o
+    0x00000e50   0x000001d0   Code   RO          454    i.getConstantPoolInfo  ravem.o
+    0x00001020   0x000000d0   Code   RO          455    i.getField          ravem.o
+    0x000010f0   0x0000006a   Code   RO          456    i.getIntegerFromOperandStack  ravem.o
+    0x0000115a   0x00000034   Code   RO          457    i.getLengthOfConstantInfo  ravem.o
+    0x0000118e   0x00000002   PAD
+    0x00001190   0x00000080   Code   RO          458    i.getStringFromOperandStack  ravem.o
+    0x00001210   0x00000038   Code   RO          378    i.hardware_init     device_depend.o
+    0x00001248   0x00000090   Code   RO          459    i.invokespecial_callFunction  ravem.o
+    0x000012d8   0x00000100   Code   RO          460    i.invokestatic_callFunction  ravem.o
+    0x000013d8   0x00000124   Code   RO          461    i.invokevirtual_callFunction  ravem.o
+    0x000014fc   0x000005b4   Code   RO          316    i.main              main.o
+    0x00001ab0   0x0000005c   Code   RO          586    i.pool_alloc        pool.o
+    0x00001b0c   0x0000000c   Code   RO          587    i.pool_free         pool.o
+    0x00001b18   0x00000028   Code   RO          588    i.pool_init         pool.o
+    0x00001b40   0x00000040   Code   RO          589    i.pool_memmove      pool.o
+    0x00001b80   0x00000036   Code   RO          590    i.pool_realloc      pool.o
+    0x00001bb6   0x0000001a   Code   RO          379    i.port_write        device_depend.o
+    0x00001bd0   0x000000e0   Code   RO          462    i.putField          ravem.o
+    0x00001cb0   0x00000238   Code   RO          464    i.seekCodeArrtibute  ravem.o
+    0x00001ee8   0x00000040   Code   RO          465    i.seekConstClassNumString  ravem.o
+    0x00001f28   0x00000058   Code   RO          466    i.seekNameAndType_desc  ravem.o
+    0x00001f80   0x00000058   Code   RO          467    i.seekNameAndType_name  ravem.o
+    0x00001fd8   0x0000005a   Code   RO          468    i.setIntegerToStack  ravem.o
+    0x00002032   0x0000005a   Code   RO          469    i.setStackFromConstantPool  ravem.o
+    0x0000208c   0x0000002c   Code   RO          380    i.setup_systick     device_depend.o
+    0x000020b8   0x0000000c   Code   RO          381    i.time_millis       device_depend.o
+    0x000020c4   0x00000010   Code   RO          382    i.uart_init         device_depend.o
+    0x000020d4   0x00000018   Code   RO          383    i.uart_print        device_depend.o
+    0x000020ec   0x00000010   Code   RO          384    i.uart_read         device_depend.o
+    0x000020fc   0x00000365   Data   RO          471    .constdata          ravem.o
+    0x00002461   0x00000003   PAD
+    0x00002464   0x00000020   Data   RO          997    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x00000a20, Max: 0x00001000, ABSOLUTE)
@@ -958,16 +957,16 @@ Image component sizes
        368         34          0          0        128      18137   lpc8xx_gpio.o
         32         10          0          4          0        815   lpc8xx_mrt.o
        490         86          0         24         32      10299   lpc8xx_uart.o
-      1460        106          0          0          0       3859   main.o
+      1460        106          0          0          0       3963   main.o
        262         38          0          0       1040       3293   pool.o
-      3968        238        841          8         64      14477   ravem.o
+      4238        242        869          8         64      14621   ravem.o
         32         14        192          0       1280        636   startup_lpc8xx.o
        372        104          0          4          0       2159   system_lpc8xx.o
 
     ----------------------------------------------------------------------
-      7256        692       1068         44       2548      63337   Object Totals
+      7524        696       1096         44       2548      63585   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         6          0          3          0          4          0   (incl. Padding)
+         4          0          3          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1009,15 +1008,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7984        716       1068         44       2548      61333   Grand Totals
-      7984        716       1068         44       2548      61333   ELF Image Totals
-      7984        716       1068         44          0          0   ROM Totals
+      8252        720       1096         44       2548      61581   Grand Totals
+      8252        720       1096         44       2548      61581   ELF Image Totals
+      8252        720       1096         44          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 9052 (   8.84kB)
+    Total RO  Size (Code + RO Data)                 9348 (   9.13kB)
     Total RW  Size (RW Data + ZI Data)              2592 (   2.53kB)
-    Total ROM Size (Code + RO Data + RW Data)       9096 (   8.88kB)
+    Total ROM Size (Code + RO Data + RW Data)       9392 (   9.17kB)
 
 ==============================================================================
 

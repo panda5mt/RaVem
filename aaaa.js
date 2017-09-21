@@ -1,3 +1,6 @@
+// CryptoPebble.js
+// Ver.1.0 - 2017.9.20
+
 // ---------------------------------------------------
 // 設定
 // ---------------------------------------------------
@@ -51,11 +54,14 @@ var $modes = [
 
 var $interval = 20;
 
-// デフォルトの指数表示 ( true / false )
+// デフォルトの表示モード (0〜2）
+// 0: デフォルトモード 例) 0.00004713
+// 1: satoshiモード    例) 4713s
+// 2: 指数モード       例) 4.713e-5
 
-var $toExponential = false;
+var $currentDecimalMode = 0;
 
-// CoinMarketCapのサポート ( true / false)
+// CoinMarketCapのサポート (true / false)
 
 var $supportCoinMarketCap = true;
 
@@ -222,6 +228,10 @@ try {
   simply.body(e);
 }
 
+function toSatoshi(f, digits) {
+  return floatFormat(f * 100000000, digits) + "s";
+}
+
 function cc_update(pair, digits) {
   try {
     ajax({
@@ -229,13 +239,19 @@ function cc_update(pair, digits) {
       type: 'json',
       async: false
     }, function (data) {
-      if (pair.match(/^cc_jpy/)) {
+      if (pair.match(/^cc_jpy/) || pair.match(/^cc_usd/)) {
         $status[pair]["value"] = floatFormat(data["rate"], digits);
       } else {
-        if ($toExponential) {
-          $status[pair]["value"] = parseFloat(data["rate"]).toExponential();
-        } else {
-          $status[pair]["value"] = data["rate"];
+        switch ($currentDecimalMode) {
+          case 0:
+            $status[pair]["value"] = data["rate"];
+            break;
+          case 1:
+            $status[pair]["value"] = toSatoshi(parseFloat(data["rate"]), digits);
+            break;
+          case 2:
+            $status[pair]["value"] = parseFloat(data["rate"]).toExponential();
+            break;
         }
       }
     });
@@ -255,10 +271,16 @@ function zf_update(pair, digits) {
       if (pair.match(/^zf_jpy/)) {
         $status[pair]["value"] = floatFormat(data["last_price"], digits);
       } else {
-        if ($toExponential) {
-          $status[pair]["value"] = parseFloat(data["last_price"]).toExponential();
-        } else {
-          $status[pair]["value"] = data["last_price"];
+        switch ($currentDecimalMode) {
+          case 0:
+            $status[pair]["value"] = data["last_price"];
+            break;
+          case 1:
+            $status[pair]["value"] = toSatoshi(parseFloat(data["last_price"]), digits);
+            break;
+          case 2:
+            $status[pair]["value"] = parseFloat(data["last_price"]).toExponential();
+            break;
         }
       }
     });
@@ -278,11 +300,24 @@ function bf_update(pair, digits){
       if (pair.match(/jpy/)) {
         $status[pair]["value"] = floatFormat(data["best_bid"], digits);  
       } else {
+        switch ($currentDecimalMode) {
+          case 0:
+            $status[pair]["value"] = data["best_bid"];
+            break;
+          case 1:
+            $status[pair]["value"] = toSatoshi(parseFloat(data["best_bid"]), digits);
+            break;
+          case 2:
+            $status[pair]["value"] = parseFloat(data["best_bid"]).toExponential();
+            break;
+        }
+        /*
         if ($toExponential) {
           $status[pair]["value"] = parseFloat(data["best_bid"]).toExponential();
         } else {
           $status[pair]["value"] = data["best_bid"];
         }
+        */
       }
     });
   } catch (e) {
@@ -296,11 +331,24 @@ function polo_update(pair, digits) {
     if (pair.match(/^polo_usdt/)) {
       $status[pair]["value"] = floatFormat($poloJSON[pair.replace("polo_", "").toUpperCase()]["last"], digits);
     } else {
+      switch ($currentDecimalMode) {
+        case 0:
+          $status[pair]["value"] = $poloJSON[pair.replace("polo_", "").toUpperCase()]["last"];
+          break;
+        case 1:
+          $status[pair]["value"] = toSatoshi(parseFloat($poloJSON[pair.replace("polo_", "").toUpperCase()]["last"]), digits);
+          break;
+        case 2:
+          $status[pair]["value"] = parseFloat($poloJSON[pair.replace("polo_", "").toUpperCase()]["last"]).toExponential();
+          break;
+      }
+      /*
       if ($toExponential) {
         $status[pair]["value"] = parseFloat($poloJSON[pair.replace("polo_", "").toUpperCase()]["last"]).toExponential();
       } else {
         $status[pair]["value"] = $poloJSON[pair.replace("polo_", "").toUpperCase()]["last"];
       }
+      */
     }
   }
 }
@@ -315,11 +363,24 @@ function bt_update(pair, digits) {
       if (pair.match(/^bt_usdt/)) {
         $status[pair]["value"] = floatFormat(parseFloat(data["result"]["Last"]), digits);
       } else {
+        switch ($currentDecimalMode) {
+          case 0:
+            $status[pair]["value"] = data["result"]["Last"];
+            break;
+          case 1:
+            $status[pair]["value"] = toSatoshi(parseFloat(data["result"]["Last"]), digits);
+            break;
+          case 2:
+            $status[pair]["value"] = parseFloat(data["result"]["Last"]).toExponential();
+            break;
+        }
+        /*
         if ($toExponential) {
           $status[pair]["value"] = parseFloat(data["result"]["Last"]).toExponential();
         } else {
           $status[pair]["value"] = data["result"]["Last"];
         }
+        */
       }
     });
   } catch (e) {
@@ -336,13 +397,26 @@ function bfx_update(pair, digits) {
       async: false
       }, function(data) {
       if (pair.match(/usd/)) {
-        $status[pair]["value"] = data["last_price"];
+        $status[pair]["value"] = floatFormat(data["last_price"], digits);
       } else {
+        switch ($currentDecimalMode) {
+          case 0:
+            $status[pair]["value"] = data["last_price"];
+            break;
+          case 1:
+            $status[pair]["value"] = toSatoshi(parseFloat(data["last_price"]), digits);
+            break;
+          case 2:
+            $status[pair]["value"] = parseFloat(data["last_price"]).toExponential();
+            break;
+        }
+        /*
         if ($toExponential) {
           $status[pair]["value"] = parseFloat(data["last_price"]).toExponential();
         } else {
           $status[pair]["value"] = data["last_price"];
         }
+        */
       }
     });
   } catch (e) {
@@ -352,55 +426,96 @@ function bfx_update(pair, digits) {
 }
 
 function cmc_update(pair, digits) {
-  ajax({
-    url: 'https://api.coinmarketcap.com/v1/ticker/' + pair.replace(/cmc_(usd|btc|jpy)_/, "") + '/?convert=JPY',
-    type:'json',
-    async: false
-    }, function(data) {
-    var baseCurrency = pair.replace(/cmc_(usd|btc|jpy)_.+/, "$1");
-    if (data.length == 1) {
-      data = data[0];
-      if (baseCurrency == "usd") {
-        $status[pair]["value"] = data["price_usd"];
-      } else if (baseCurrency == "jpy") {
-        $status[pair]["value"] = floatFormat(data["price_jpy"], digits);
-      } else {
-        if ($toExponential) {
-          $status[pair]["value"] = parseFloat(data["price_btc"]).toExponential();
+  try {
+    ajax({
+      url: 'https://api.coinmarketcap.com/v1/ticker/' + pair.replace(/cmc_(usd|btc|jpy)_/, "") + '/?convert=JPY',
+      type:'json',
+      async: false
+      }, function(data) {
+      var baseCurrency = pair.replace(/cmc_(usd|btc|jpy)_.+/, "$1");
+      if (data.length == 1) {
+        data = data[0];
+        if (baseCurrency == "usd") {
+          $status[pair]["value"] = floatFormat(data["price_usd"], digits);
+        } else if (baseCurrency == "jpy") {
+          $status[pair]["value"] = floatFormat(data["price_jpy"], digits);
         } else {
-          $status[pair]["value"] = data["price_btc"];
+          switch ($currentDecimalMode) {
+            case 0:
+              $status[pair]["value"] = data["price_btc"];
+              break;
+            case 1:
+              $status[pair]["value"] = toSatoshi(parseFloat(data["price_btc"]), digits);
+              break;
+            case 2:
+              $status[pair]["value"] = parseFloat(data["price_btc"]).toExponential();
+              break;
+          }
+          /*
+          if ($toExponential) {
+            $status[pair]["value"] = parseFloat(data["price_btc"]).toExponential();
+          } else {
+            $status[pair]["value"] = data["price_btc"];
+          }
+          */
         }
       }
-    }
-  });
+    });
+  } catch (e) {
+    console.log(e);
+    simply.body(e);
+  }
 }
 
 function bb_update(pair, digits) {
-  ajax({
-    url: 'https://public.bitbank.cc/' + pair.replace(/bb_/, "").split("_").reverse().join("_") + '/ticker',
-    type:'json',
-    async:false
-    }, function(data) {
-      if (pair.match(/^bb_jpy/)) {
-        $status[pair]["value"] = floatFormat(data["data"]["last"], digits);
-      } else {
-        if ($toExponential) {
-          $status[pair]["value"] = parseFloat(data["data"]["last"]).toExponential();
+  try {
+    ajax({
+      url: 'https://public.bitbank.cc/' + pair.replace(/bb_/, "").split("_").reverse().join("_") + '/ticker',
+      type:'json',
+      async:false
+      }, function(data) {
+        if (pair.match(/^bb_jpy/)) {
+          $status[pair]["value"] = floatFormat(data["data"]["last"], digits);
         } else {
-          $status[pair]["value"] = data["data"]["last"];
+          switch ($currentDecimalMode) {
+            case 0:
+              $status[pair]["value"] = data["data"]["last"];
+              break;
+            case 1:
+              $status[pair]["value"] = toSatoshi(parseFloat(data["data"]["last"]), digits);
+              break;
+            case 2:
+              $status[pair]["value"] = parseFloat(data["data"]["last"]).toExponential();
+              break;
+          }
+          /*
+          if ($toExponential) {
+            $status[pair]["value"] = parseFloat(data["data"]["last"]).toExponential();
+          } else {
+            $status[pair]["value"] = data["data"]["last"];
+          }
+          */
         }
-      }
-  });
+    });
+  } catch (e) {
+    console.log(e);
+    simply.body(e);
+  }
 }
 
 function ok_update(pair, digits) {
-  ajax({
-    url: 'https://www.okcoin.com/api/v1/ticker.do?symbol=' + pair.replace(/ok_/, "").split("_").reverse().join("_"),
-    type:'json',
-    async:false
-    }, function(data) {
-      $status[pair]["value"] = floatFormat(data["ticker"]["last"], digits);
-  });
+  try {
+    ajax({
+      url: 'https://www.okcoin.com/api/v1/ticker.do?symbol=' + pair.replace(/ok_/, "").split("_").reverse().join("_"),
+      type:'json',
+      async:false
+      }, function(data) {
+        $status[pair]["value"] = floatFormat(data["ticker"]["last"], digits);
+    });
+  } catch (e) {
+    console.log(e);
+    simply.body(e);
+  }
 }
 
 function updateSubtitle() {
@@ -420,40 +535,35 @@ function updateBody() {
 }
 
 function refresh() {
-  try {
-    simply.title(timeText());
-    if ($modes[$currentMode]["subtitle"].match("polo_") || $modes[$currentMode]["body"].match("polo_")) {
-      updatePoloJSON();
-    }
-    for (var pair in $status) {
-      if ($modes[$currentMode]["subtitle"].match(pair) || $modes[$currentMode]["body"].match(pair)) {
-        if (pair.match(/^cc_/)) {
-          cc_update(pair, $status[pair]["digits"]);
-        } else if (pair.match(/^zf_/)) {
-          zf_update(pair, $status[pair]["digits"]);
-    	  } else if (pair.match(/^bf_/)) {
-      	  bf_update(pair, $status[pair]["digits"]);
-        } else if (pair.match(/^polo_/)) {
-          polo_update(pair, $status[pair]["digits"]);
-        } else if (pair.match(/^bt_/)) {
-          bt_update(pair, $status[pair]["digits"]);
-        } else if (pair.match(/^bfx_/)) {
-      	  bfx_update(pair, $status[pair]["digits"]);
-      	} else if (pair.match(/^cmc_/)) {
-        	cmc_update(pair, $status[pair]["digits"]);
-      	} else if (pair.match(/^bb_/)) {
-        	bb_update(pair, $status[pair]["digits"]);
-      	} else if (pair.match(/^ok_/)) {
-        	ok_update(pair, $status[pair]["digits"]);
-        }
+  simply.title(timeText());
+  if ($modes[$currentMode]["subtitle"].match("polo_") || $modes[$currentMode]["body"].match("polo_")) {
+    updatePoloJSON();
+  }
+  for (var pair in $status) {
+    if ($modes[$currentMode]["subtitle"].match(pair) || $modes[$currentMode]["body"].match(pair)) {
+      if (pair.match(/^cc_/)) {
+        cc_update(pair, $status[pair]["digits"]);
+      } else if (pair.match(/^zf_/)) {
+        zf_update(pair, $status[pair]["digits"]);
+  	  } else if (pair.match(/^bf_/)) {
+    	  bf_update(pair, $status[pair]["digits"]);
+      } else if (pair.match(/^polo_/)) {
+        polo_update(pair, $status[pair]["digits"]);
+      } else if (pair.match(/^bt_/)) {
+        bt_update(pair, $status[pair]["digits"]);
+      } else if (pair.match(/^bfx_/)) {
+    	  bfx_update(pair, $status[pair]["digits"]);
+    	} else if (pair.match(/^cmc_/)) {
+      	cmc_update(pair, $status[pair]["digits"]);
+    	} else if (pair.match(/^bb_/)) {
+      	bb_update(pair, $status[pair]["digits"]);
+    	} else if (pair.match(/^ok_/)) {
+      	ok_update(pair, $status[pair]["digits"]);
       }
     }
-    updateSubtitle();
-    updateBody();
-  } catch (e) {
-    console.log(e);
-    simply.body(e);
   }
+  updateSubtitle();
+  updateBody();
 }
 
 // イベントハンドラ
@@ -471,7 +581,10 @@ simply.on('singleClick', function (e) {
       $currentMode = 0;
     }
   } else if (e.button == 'select') {
-    $toExponential = !$toExponential;
+    $currentDecimalMode = $currentDecimalMode + 1;
+    if ($currentDecimalMode > 2) {
+      $currentDecimalMode = 0;
+    }
   }
   refresh();
 });
